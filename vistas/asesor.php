@@ -1,6 +1,7 @@
 <?php
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
+
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +55,16 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav text-left">
-                    <li class="nav-item"><a class="nav-link " href="cederproyecto.html">Ceder proyecto</a></li>
                     <li class="nav-item"><a class="nav-link " href="registroproyecto.html">Registrar proyecto</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#" onclick="location.href='cambiarcontrasena.php?correo=<?php $correo ?>'">Cambiar contraseña</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -65,7 +74,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
     <br>
 
 
-    <div class="container">
+    <div class=" container">
         <div class="row justify-content-center  mt-5 mr-1 col-sm-13" style="margin: 0 auto;">
             <div class="formulario col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
                 <div>
@@ -138,5 +147,5 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
     <script src="../js/asesor.js"></script>
     <script src="../js/tabla.js"></script>
-    
+
 </html>
