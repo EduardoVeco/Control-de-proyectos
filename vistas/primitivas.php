@@ -87,7 +87,7 @@ $token2 = strtok($string2, " ,.:;");
     array_push($alcances,$result2);
     }
 
-    funcionesdelsistema::comparar($justificacion,$alcances,$resumen,$titulo);
+    funcionesdelsistema::comparar($justificacion,$alcances,$resumen,$titulo,$string3,$string1,$string2,$string);
 }
 
 
