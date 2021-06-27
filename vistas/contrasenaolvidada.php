@@ -1,3 +1,8 @@
+<?php
+$correo = $_REQUEST['correo'];
+print_r($correo);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,17 +33,6 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
-
-            <a class="navbar-brand" href="# " style="font-size: 20px;">Control de proyectos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon "></span>
-            </button>
-        </nav>
-    </div>
-
     <br>
 
     <div class="container">
@@ -55,20 +49,16 @@
                         <img src="../imagenes/logo 125x125.png" class="col-7">
                     </div>
                     <form action="conexion.php" method="POST" id="login">
-                        <div class="form-group mx-sm-7 pb-3 ">
-                            <p class="pa pa-texto ">Contraseña actual </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
-                        </div>
 
-                        <br><br>
+
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Nueva contraseña</p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Confirmar contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasena" id="confirmar" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                     </form>
@@ -76,7 +66,7 @@
                         <div class="col-1">
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/key.png "/> Cambiar contraseña</button>
+                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
 
                         </div>
                         <div class="col-1">
@@ -92,19 +82,19 @@
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
-                <br>
-                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                <br>
-            </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
+                    <br>
+                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                    <br>
+                </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                <br>
+                    <br>
                     Metepec, Edo. De México, México C.P. 52149
-                <br>         
-                    Tel. (52) (722) 2 08 72 00     
+                    <br>
+                    Tel. (52) (722) 2 08 72 00
                 </label>
             </div>
         </div>

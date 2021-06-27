@@ -33,6 +33,9 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <script>
+        var c = '<?php echo json_encode($correo); ?>';
+    </script>
 
 </head>
 
@@ -62,7 +65,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
                             Cuenta
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#" onclick="location.href='cambiarcontrasena.php?correo=<?php $correo ?>'">Cambiar contraseña</a>
+                            <a class="dropdown-item" href="#" onclick="location.href='cambiarcontrasena.php?correo='+correo">Cambiar contraseña</a>
                         </div>
                     </li>
                 </ul>

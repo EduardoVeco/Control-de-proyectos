@@ -97,7 +97,7 @@ $contrasena = $_REQUEST['contrasena'];
                     <p id="advertencias"></p>
                     <br>
                     <div class="justify-content-center" style="text-align: center;">
-                        <span><a class="a a-enlace" href="#">Recuperar contraseña</a></span>
+                        <span><a class="a a-enlace" href="correo.html">Recuperar contraseña</a></span>
                     </div>
                 </div>
 

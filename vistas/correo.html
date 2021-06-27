@@ -1,15 +1,10 @@
-<?php
-$correo=$_REQUEST['correo'];
-print_r($correo);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Cuenta: contrasena</title>
+    <title>Untitled</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/contenedores.css">
     <link rel="stylesheet" href="../css/formularios.css">
@@ -38,8 +33,7 @@ print_r($correo);
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
 
             <a class="navbar-brand" href="# " style="font-size: 20px;">Control de proyectos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-             aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
         </nav>
@@ -52,7 +46,7 @@ print_r($correo);
             <div class="formulario col-10 col-sm-9 col-md-7 col-lg-5 col-xl-4 ">
                 <div>
                     <div class="div div-cabeza mx-sm-7">
-                        <p class="ti ti-texto ">Contraseña </p>
+                        <p class="ti ti-texto ">Iniciar Sesion </p>
                     </div>
 
                 </div>
@@ -61,56 +55,47 @@ print_r($correo);
                         <img src="../imagenes/logo 125x125.png" class="col-7">
                     </div>
                     <form action="conexion.php" method="POST" id="login">
-                        <div class="form-group mx-sm-7 pb-3 ">
-                            <p class="pa pa-texto ">Contraseña actual </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaA" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
-                        </div>
-
-                        <br><br>
-                        <div class="form-group mx-sm-7 pb-3 ">
-                            <p class="pa pa-texto ">Nueva contraseña</p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
-
-                        </div>
-                        <div class="form-group mx-sm-7 pb-3 ">
-                            <p class="pa pa-texto ">Confirmar contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="confirmar" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
-
+                        <div class="form-group mx-sm-7 pt-3">
+                            <p class="pa pa-texto ">Correo </p>
+                            <input class="txt text-input" type="text " name="correo" id="correo" data-toggle="tooltip" data-placement="right" title="El correo debe ser institucional ejem@toluca.tecnm.mx" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required />
                         </div>
                     </form>
                     <div class="row">
                         <div class="col-1">
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
-
+                            <br>
+                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/next.png "/> Enviar</button>
                         </div>
                         <div class="col-1">
                         </div>
                     </div>
+                    <p id="advertencias"></p>
                     <br>
                 </div>
+
             </div>
         </div>
     </div>
+
 
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
-                    <br>
-                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                    <br>
-                </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
+                <br>
+                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                <br>
+            </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                    <br>
+                <br>
                     Metepec, Edo. De México, México C.P. 52149
-                    <br>
-                    Tel. (52) (722) 2 08 72 00
+                <br>         
+                    Tel. (52) (722) 2 08 72 00     
                 </label>
             </div>
         </div>
