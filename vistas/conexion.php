@@ -28,5 +28,7 @@ function conecta($conexion)
 
       $query = http_build_query($query);
       header("Location: index1.php?$query");
+
+      //Esto es una prueba de que githubdesktop va a  sincronizar cambioas
    }
 }
