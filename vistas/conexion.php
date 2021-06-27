@@ -2,7 +2,6 @@
 
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
 conecta($con);
-print_r('sdfsdfs');
 
 function conecta($conexion)
 {
@@ -29,6 +28,26 @@ function conecta($conexion)
       $query = http_build_query($query);
       header("Location: index1.php?$query");
 
-      //Esto es una prueba de que githubdesktop va a  sincronizar cambioas
-   }
+
+     // header('location: index1.php?error=true.?correo=' . $correo . '?contrasena=' . $contrasena);
+   }  
+}
+function registraUsuario($conexion)
+{
+   print_r('por aca');
+
+   $correo = $_REQUEST['correo'];
+   $nombre = $_REQUEST['nombre'];
+   $primerApellido = $_REQUEST['paterno'];
+   $segundoApellido = $_REQUEST['materno'];
+   $noControl = $_REQUEST['noControl'];
+   $contrasena = $_REQUEST['contrasena'];
+   $carrera = $_REQUEST['carrera'];
+   $tipoUsuario = 'Asesor';
+
+   $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
+
+   mysqli_query($conexion, $sql);
+   mysqli_close($conexion);
+   header('location: registrousuario.html');
 }
