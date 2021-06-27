@@ -51,3 +51,66 @@ function registraUsuario($conexion)
    mysqli_close($conexion);
    header('location: registrousuario.html');
 }
+
+function registraDueno($conexion)
+{
+    //print_r('por aca');
+
+    $noFolio="";
+    $correo = $_REQUEST['correo'];
+    $nombre = $_REQUEST['nombre'];
+    $primerApellido = $_REQUEST['paterno'];
+    $segundoApellido = $_REQUEST['materno'];
+    $primjust = $_REQUEST['primjust'];
+    $primtit = $_REQUEST['primtit'];
+    $primalc = $_REQUEST['primalc'];
+    $primres = $_REQUEST['primres'];
+    $duenio = $nombre-' '.$primerApellido.' '.$segundoApellido;
+    $aprobado = $_REQUEST['aprobado'];
+    $directorio = "/documentos/$noFolio/";
+    $titulo = $_REQUEST['titulo'];
+    $justificacion = $_REQUEST['justificacion'];
+    $alcances = $_REQUEST['alcances'];
+    $resumen = $_REQUEST['resumen'];
+
+    $sql = "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$noFolio','$correo','$duenio','null','$titulo','$justificacion','$alcances','$resumen','Inactivo','$aprobado',0.0,sysdate,'$directorio'";
+
+    mysqli_query($conexion, $sql);
+
+    $sql ="INSERT INTO primitivas(noFolio,tituloPRimitivas,justificacionPRimitivas,alcancesPRimitivas,resumenPRimitivas) VALUES ('$noFolio','$primtit','$primjust','$primalc')";
+
+    mysqli_query($conexion,$sql);
+    mysqli_close($conexion);
+    header('location: registroequipo.php');
+}
+
+function registraEquipo($conexion)
+{
+    //print_r('por aca');
+
+    $noEquipo = $_REQUEST['noEquipo'];
+    $proposito = $_REQUEST['proposito'];
+    $noControl = $_REQUEST['noControl'];
+
+    $sql = "INSERT INTO equipos(noEquipo,proposito,noControl) VALUES ('$noEquipo','$proposito','$noControl')";
+
+    mysqli_query($conexion, $sql);
+    mysqli_close($conexion);
+    header('location: registroequipo.html');
+}
+
+function registraAsesor($conexion)
+{
+    //print_r('por aca');
+
+    $nombre = $_REQUEST['nombre'];
+    $primerApellido = $_REQUEST['paterno'];
+    $segundoApellido = $_REQUEST['materno'];
+    $noControl = $_REQUEST['noControl'];
+
+    $sql = "INSERT INTO usuarios(nombre,primerApellido,segundoApellido,noControl) VALUES ('$nombre','$primerApellido','$segundoApellido','$noControl')";
+
+    mysqli_query($conexion, $sql);
+    mysqli_close($conexion);
+    header('location: registroequipo.html');
+}
