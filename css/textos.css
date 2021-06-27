@@ -1,0 +1,30 @@
+.pa.pa-texto {
+    color: black;
+    font-size: 18px;
+    font-family: sans-serif;
+    padding: 1px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.ti.ti-texto {
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    padding: 1px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.ti.ti-titulo {
+    color: black;
+    font-size: 22px;
+    font-family: sans-serif;
+    padding: 1px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.txt.txt-texto-area:focus {
+    border: solid #FF8D57 .2rem;
+}

@@ -1,0 +1,46 @@
+.body {
+    background-color: #EAEAEA;
+}
+
+.div.div-cabecera {
+    text-align: center;
+    /*  width: 80%;
+    min-height: 70px;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.div.div-pie-pagina {
+    text-align: center;
+    font-size: 14px;
+    color: #999999;
+    font-weight: 700;
+    margin-bottom: 80px;
+}
+
+.nav.nav-asesor {
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #000;
+    border-radius: 7px;
+    padding: 7px;
+    width: 40%;
+    text-align: left;
+}
+
+.fa.fa-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.formulario-validacion {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 100;
+}
