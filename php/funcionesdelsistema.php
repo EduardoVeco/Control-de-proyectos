@@ -25,7 +25,7 @@ class FuncionesDelSistema
     {
     }
 
-    public static function comparar($justificacion, $alcances, $resumen,$titulo)
+    public static function comparar($justificacion, $alcances, $resumen,$titulo,$tituloOri,$justificacionOri,$alcancesOri,$resumenOri)
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $consulta = mysqli_query($con, "select * from primitivas");
@@ -54,6 +54,12 @@ class FuncionesDelSistema
                 $str2 = $str2 . ' ' . $jus3;
             }
 
+           if (porcentaje>=0&&$porcentaje<=60){
+             header('location: registrodueno.php?primjust='.$str.'primtit='.$str3.'primalc='.$str1.'primres='.$str2.'justificaion='.$justificacionOri.'titulo='.$tituloOri.'alcances='.$alcancesOri.'resumen='.$resumenOri);
+            } else {
+
+            } 
+            
             $consulta = mysqli_query($con, "INSERT INTO primitivas (noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas)VALUES  ('A2306202101','$str3','$str','$str1','$str2')");
             print_r($consulta);
             mysqli_close($con);
