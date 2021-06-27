@@ -68,7 +68,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
                             <p class="pa pa-texto ">No. Control </p>
                             <input class="txt text-input " type="text " name="noControl" id="noControl" required />
                             <br>
-                            <button class="btn btn-boton-ext " type="submit " form="verifalumno" name="btnFolio"><img class="fa fa-icon " src="../imagenes/verified-user.png " /> Verificar integrante</button>
+                            <button class="btn btn-boton-ext " type="button " form="verifalumno" name="btnFolio"><img class="fa fa-icon " src="../imagenes/verified-user.png " /> Verificar integrante</button>
                         </div>
                     </form>
 
@@ -138,7 +138,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
         </div>
     </div>
 
-    <script src="../js/registroequipo.js"></script>
+    <script src="../js/registroequipo1.js"></script>
 
     <script>
         $(document).ready(function() {

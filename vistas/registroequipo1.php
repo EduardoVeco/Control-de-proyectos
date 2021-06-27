@@ -2,6 +2,18 @@
 $folio = "A2306202101";
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $noControl = $_REQUEST['noControl'];
+//print_r($noControl);
+
+$noControlA = $_REQUEST['noControlA'];
+$nombre = $_REQUEST['nombre'];
+$paterno = $_REQUEST['paterno'];
+$materno = $_REQUEST['materno'];
+
+print_r($noControlA);
+/*print_r($nombre);
+print_r($paterno);
+print_r($materno);*/
+
 if (empty($noControl)) {
     header("Location:registroequipo.php");
 }
@@ -26,6 +38,13 @@ if (empty($noControl)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/Chart.min.js" type="text/javascript"></script>
+    <script>
+        var nc = '<?php echo json_encode($noControl); ?>';
+        var n = '<?php echo json_encode($noControlA); ?>'
+        var nom = '<?php echo json_encode($nombre); ?>';
+        var ap = '<?php echo json_encode($paterno); ?>';
+        var am = '<?php echo json_encode($materno); ?>';
+    </script>
 </head>
 
 <body class="body">
@@ -133,8 +152,7 @@ if (empty($noControl)) {
                     <form action="" method="POST" id="propositoForm">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Propostito </p>
-                            <input class="txt text-input " type="text " name="proposito" id="proposito" placeholder="introduzca el proposito del equipo " 
-                            data-toggle="tooltip" data-placement="right" title="ejemplo:Proyecto para la materia de ingenieria de software" required />
+                            <input class="txt text-input " type="text " name="proposito" id="proposito" placeholder="introduzca el proposito del equipo " data-toggle="tooltip" data-placement="right" title="ejemplo:Proyecto para la materia de ingenieria de software" required />
                         </div>
                     </form>
                     <div class="row">

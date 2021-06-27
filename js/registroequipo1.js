@@ -10,28 +10,11 @@ var nombre = []
 var paterno = []
 var materno = []
     /*
-    var noControl
-    var nombre
-    var paterno
-    var materno*/
-    //noControl.push(JSON.parse(nc))
-    /*
-    noControlA.push(JSON.parse(n))
-    nombre.push(JSON.parse(nom))
-    paterno.push(JSON.parse(ap))
-    materno.push(JSON.parse(am))
+    console.log(noControl)
+    console.log(nombre)
+    console.log(paterno)
+    console.log(materno)
     */
-
-noControlA += ' ' + JSON.parse(n)
-nombre += ' ' + JSON.parse(nom)
-paterno += ' ' + JSON.parse(ap)
-materno += ' ' + JSON.parse(am)
-
-console.log(noControlA)
-console.log(nombre)
-console.log(paterno)
-console.log(materno)
-
 console.log(propositoForm)
 console.log(propositoInput)
 
@@ -104,12 +87,12 @@ alumno.addEventListener('submit', e => {
     e.preventDefault()
     if (campos.noControl) {
         campos.nc = document.getElementById('noControl').value
-            //var noControl = document.getElementById('noControl').value
-        console.log(noControlA)
+        var noControl = document.getElementById('noControl').value
+        console.log(noControl)
         console.log(nombre)
         console.log(paterno)
         console.log(materno)
-        window.location = "registroequipo1.php?noControl=" + campos.nc + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno;
+        window.location = "registroequipo1.php?noControl=" + noControl + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno;
         console.log(noControl)
         document.getElementById("nombre").disabled = false;
         document.getElementById("paterno").disabled = false;
@@ -157,16 +140,12 @@ registro.addEventListener('submit', e => {
                 campos.nombre = false
                 campos.paterno = false
                 campos.materno = false
-                    /*noControlA.push(document.getElementById('noControl').value)
-                    nombre.push(document.getElementById('nombre').value)
-                    paterno.push(document.getElementById('paterno').value)
-                    materno.push(document.getElementById('materno').value)*/
-                noControlA += ' ' + document.getElementById('noControl').value
-                nombre += ' ' + document.getElementById('nombre').value
-                paterno += ' ' + document.getElementById('paterno').value
-                materno += ' ' + document.getElementById('materno').value
+                    //     noControl.push(document.getElementById('noControl').value)
+                    //     nombre.push(document.getElementById('nombre').value)
+                    //     paterno.push(document.getElementById('paterno').value)
+                    //     materno.push(document.getElementById('materno').value)
 
-                console.log(noControlA)
+                console.log(noControl)
                 console.log(nombre)
                 console.log(paterno)
                 console.log(materno)
@@ -211,23 +190,16 @@ propositoForm.addEventListener('submit', e => {
                 console.log('Aqui ya pasaste a la otra ventana carnal')
                 console.log(document.getElementById('proposito').value)
                 if (campos.nombre && campos.paterno && campos.materno) {
-                    /*  noControlA.push(document.getElementById('noControl').value)
-                      nombre.push(document.getElementById('nombre').value)
-                      paterno.push(document.getElementById('paterno').value)
-                      materno.push(document.getElementById('materno').value)
-                          /* nombre += ' ' + document.getElementById('nombre').value
-                           paterno += ' ' + document.getElementById('paterno').value
-                           materno += ' ' + document.getElementById('materno').value*/
-                    noControlA += ' ' + document.getElementById('noControl').value
-                    nombre += ' ' + document.getElementById('nombre').value
-                    paterno += ' ' + document.getElementById('paterno').value
-                    materno += ' ' + document.getElementById('materno').value
+                    //  noControl.push(campos.nc)
+                    //  nombre.push(document.getElementById('nombre').value)
+                    //  paterno.push(document.getElementById('paterno').value)
+                    // materno.push(document.getElementById('materno').value)
                     console.log(noControl)
                     console.log(nombre)
                     console.log(paterno)
                     console.log(materno)
                 }
-                //window.location.href = "registroasesor.php"
+                window.location.href = "registroasesor.php"
             } else {
                 document.getElementById("mensaje").innerHTML = "<p>El campo proposito es incorrecto</p>";
                 document.getElementById('mensajeCont').classList.remove('div')
