@@ -22,9 +22,7 @@ print_r($correo);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
-
         var c = '<?php echo json_encode($correo); ?>';
-
     </script>
 </head>
 
@@ -68,6 +66,10 @@ print_r($correo);
                             <p name="correo" form="login">
                             </p>
                             <p class="pa pa-texto ">Contraseña actual </p>
+                            <input type="text" name="correo" id="correo" value="<?php echo $correo ?>" hidden/>
+                        </div>
+                        <div class="form-group mx-sm-7 pb-3 ">
+                            <p class="pa pa-texto ">Contraseña actual </p>
                             <input class="txt text-input " type="password" name="contrasenaA" id="contrasenaA" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
                         </div>
 
@@ -87,8 +89,7 @@ print_r($correo);
                         <div class="col-1">
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" form="login" id="cambiar" name="cambiar"
-                             ><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
+                            <button class="btn btn-boton-ext " type="submit" form="login" id="cambiar" name="cambiar"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
 
                         </div>
                         <div class="col-1">
