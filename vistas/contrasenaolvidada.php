@@ -53,7 +53,8 @@ print_r($correo);
 
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Nueva contraseña</p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" 
+                            title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
