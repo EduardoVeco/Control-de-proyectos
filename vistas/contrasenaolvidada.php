@@ -1,6 +1,6 @@
 <?php
 $correo = $_REQUEST['correo'];
-print_r($correo);
+
 ?>
 
 <!DOCTYPE html>
@@ -52,14 +52,15 @@ print_r($correo);
 
 
                         <div class="form-group mx-sm-7 pb-3 ">
+                        <input type="text" name="correo" id="correo" value="<?php echo $correo ?>" hidden/>
                             <p class="pa pa-texto ">Nueva contraseña</p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" 
+                            <input class="txt text-input " type="password" name="contrasenaN" id="contrasenaN" data-toggle="tooltip" data-placement="right" 
                             title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Confirmar contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="confirmar" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasenaNN" id="contrasenaNN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                     </form>

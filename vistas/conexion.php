@@ -2,27 +2,52 @@
 
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
 
-$correo = $_REQUEST['correo'];
 
-print_r($correo);
-cambioContrasena($con,$correo);
+
+
+olvidoContrasena($con);
 //conecta($con);
 
-function cambioContrasena($conexion,$correo){
+function cambioContrasena($conexion){
+   $correo = $_REQUEST['correo'];
 $contra1=$_REQUEST['contrasenaA'];
 $contra2=$_REQUEST['contrasenaN'];
 $contra3=$_REQUEST['contrasenaNN'];
+print_r($correo);
 $sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
    $result = mysqli_query($conexion, $sql);
    if ($result && mysqli_num_rows($result) == 1) {
       if($contra2==$contra3){
-         
-         $sql = "UPDATE usuarios SET contrasenia = '$contra1' WHERE correo = '$correo'";
-
+         print_r('ando aca'); 
+         $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
+         mysqli_query($conexion, $sqll);
       }
+   }
+   else{
+   }
+}
+
+function olvidoContrasena($conexion){
+   $correo = $_REQUEST['correo'];
+$contra2=$_REQUEST['contrasenaN'];
+$contra3=$_REQUEST['contrasenaNN'];
+print_r($correo);
+$sql = "SELECT * from usuarios where correo='$correo'";
+   $result = mysqli_query($conexion, $sql);
+   if ($result && mysqli_num_rows($result) == 1) {
+      if($contra2==$contra3){
+         print_r('ando aca'); 
+         $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
+         mysqli_query($conexion, $sqll);
+      }
+   }
+   else{
    }
 
 }
+
+
+
 function conecta($conexion)
 {
    $correo = $_REQUEST['correo'];
