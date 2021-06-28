@@ -1,4 +1,5 @@
 <?php
+include "../php/Asesor.php";
 class FuncionesDelSistema
 {
 
@@ -176,7 +177,7 @@ class FuncionesDelSistema
                 //print_r($porcenRes);
                 //print_r($porcentaje);
 
-                if (porcentaje<=50){
+                if ($porcentaje<=50){
                     $str = '';
                     $str1 = '';
                     $str2 = '';
@@ -193,7 +194,7 @@ class FuncionesDelSistema
                     foreach ($resumen as $jus3) {
                         $str2 = $str2 . ' ' . $jus3;
                     }
-                    $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas)VALUES  (null ,'A2306202101','$str3','$str','$str1','$str2')");
+                    header('location: registrodueno.php?primjust='.$str.'primtit='.$str3.'primalc='.$str1.'primres='.$str2.'justificaion='.$justificacionOri.'titulo='.$tituloOri.'alcances='.$alcancesOri.'resumen='.$resumenOri);
                 } else if ($porcentaje<=60) {
 
                 } else {

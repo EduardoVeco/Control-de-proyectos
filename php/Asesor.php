@@ -11,7 +11,7 @@ class Asesor extends Usuario
 
     }
 
-    public function registrarProyecto($titulo,$justificacion,$alcance,$resumen,$proposito){
+    public function registrarProyecto($titulo,$justificacion,$alcance,$resumen,$priTitulo,$priJustificacion,$priAlcance,$priResumen){
 
         //return $folio;   se debe generar el folio primero
     }
