@@ -1,12 +1,14 @@
 <?php
 
-if (isset($_POST['asunto']) && !empty($_POST['asunto']) && isset($_POST['mensaje']) && !empty($_POST['mensaje'])) {
-	$destino = "ajimeneze@toluca.tecnm.mx";
+
+if (isset($_POST['enviar'])) {
+	$destino = $_POST['correo'];
 	$desde = "From:" . "Control de proyectos";
-	$asunto = $_POST['asunto'];
-	$mensaje = $_POST['mensaje'];
+	$asunto = 'Cambio de ocntraseña';
+	$mensaje = 'Para cambiar  la contraseña siga el link:  https://localhost/Control-de-proyectos/vistas/contrasenaolvidada.php?correo=' . $destino;
 	mail($destino, $asunto, $mensaje, $desde);
 	echo "Correo enviado...";
+	header("Location: index.html");
 } else {
 	echo "Problemas al enviar";
 }

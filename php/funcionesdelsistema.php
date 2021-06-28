@@ -16,29 +16,28 @@ class FuncionesDelSistema
     {
     }
 
-    public static function restablecerContrasena($con,$conN)
+    public static function restablecerContrasena($con, $conN)
     {
-if($con==$conN)
-echo $con;
+        if ($con == $conN)
+            echo $con;
     }
 
     public function incrementarTiempo()
     {
     }
 
-    public static function comparar($justificacion, $alcances, $resumen,$titulo,$tituloOri,$justificacionOri,$alcancesOri,$resumenOri)
+    public static function comparar($justificacion, $alcances, $resumen, $titulo, $tituloOri, $justificacionOri, $alcancesOri, $resumenOri)
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $consulta = mysqli_query($con, "select * from primitivas");
 
         if (mysqli_num_rows($consulta) != 0) {
             while ($row = mysqli_fetch_array($consulta)) {
-             //   echo $row["registro"];
-              print_r('que tranza');
+                //   echo $row["registro"];
+                print_r('que tranza');
             };
-         
         } else {
-     
+
             $str = '';
             $str1 = '';
             $str2 = '';
@@ -56,8 +55,8 @@ echo $con;
                 $str2 = $str2 . ' ' . $jus3;
             }
 
-           
-            
+
+
             $consulta = mysqli_query($con, "INSERT INTO primitivas (noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas)VALUES  ('A2306202101','$str3','$str','$str1','$str2')");
             print_r($consulta);
             mysqli_close($con);
