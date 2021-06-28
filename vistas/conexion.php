@@ -4,10 +4,13 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 
 
-
-conecta($con);
+prueba();
 //conecta($con);
+//conecta($con);
+function prueba(){
+print_r('hola');
 
+}
 function cambioContrasena($conexion){
    $correo = $_REQUEST['correo'];
 $contra1=$_REQUEST['contrasenaA'];
@@ -155,4 +158,8 @@ function registraAsesor($conexion)
     mysqli_query($conexion, $sql);
     mysqli_close($conexion);
     header('location: registroequipo.html');
+}
+function pruba(){
+print_r('hola');
+
 }
