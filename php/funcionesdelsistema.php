@@ -1,5 +1,5 @@
 <?php
-include "../php/Asesor.php";
+//include "../php/Asesor.php";
 class FuncionesDelSistema
 {
 
@@ -27,8 +27,9 @@ class FuncionesDelSistema
     {
     }
 
-    public static function comparar($justificacion, $alcances, $resumen,$titulo,$tituloOri,$justificacionOri,$alcancesOri,$resumenOri)
+    public static function comparar($justificacion, $alcances, $resumen, $titulo, $tituloOri, $justificacionOri, $alcancesOri, $resumenOri, $correo)
     {
+        print_r('funcionesssssss');
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $consulta = mysqli_query($con, "select * from primitivas");
 
@@ -36,28 +37,30 @@ class FuncionesDelSistema
         if (mysqli_num_rows($consulta) != 0) {
 
             $contTit = 0;
-            $contTitSel=0;
+            $contTitSel = 0;
             $contJus = 0;
-            $contJusSel=0;
+            $contJusSel = 0;
             $contAlc = 0;
-            $contAlcSel=0;
+            $contAlcSel = 0;
             $contRes = 0;
-            $contResSel=0;
-            $contPrimComun=0;
+            $contResSel = 0;
+            $contPrimComun = 0;
             $porcentaje = 0;
             $porcentajeAux = 0;
-            $porcenTit=0;
-            $porcenJus=0;
-            $porcenAlc=0;
-            $porcenRes=0;
-            $porcenOri=0;
-            $porcenPrim=0;
-            $id=0;
-            $filasPrim=mysqli_num_rows($consulta);
+            $porcenTit = 0;
+            $porcenJus = 0;
+            $porcenAlc = 0;
+            $porcenRes = 0;
+            $porcenOri = 0;
+            $porcenPrim = 0;
+            $id = 0;
+            $filasPrim = mysqli_num_rows($consulta);
 
-            for ($i=1;$i<=$filasPrim;$i++){
-                $consulta1 = mysqli_query($con,"select tituloPrimitivas from primitivas WHERE id = $i ");
-                $mostrar= mysqli_fetch_array($consulta1);
+            for ($i = 1; $i <= $filasPrim; $i++) {
+                $consulta1 = mysqli_query($con, "select tituloPrimitivas from primitivas WHERE id = $i ");
+                $mostrar = mysqli_fetch_array($consulta1);
+                print_r($mostrar['tituloPrimitivas']);
+
                 $token3 = strtok($mostrar['tituloPrimitivas'], " ");
                 $aT = array();
                 while ($token3 !== false) {
@@ -70,22 +73,29 @@ class FuncionesDelSistema
                 foreach ($aT as $jus3) {
                     $contTitSel = $contTitSel + 1;
                 }
-                for ($j=0;$j<$contTit;$j++){
-                    for ($k=0;$k<$contTitSel;$k++){
-                        if ($titulo[$j]==$aT[$k]){
-                            $contPrimComun= $contPrimComun+1;
-                            $k=$contTitSel;
+                for ($j = 0; $j < $contTit; $j++) {
+                    for ($k = 0; $k < $contTitSel; $k++) {
+                        if ($titulo[$j] == $aT[$k]) {
+                            $contPrimComun = $contPrimComun + 1;
+                            $k = $contTitSel;
                         }
                     }
                 }
-                $porcenOri=($contPrimComun/$contTit)*100;
-                $porcenPrim=($contPrimComun/$contTitSel)*100;
-                $porcenTit=($porcenOri+$porcenPrim)/2;
+                $porcenOri = ($contPrimComun / $contTit) * 100;
+                if ($contTitSel != 0) {
+                    $porcenPrim = ($contPrimComun / $contTitSel) * 100;
+                    $porcenTit = ($porcenOri + $porcenPrim) / 2;
+                } else {
+                    $porcenPrim = ($contPrimComun / 0.01) * 100;
+                    $porcenTit = ($porcenOri + $porcenPrim) / 2;
+                }
 
-                $contPrimComun=0;
 
-                $consulta2 = mysqli_query($con,"select justificacionPrimitivas from primitivas WHERE id = $i ");
-                $mostrar1= mysqli_fetch_array($consulta2);
+
+                $contPrimComun = 0;
+
+                $consulta2 = mysqli_query($con, "select justificacionPrimitivas from primitivas WHERE id = $i ");
+                $mostrar1 = mysqli_fetch_array($consulta2);
                 $token4 = strtok($mostrar1['justificacionPrimitivas'], " ");
                 $aT1 = array();
                 while ($token4 !== false) {
@@ -98,22 +108,26 @@ class FuncionesDelSistema
                 foreach ($aT1 as $jus5) {
                     $contJusSel = $contJusSel + 1;
                 }
-                for ($j=0;$j<$contJus;$j++){
-                    for ($k=0;$k<$contJusSel;$k++){
-                        if ($justificacion[$j]==$aT1[$k]){
+                for ($j = 0; $j < $contJus; $j++) {
+                    for ($k = 0; $k < $contJusSel; $k++) {
+                        if ($justificacion[$j] == $aT1[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k=$contJusSel;
+                            $k = $contJusSel;
                         }
                     }
                 }
-                $porcenOri=($contPrimComun/$contJus)*100;
-                $porcenPrim=($contPrimComun/$contJusSel)*100;
-                $porcenJus=($porcenOri+$porcenPrim)/2;
+                $porcenOri = ($contPrimComun / $contJus) * 100;
+                if ($contJusSel != 0) {
+                } else {
+                    $contJusSel = 0.01;
+                }
+                $porcenPrim = ($contPrimComun / $contJusSel) * 100;
+                $porcenJus = ($porcenOri + $porcenPrim) / 2;
 
-                $contPrimComun=0;
+                $contPrimComun = 0;
 
-                $consulta3 = mysqli_query($con,"select alcancesPrimitivas from primitivas WHERE id = $i ");
-                $mostrar2= mysqli_fetch_array($consulta3);
+                $consulta3 = mysqli_query($con, "select alcancesPrimitivas from primitivas WHERE id = $i ");
+                $mostrar2 = mysqli_fetch_array($consulta3);
                 $token5 = strtok($mostrar2['alcancesPrimitivas'], " ");
                 $aT2 = array();
                 while ($token5 !== false) {
@@ -126,22 +140,26 @@ class FuncionesDelSistema
                 foreach ($aT2 as $jus7) {
                     $contAlcSel = $contAlcSel + 1;
                 }
-                for ($j=0;$j<$contAlc;$j++){
-                    for ($k=0;$k<$contAlcSel;$k++){
-                        if ($alcances[$j]==$aT2[$k]){
+                for ($j = 0; $j < $contAlc; $j++) {
+                    for ($k = 0; $k < $contAlcSel; $k++) {
+                        if ($alcances[$j] == $aT2[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k=$contAlcSel;
+                            $k = $contAlcSel;
                         }
                     }
                 }
-                $porcenOri=($contPrimComun/$contAlc)*100;
-                $porcenPrim=($contPrimComun/$contAlcSel)*100;
-                $porcenAlc=($porcenOri+$porcenPrim)/2;
+                if ($contAlcSel != 0) {
+                } else {
+                    $contAlcSel = 0.01;
+                }
+                $porcenOri = ($contPrimComun / $contAlc) * 100;
+                $porcenPrim = ($contPrimComun / $contAlcSel) * 100;
+                $porcenAlc = ($porcenOri + $porcenPrim) / 2;
 
-                $contPrimComun=0;
+                $contPrimComun = 0;
 
-                $consulta4 = mysqli_query($con,"select resumenPrimitivas from primitivas WHERE id = $i ");
-                $mostrar3= mysqli_fetch_array($consulta4);
+                $consulta4 = mysqli_query($con, "select resumenPrimitivas from primitivas WHERE id = $i ");
+                $mostrar3 = mysqli_fetch_array($consulta4);
                 $token6 = strtok($mostrar3['resumenPrimitivas'], " ");
                 $aT3 = array();
                 while ($token6 !== false) {
@@ -154,21 +172,25 @@ class FuncionesDelSistema
                 foreach ($aT3 as $jus9) {
                     $contResSel = $contResSel + 1;
                 }
-                for ($j=0;$j<$contRes;$j++){
-                    for ($k=0;$k<$contResSel;$k++){
-                        if ($resumen[$j]==$aT3[$k]){
+                for ($j = 0; $j < $contRes; $j++) {
+                    for ($k = 0; $k < $contResSel; $k++) {
+                        if ($resumen[$j] == $aT3[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k=$contResSel;
+                            $k = $contResSel;
                         }
                     }
                 }
-                $porcenOri=($contPrimComun/$contRes)*100;
-                $porcenPrim=($contPrimComun/$contResSel)*100;
-                $porcenRes=($porcenOri+$porcenPrim)/2;
+                if ($contResSel != 0) {
+                } else {
+                    $contResSel = 0.01;
+                }
+                $porcenOri = ($contPrimComun / $contRes) * 100;
+                $porcenPrim = ($contPrimComun / $contResSel) * 100;
+                $porcenRes = ($porcenOri + $porcenPrim) / 2;
 
 
-                $porcentajeAux=($porcenTit+$porcenJus+$porcenAlc+$porcenRes)/4;
-                if ($porcentajeAux>$porcentaje){
+                $porcentajeAux = ($porcenTit + $porcenJus + $porcenAlc + $porcenRes) / 4;
+                if ($porcentajeAux > $porcentaje) {
                     $porcentaje = $porcentajeAux;
                 }
                 //print_r($porcenTit);
@@ -177,7 +199,7 @@ class FuncionesDelSistema
                 //print_r($porcenRes);
                 //print_r($porcentaje);
 
-                if ($porcentaje<=50){
+                if ($porcentaje <= 50) {
                     $str = '';
                     $str1 = '';
                     $str2 = '';
@@ -194,18 +216,15 @@ class FuncionesDelSistema
                     foreach ($resumen as $jus3) {
                         $str2 = $str2 . ' ' . $jus3;
                     }
-                    header('location: registrodueno.php?primjust='.$str.'primtit='.$str3.'primalc='.$str1.'primres='.$str2.'justificaion='.$justificacionOri.'titulo='.$tituloOri.'alcances='.$alcancesOri.'resumen='.$resumenOri);
-                } else if ($porcentaje<=60) {
-
+                    header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri.'&correo='.$correo);
+                } else if ($porcentaje <= 60 && $porcentaje > 50) {
+                    print_r('else if');
                 } else {
-                    
+                    print_r('else');
                 }
-
             }
-
-
         } else {
-     
+
             $str = '';
             $str1 = '';
             $str2 = '';
@@ -227,8 +246,7 @@ class FuncionesDelSistema
 
             print_r($consulta);
             mysqli_close($con);
-            //header('location: registrodueno.php?primjust='.$str.'primtit='.$str3.'primalc='.$str1.'primres='.$str2.'justificaion='.$justificacionOri.'titulo='.$tituloOri.'alcances='.$alcancesOri.'resumen='.$resumenOri);
-
+            header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo);
         };
     }
 

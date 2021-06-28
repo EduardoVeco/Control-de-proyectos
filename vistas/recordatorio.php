@@ -5,6 +5,8 @@ $sql = "SELECT now()  ";
 $result = mysqli_query($conexion, $sql);
 $mostrar = mysqli_fetch_array($result);
 
+$sql="select fecha_inicion"
+
 print_r($mostrar['now()']);
 
 $destino = 'ajimeneze@toluca.tecnm.mx';

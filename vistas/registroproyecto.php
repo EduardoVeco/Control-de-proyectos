@@ -1,10 +1,14 @@
+<?php
+$correo = $_REQUEST['correo'];
+print_r($correo);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Registro de proyecto</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/contenedores.css">
     <link rel="stylesheet" href="../css/formularios.css">
@@ -50,50 +54,41 @@
 
 
     <div class="container">
-        <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
-            <div class="formulario col-10 col-sm-9 col-md-7 col-lg-5 col-xl-4 ">
-                <div>
-                    <div class="div div-cabeza mx-sm-6">
-                        <p class="ti ti-texto ">Registro: Dueño </p>
-                    </div>
+        <div class="row justify-content-center  mt-5 mr-1 col-sm-13" style="margin: 0 auto;">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="div div-cabeza mx-sm-12">
+                            <p class="ti ti-texto ">Registro: proyecto </p>
+                        </div>
+                        <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
+                            <form action="primitivas.php" method="POST" id="registroProyecto">
+                                <br>
+                                <p>Titulo</p>
+                                <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" placeholder="Ingrese el titulo 1-150 caracteres" pattern=".{1,150}" required>
+                                <br>
+                                <p>Justificación</p>
+                                <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="ingrese la justificacion 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
+                                <p>Alcances</p>
+                                <textarea class="txt txt-texto-area " name="alcances" id="alcances" placeholder="ingrese los alcances 1-13,000 caracteres" pattern=".{1,13000}" required></textarea>
+                                <p>Resumen</p>
+                                <textarea class=" txt txt-texto-area " name="resumen" id="resumen" placeholder="ingrese el resumen 1-25,000 caracteres" pattern=".{1,25000}" required></textarea>
 
-                </div>
-                <div class="div div-cuerpo form-group mx-sm-6">
-                    <form action="" method="POST" id="registrodueno">
-                        <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">No. Control </p>
-                            <input class="txt text-input " type="text " name="noControl" id="noControl" required />
+                                <input type="text" name="correo" value="<?php echo $correo?>" hidden>
+                                <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                    </div>
+                                    <div class="col-6 justify-content-center">
+                                        <br>
+                                        <button class="btn btn-boton-ext " type="button " form="registroProyecto"><img class="fa fa-icon " src="../imagenes/check.png " /> Verificar</button>
+                                    </div>
+                                    <div class="col-3">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" required/>
-                        </div>
-                        <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" required/>
-                        </div>
-                        <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" required/>
-                        </div>
-                        <div class="form-group mx-sm-7 pt-3 justify-content-center">
-                            <p class="pa pa-texto ">Tipo de dueño </p>
-                            <select name="tdueno" id="tdueno" class="slct slct-combo" required>
-                            <option selected hidden>Seleccione una opcion</option>
-                            <option value="doc">Docente</option>
-                            <option value="alu">Alumno</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <button class="btn btn-aceptar " type="submit " form="registrodueno" name="terminar" id="terminar"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn btn-boton " type="submit " form="registrodueno" name="siguiente" id="siguiente"><img class="fa fa-icon " src="../imagenes/next.png " /> Siguiente</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,13 +97,23 @@
 
 
 
+
+    <br>
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
             <div class="div div-mensaje" id="mensaje">
                 <p>Mensaje importante</p>
             </div>
+            <div class="div div-ocultar" id="boton1">
+                <button class="btn btn-boton-ext " type="button " onclick="location.href='registrodueno.php'"><img class="fa fa-icon " src="../imagenes/next.png " /> Continuar con el registro</button>
+            </div>
+            <div class="div div-ocultar" id="boton2">
+                <button class="btn btn-boton-ext " type="button "><img class="fa fa-icon " src="../imagenes/customer-service.png " /> Apelar proyecto</button>
+            </div>
         </div>
     </div>
+
+    <br><br><br>
 
 
 
@@ -119,26 +124,23 @@
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
-                <br>
-                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                <br>
-            </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
+                    <br>
+                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                    <br>
+                </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                <br>
+                    <br>
                     Metepec, Edo. De México, México C.P. 52149
-                <br>         
-                    Tel. (52) (722) 2 08 72 00     
+                    <br>
+                    Tel. (52) (722) 2 08 72 00
                 </label>
             </div>
         </div>
     </div>
 
-    <script src="../js/registrodueno.js"></script>
-
-</body>
 
 </html>

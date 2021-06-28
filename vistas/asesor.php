@@ -58,7 +58,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav text-left">
-                    <li class="nav-item"><a class="nav-link " href="registroproyecto.html">Registrar proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link " href="#" onclick="location.href='registroproyecto.php?correo='+correo">Registrar proyecto</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

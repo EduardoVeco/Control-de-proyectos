@@ -5,7 +5,7 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 
 
-olvidoContrasena($con);
+conecta($con);
 //conecta($con);
 
 function cambioContrasena($conexion){
@@ -72,9 +72,6 @@ function conecta($conexion)
 
       $query = http_build_query($query);
       header("Location: index1.php?$query");
-
-
-     // header('location: index1.php?error=true.?correo=' . $correo . '?contrasena=' . $contrasena);
    }  
 }
 function registraUsuario($conexion)

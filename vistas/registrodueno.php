@@ -9,6 +9,17 @@ $titulo = $_REQUEST['titulo'];
 $alcances = $_REQUEST['alcances'];
 $resumen = $_REQUEST['resumen'];
 
+print_r($primjust);
+print_r($primtit);
+print_r($primalc);
+print_r($primres);
+print_r($justificacion);
+print_r($titulo);
+print_r($alcances);
+print_r($resumen);
+print_r($correo);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -79,22 +90,22 @@ $resumen = $_REQUEST['resumen'];
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" required/>
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" required/>
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" required/>
+                            <input class="txt text-input " type="text " name="materno" id="materno" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3 justify-content-center">
                             <p class="pa pa-texto ">Tipo de dueño </p>
                             <select name="tdueno" id="tdueno" class="slct slct-combo" required>
-                            <option selected hidden>Seleccione una opcion</option>
-                            <option value="doc">Docente</option>
-                            <option value="alu">Alumno</option>
+                                <option selected hidden>Seleccione una opcion</option>
+                                <option value="doc">Docente</option>
+                                <option value="alu">Alumno</option>
                             </select>
                         </div>
                         <br>
@@ -132,19 +143,19 @@ $resumen = $_REQUEST['resumen'];
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
-                <br>
-                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                <br>
-            </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
+                    <br>
+                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                    <br>
+                </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                <br>
+                    <br>
                     Metepec, Edo. De México, México C.P. 52149
-                <br>         
-                    Tel. (52) (722) 2 08 72 00     
+                    <br>
+                    Tel. (52) (722) 2 08 72 00
                 </label>
             </div>
         </div>
