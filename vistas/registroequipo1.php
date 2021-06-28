@@ -10,9 +10,9 @@ $paterno = $_REQUEST['paterno'];
 $materno = $_REQUEST['materno'];
 
 print_r($noControlA);
-/*print_r($nombre);
+print_r($nombre);
 print_r($paterno);
-print_r($materno);*/
+print_r($materno);
 
 if (empty($noControl)) {
     header("Location:registroequipo.php");

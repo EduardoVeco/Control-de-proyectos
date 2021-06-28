@@ -28,7 +28,7 @@ print_r($correo);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Dueño</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/contenedores.css">
     <link rel="stylesheet" href="../css/formularios.css">
@@ -84,10 +84,10 @@ print_r($correo);
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">
                     <form action="conexion.php" method="POST" id="registrodueno">
-                        <div class="form-group mx-sm-7 pt-3">
+                        <!--  <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Control </p>
                             <input class="txt text-input " type="text " name="noControl" id="noControl" required />
-                        </div>
+                        </div>!-->
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
                             <input class="txt text-input " type="text " name="nombre" id="nombre" required />
@@ -100,14 +100,14 @@ print_r($correo);
                             <p class="pa pa-texto ">Segundo apellido </p>
                             <input class="txt text-input " type="text " name="materno" id="materno" required />
                         </div>
-                        <div class="form-group mx-sm-7 pt-3 justify-content-center">
+                        <!--   <div class="form-group mx-sm-7 pt-3 justify-content-center">
                             <p class="pa pa-texto ">Tipo de dueño </p>
                             <select name="tdueno" id="tdueno" class="slct slct-combo" required>
                                 <option selected hidden>Seleccione una opcion</option>
                                 <option value="doc">Docente</option>
                                 <option value="alu">Alumno</option>
-                            </select>
-                        </div>
+                            </select>!
+                </div>-->
                         <br>
                         <div class="row">
                             <div class="col-6">
@@ -135,10 +135,6 @@ print_r($correo);
     </div>
 
 
-
-
-
-
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
@@ -160,9 +156,7 @@ print_r($correo);
             </div>
         </div>
     </div>
-
-    <script src="../js/registrodueno.js"></script>
-
+    <script src='../js/registrodueno.js'></script>
 </body>
 
 </html>
