@@ -1,5 +1,4 @@
 <?php
-
 class FuncionesDelSistema
 {
 
@@ -17,8 +16,10 @@ class FuncionesDelSistema
     {
     }
 
-    public function restablecerContraseña()
+    public static function restablecerContrasena($con,$conN)
     {
+if($con==$conN)
+echo $con;
     }
 
     public function incrementarTiempo()
@@ -35,12 +36,7 @@ class FuncionesDelSistema
              //   echo $row["registro"];
               print_r('que tranza');
             };
-            
-            if (porcentaje>=0&&$porcentaje<=60){
-             header('location: registrodueno.php?primjust='.$str.'primtit='.$str3.'primalc='.$str1.'primres='.$str2.'justificaion='.$justificacionOri.'titulo='.$tituloOri.'alcances='.$alcancesOri.'resumen='.$resumenOri);
-            } else {
-
-            } 
+         
         } else {
      
             $str = '';

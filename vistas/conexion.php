@@ -1,8 +1,28 @@
 <?php
 
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-conecta($con);
 
+$correo = $_REQUEST['correo'];
+
+print_r($correo);
+cambioContrasena($con,$correo);
+//conecta($con);
+
+function cambioContrasena($conexion,$correo){
+$contra1=$_REQUEST['contrasenaA'];
+$contra2=$_REQUEST['contrasenaN'];
+$contra3=$_REQUEST['contrasenaNN'];
+$sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
+   $result = mysqli_query($conexion, $sql);
+   if ($result && mysqli_num_rows($result) == 1) {
+      if($contra2==$contra3){
+         
+         $sql = "UPDATE usuarios SET contrasenia = '$contra1' WHERE correo = '$correo'";
+
+      }
+   }
+
+}
 function conecta($conexion)
 {
    $correo = $_REQUEST['correo'];

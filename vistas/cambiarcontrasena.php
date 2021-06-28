@@ -1,8 +1,8 @@
 <?php
-$correo=$_REQUEST['correo'];
+$correo = $_REQUEST['correo'];
 print_r($correo);
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,7 +21,11 @@ print_r($correo);
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="../js/Chart.min.js" type="text/javascript"></script>
+    <script>
+
+        var c = '<?php echo json_encode($correo); ?>';
+
+    </script>
 </head>
 
 <body class="body">
@@ -38,8 +42,7 @@ print_r($correo);
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
 
             <a class="navbar-brand" href="# " style="font-size: 20px;">Control de proyectos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-             aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
         </nav>
@@ -62,19 +65,21 @@ print_r($correo);
                     </div>
                     <form action="conexion.php" method="POST" id="login">
                         <div class="form-group mx-sm-7 pb-3 ">
+                            <p name="correo" form="login">
+                            </p>
                             <p class="pa pa-texto ">Contraseña actual </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaA" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasenaA" id="contrasenaA" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
                         </div>
 
                         <br><br>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Nueva contraseña</p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasenaN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasenaN" id="contrasenaN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Confirmar contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="confirmar" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
+                            <input class="txt text-input " type="password" name="contrasenaNN" id="contrasenaNN" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
 
                         </div>
                     </form>
@@ -82,7 +87,8 @@ print_r($correo);
                         <div class="col-1">
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
+                            <button class="btn btn-boton-ext " type="submit" form="login" id="cambiar" name="cambiar"
+                             ><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
 
                         </div>
                         <div class="col-1">
@@ -122,7 +128,6 @@ print_r($correo);
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-
 </body>
 
 </html>
