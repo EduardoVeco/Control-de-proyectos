@@ -46,7 +46,10 @@ $aprobacion='APROBADO';
 }
 $consulta=mysqli_query($con,"INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','perrito')");
        }else{
-print_r('perro');
+        if($aprobacion=='A'){
+            $aprobacion='APROBADO';
+            }
+        $consulta=mysqli_query($con,"INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','perrito')");
 
        }
     }
