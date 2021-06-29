@@ -51,7 +51,7 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-                    print_r('Si le cree wey');
+                    print_r('');
                 }
                 header('location: asesor.php?correo=' . $correo);
             } else {
@@ -65,7 +65,7 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-                    print_r('Si le cree wey');
+                    print_r('');
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
@@ -116,6 +116,11 @@ class Asesor
                 $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','$ruta')");
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
+            if (!mkdir($ruta, 0777, false)) {
+                die('Fallo al crear las carpetas...');
+            } else {
+                print_r('');
+            }
             header('location: registroequipo.php?folio=' . $str);
         }
     }
