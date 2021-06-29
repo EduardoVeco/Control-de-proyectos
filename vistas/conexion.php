@@ -1,13 +1,13 @@
 <?php
 
-function conectarBase(){
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-}
+
+
 
 
 //prueba();
-//login($con);
-conexionAClases($con);
+login($con);
+//conexionAClases($con);
 //conecta($con);
 function conexionAClases($con)
 {

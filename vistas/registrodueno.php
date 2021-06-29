@@ -116,7 +116,7 @@ print_r($folio);
 
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">
-                    <form action="hacerRegistro.php      " method="POST" id="registrodueno">
+                    <form action="hacerRegistro.php" method="POST" id="registrodueno">
                         <!--  <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Control </p>
                             <input class="txt text-input " type="text " name="noControl" id="noControl" required />

@@ -1,5 +1,5 @@
 <?php
-
+include "../vistas/conexion.php";
 class Usuario{
 
     private $nombre;
@@ -15,7 +15,7 @@ class Usuario{
 
     public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario){
         print_r('por aca');
-
+        $con=conectarBase();
         $correo = $_REQUEST['correo'];
         $nombre = $_REQUEST['nombre'];
         $primerApellido = $_REQUEST['paterno'];
@@ -37,8 +37,31 @@ class Usuario{
      }
     }
 
-    public function inicioSesion($correo,$contraseña){
-
+    public static function inicioSesion($username,$password){
+        $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
+           
+       //     $conexion=conectarBase();
+            $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
+            $result = mysqli_query($conexion, $sql);
+            print_r($result);
+      
+            if (mysqli_num_rows($result) == 1) {
+               $mostrar = mysqli_fetch_array($result);
+               session_start();
+               $_SESSION['correo'] = $mostrar['correo'];
+               $_SESSION['time'] = time();
+      
+               if ($mostrar['tipoUsuario'] == 'Asesor') {
+                  header('location: asesor.php?correo=' . $username);
+               } else {
+                  header('location: dptoinvestigacion.php?correo=' . $username);
+               }
+               //echo "<script>window.location='proyecto.php'</script>";
+            } else {
+               header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&error=' . true);
+               //   echo "<script>window.location='index1.php'</script>";
+            }
+         
     }
 
     public function cambiarContraseña($antiguaContraseña,$nuevaContraseña){
