@@ -1,5 +1,5 @@
 <?php
-$folio = "A2306202101";
+$folio = $_REQUEST['folio'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $noControl = $_REQUEST['noControl'];
 //print_r($noControl);
@@ -18,13 +18,13 @@ if (empty($noControl)) {
     header("Location:registroequipo.php");
 }
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,15 +52,17 @@ session_start();
         var nom = '<?php echo json_encode($nombre); ?>';
         var ap = '<?php echo json_encode($paterno); ?>';
         var am = '<?php echo json_encode($materno); ?>';
+        var f = '<?php echo json_encode($folio); ?>';
+        
     </script>
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">

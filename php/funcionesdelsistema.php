@@ -266,8 +266,8 @@ class FuncionesDelSistema
                 header('location: asesor.php?correo=' . $correo);
             }
         } else {
-$folio='A';
-$tempFolio=0;
+            $folio = 'A';
+            $tempFolio = 0;
             $str = '';
             $str1 = '';
             $str2 = '';

@@ -1,15 +1,16 @@
 <?php
-$folio = "A2306202101";
+//$folio = $_REQUEST['folio'];
+$folio = 'Descomente el folio perro';
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
 
 ?>
 
@@ -32,14 +33,18 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/Chart.min.js" type="text/javascript"></script>
+    <script>
+        var f = '<?php echo json_encode($folio); ?>';
+    </script>
+
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -120,7 +125,9 @@ session_start();
                 </div>
             </div>
         </div>
+        <input type="text" name="folio" id="folio" value="<?php echo $folio ?>">
     </div>
+
 
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
@@ -153,6 +160,7 @@ session_start();
     </div>
 
     <script src="../js/registroequipo1.js"></script>
+
 
     <script>
         $(document).ready(function() {

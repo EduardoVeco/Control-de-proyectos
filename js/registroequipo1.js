@@ -2,6 +2,7 @@ const registro = document.getElementById("registroequipo")
 const inputs = document.querySelectorAll('#registroequipo input')
 const alumno = document.getElementById("verifalumno")
 const inputAlumno = document.querySelectorAll('#verifalumno input')
+
 const propositoForm = document.getElementById("propositoForm")
 const propositoInput = document.querySelectorAll('#propositoForm input')
 
@@ -9,6 +10,7 @@ var noControlA = []
 var nombre = []
 var paterno = []
 var materno = []
+var folio = JSON.parse(f)
     /*
     console.log(noControl)
     console.log(nombre)
@@ -16,7 +18,7 @@ var materno = []
     console.log(materno)
     */
 console.log(propositoForm)
-console.log(propositoInput)
+    //console.log(propositoInput)
 
 const expreg = {
     nombre: /^([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ\s]{1,35})$/,
@@ -92,7 +94,8 @@ alumno.addEventListener('submit', e => {
         console.log(nombre)
         console.log(paterno)
         console.log(materno)
-        window.location = "registroequipo1.php?noControl=" + noControl + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno;
+        console.log(folio)
+        window.location = "registroequipo1.php?noControl=" + noControl + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;
         console.log(noControl)
         document.getElementById("nombre").disabled = false;
         document.getElementById("paterno").disabled = false;
@@ -189,6 +192,7 @@ propositoForm.addEventListener('submit', e => {
             if (campos.proposito) {
                 console.log('Aqui ya pasaste a la otra ventana carnal')
                 console.log(document.getElementById('proposito').value)
+                window.location = "formarequipo.php?noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;;
                 if (campos.nombre && campos.paterno && campos.materno) {
                     //  noControl.push(campos.nc)
                     //  nombre.push(document.getElementById('nombre').value)
@@ -199,7 +203,7 @@ propositoForm.addEventListener('submit', e => {
                     console.log(paterno)
                     console.log(materno)
                 }
-                window.location.href = "registroasesor.php"
+
             } else {
                 document.getElementById("mensaje").innerHTML = "<p>El campo proposito es incorrecto</p>";
                 document.getElementById('mensajeCont').classList.remove('div')

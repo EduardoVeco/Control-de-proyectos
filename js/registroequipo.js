@@ -9,11 +9,13 @@ var noControlA = []
 var nombre = []
 var paterno = []
 var materno = []
+var folio
 
 noControlA += ' ' + JSON.parse(n)
 nombre += ' ' + JSON.parse(nom)
 paterno += ' ' + JSON.parse(ap)
 materno += ' ' + JSON.parse(am)
+folio = f
 
 console.log(noControlA)
 console.log(nombre)
@@ -21,7 +23,6 @@ console.log(paterno)
 console.log(materno)
 
 console.log(propositoForm)
-console.log(propositoInput)
 
 const expreg = {
     nombre: /^([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ\s]{1,35})$/,
@@ -97,7 +98,8 @@ alumno.addEventListener('submit', e => {
         console.log(nombre)
         console.log(paterno)
         console.log(materno)
-        window.location = "registroequipo1.php?noControl=" + campos.nc + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno;
+        console.log(folio)
+        window.location = "registroequipo1.php?noControl=" + campos.nc + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;
         console.log(noControl)
         document.getElementById("nombre").disabled = false;
         document.getElementById("paterno").disabled = false;
@@ -158,9 +160,9 @@ registro.addEventListener('submit', e => {
                 console.log(nombre)
                 console.log(paterno)
                 console.log(materno)
-
-                //registro.reset()
-                //alumno.reset()
+                console.log(folio)
+                    //registro.reset()
+                    //alumno.reset()
                 document.getElementById("noControl").value = '';
                 document.getElementById("nombre").value = '';
                 document.getElementById("paterno").value = '';
@@ -198,14 +200,15 @@ propositoForm.addEventListener('submit', e => {
             if (campos.proposito) {
                 console.log('Aqui ya pasaste a la otra ventana carnal')
                 console.log(document.getElementById('proposito').value)
+                window.location = "formarequipo.php?noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;
                 if (campos.nombre && campos.paterno && campos.materno) {
-                    /*  noControlA.push(document.getElementById('noControl').value)
-                      nombre.push(document.getElementById('nombre').value)
-                      paterno.push(document.getElementById('paterno').value)
-                      materno.push(document.getElementById('materno').value)
-                          /* nombre += ' ' + document.getElementById('nombre').value
-                           paterno += ' ' + document.getElementById('paterno').value
-                           materno += ' ' + document.getElementById('materno').value*/
+                    noControlA.push(document.getElementById('noControl').value)
+                    nombre.push(document.getElementById('nombre').value)
+                    paterno.push(document.getElementById('paterno').value)
+                    materno.push(document.getElementById('materno').value)
+                        /* nombre += ' ' + document.getElementById('nombre').value
+                         paterno += ' ' + document.getElementById('paterno').value
+                         materno += ' ' + document.getElementById('materno').value*/
                     noControlA += ' ' + document.getElementById('noControl').value
                     nombre += ' ' + document.getElementById('nombre').value
                     paterno += ' ' + document.getElementById('paterno').value
@@ -214,6 +217,7 @@ propositoForm.addEventListener('submit', e => {
                     console.log(nombre)
                     console.log(paterno)
                     console.log(materno)
+
                 }
                 //window.location.href = "registroasesor.php"
             } else {
