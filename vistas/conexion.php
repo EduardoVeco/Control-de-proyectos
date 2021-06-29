@@ -14,7 +14,6 @@ function prueba()
 
 function login($conexion)
 {
-   //if (isset($_POST['login'])) {
    if (!empty($_POST['correo']) && !empty($_POST['contrasena'])) {
       $username = $_POST['correo'];
       $password = $_POST['contrasena'];
@@ -38,11 +37,6 @@ function login($conexion)
          header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&error=' . true);
          //   echo "<script>window.location='index1.php'</script>";
       }
-      /* } else {
-
-         echo "<script>window.location='index1.php'</script>";
-      }
-   };*/
    }
 }
 

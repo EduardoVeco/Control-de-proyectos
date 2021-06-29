@@ -8,8 +8,12 @@ $justificacion = $_REQUEST['justificacion'];
 $titulo = $_REQUEST['titulo'];
 $alcances = $_REQUEST['alcances'];
 $resumen = $_REQUEST['resumen'];
-$folio=$_REQUEST['folio'];
-$tempFolio=$_REQUEST['tempFolio'];
+
+$folio = $_REQUEST['folio'];
+$tempFolio = $_REQUEST['tempFolio'];
+
+$folio = $_REQUEST['folio'];
+
 print_r($primjust);
 print_r($primtit);
 print_r($primalc);
@@ -19,17 +23,31 @@ print_r($titulo);
 print_r($alcances);
 print_r($resumen);
 print_r($correo);
+
 print_r($tempFolio);
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
+
+
+$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
+
+session_start();
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
+print_r($folio);
 
 ?>
 
@@ -55,11 +73,11 @@ session_start();
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -105,16 +123,16 @@ session_start();
                         </div>!-->
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="primjust"       id="primjust"       value="<?php echo $primjust?>" hidden/>
-                            <input class="txt text-input " type="text " name="primtit"        id="primtit"        value="<?php echo $primtit?>" hidden/>
-                            <input class="txt text-input " type="text " name="primalc"        id="primalc"        value="<?php echo $primalc?>" hidden/>
-                            <input class="txt text-input " type="text " name="primres"        id="primres"        value="<?php echo $primres?>" hidden/>
-                            <input class="txt text-input " type="text " name="correo"         id="correo"         value="<?php echo $correo?>"hidden/>
-                            <input class="txt text-input " type="text " name="justificacion"  id="justificacion"  value="<?php echo $justificacion?>"  hidden/>
-                            <input class="txt text-input " type="text " name="titulo"         id="titulo"        value="<?php echo $titulo?>"hidden />
-                            <input class="txt text-input " type="text " name="alcances"       id="alcances"       value="<?php echo $alcances?>" hidden/>
-                            <input class="txt text-input " type="text " name="resumen"        id="resumen"        value="<?php echo $resumen?>"hidden/>
-                            <input class="txt text-input " type="text " name="folio"          id="folio"          value="<?php echo $folio?>"hidden/>
+                            <input class="txt text-input " type="text " name="primjust" id="primjust" value="<?php echo $primjust ?>" hidden />
+                            <input class="txt text-input " type="text " name="primtit" id="primtit" value="<?php echo $primtit ?>" hidden />
+                            <input class="txt text-input " type="text " name="primalc" id="primalc" value="<?php echo $primalc ?>" hidden />
+                            <input class="txt text-input " type="text " name="primres" id="primres" value="<?php echo $primres ?>" hidden />
+                            <input class="txt text-input " type="text " name="correo" id="correo" value="<?php echo $correo ?>" hidden />
+                            <input class="txt text-input " type="text " name="justificacion" id="justificacion" value="<?php echo $justificacion ?>" hidden />
+                            <input class="txt text-input " type="text " name="titulo" id="titulo" value="<?php echo $titulo ?>" hidden />
+                            <input class="txt text-input " type="text " name="alcances" id="alcances" value="<?php echo $alcances ?>" hidden />
+                            <input class="txt text-input " type="text " name="resumen" id="resumen" value="<?php echo $resumen ?>" hidden />
+                            <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio ?>" hidden />
 
                             <input class="txt text-input " type="text " name="nombre" id="nombre" required />
                         </div>
