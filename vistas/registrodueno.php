@@ -19,6 +19,7 @@ print_r($alcances);
 print_r($resumen);
 print_r($correo);
 <<<<<<< Updated upstream
+$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
         if(!ISSET($_SESSION['correo'])){
@@ -28,7 +29,6 @@ session_start();
                 header('location: logout.php');
             }
         }
-}
 =======
 print_r($folio);
 >>>>>>> Stashed changes
@@ -59,7 +59,7 @@ print_r($folio);
 <body class="body">
         <?php
             require 'conexion.php';
-            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
             $fetch = $query->fetch_array();
         ?>
     <div class="container">

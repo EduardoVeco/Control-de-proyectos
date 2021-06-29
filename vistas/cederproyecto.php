@@ -1,6 +1,8 @@
 <?php
 $folio=$_REQUEST['folio'] 
 
+$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
+
 session_start();
         if(!ISSET($_SESSION['correo'])){
             header('location:index.php');
@@ -9,8 +11,6 @@ session_start();
                 header('location: logout.php');
             }
         }
-}
-?>
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,7 +40,7 @@ session_start();
 <body class="body">
         <?php
             require 'conexion.php';
-            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
             $fetch = $query->fetch_array();
         ?>
     <div class="container">

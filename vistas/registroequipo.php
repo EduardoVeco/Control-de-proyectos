@@ -10,7 +10,7 @@ session_start();
                 header('location: logout.php');
             }
         }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ session_start();
 <body class="body">
         <?php
             require 'conexion.php';
-            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
             $fetch = $query->fetch_array();
         ?>
     <div class="container">
