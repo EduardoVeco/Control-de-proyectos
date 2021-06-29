@@ -1,6 +1,6 @@
 <?php
-//$folio = $_REQUEST['folio'];
-$folio = 'Descomente el folio perro';
+$folio = $_REQUEST['folio'];
+//$folio = 'Descomente el folio perro';
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
@@ -91,10 +91,11 @@ if (!isset($_SESSION['correo'])) {
                         </div>
                     </form>
 
-                    <form action="" method="POST" id="registroequipo">
+                    <form action="../php/Asesor.php" method="POST" id="registroequipo">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
                             <input class="txt text-input " type="text " name="nombre" id="nombre" required disabled />
+                            <input class="txt text-input " type="text " name="folio" id="folio"  />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>

@@ -47,7 +47,7 @@ class Asesor
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
-                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,now(),'$ruta')");
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
@@ -61,7 +61,7 @@ class Asesor
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
-                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,now(),'$ruta')");
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
@@ -105,7 +105,7 @@ class Asesor
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
-                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,now(),'$ruta')");
             } else {
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
@@ -113,7 +113,7 @@ class Asesor
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
-                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,now(),'$ruta')");
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
             if (!mkdir($ruta, 0777, false)) {
