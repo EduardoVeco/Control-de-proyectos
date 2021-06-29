@@ -15,7 +15,8 @@ class Usuario{
 
     public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario){
         print_r('por aca');
-        $con=conectarBase();
+        //$con=conectarBase();
+        $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $correo = $_REQUEST['correo'];
         $nombre = $_REQUEST['nombre'];
         $primerApellido = $_REQUEST['paterno'];

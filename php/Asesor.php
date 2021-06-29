@@ -69,7 +69,7 @@ class Asesor
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
-                       header('location: asesor.php?correo=' . $correo);
+            header('location: asesor.php?correo=' . $correo);
         } else if ($variable == 'continuar') {
 
             $dia = date("d") - 1;
@@ -126,7 +126,7 @@ class Asesor
     }
 
 
-    public static function retomarProyecto($noFolio, $equipo, $coAsesor,$noControl,$nombre,$primerApellido,$segundoApellido)
+    public static function retomarProyecto($noFolio, $equipo, $coAsesor, $noControl, $nombre, $primerApellido, $segundoApellido, $proposito)
     {
         //Numero de control
         $token2 = strtok($noControl, " ");
@@ -150,23 +150,27 @@ class Asesor
             $token4 = strtok(" ");
         }
         //segundo apellido
-        $token5= strtok($segundoApellido, " ");
+        $token5 = strtok($segundoApellido, " ");
         $aSA = array();
         while ($token5 !== false) {
             array_push($aSA, $token5);
-            $token5= strtok(" ");
+            $token5 = strtok(" ");
         }
-        $consulta =mysqli_query($con,"INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,)");
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-foreach($aNC as $contador){
-$contador=$contador+1;
-}
-for($i=0;$i<$contador;$i++){
-$consulta =mysqli_query($con,"SELECT * FROM integrantes where noControl=$aNC[$i]");
-if(mysqli_num_rows($consulta) != 0){
+        $consulta = mysqli_query($con, "INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,$proposito,now(),null");
 
-}
-}
+        foreach ($aNC as $contador) {
+            $contador = $contador + 1;
+        }
+        for ($i = 0; $i < $contador; $i++) {
+            $consulta = mysqli_query($con, "SELECT * FROM integrantes where noControl=$aNC[$i]");
+            if (mysqli_num_rows($consulta) != 0) {
+                //no hace nada 
+            } else {
+                $consulta = mysqli_query($con, "INSERT INTO integrantes (noControl,nombre,primerApellido,segundoApellido) VALUES ");
+            }
+        }
+
 
     }
 

@@ -16,5 +16,6 @@ function conectar()
     $paterno = $_REQUEST['paterno'];
     $materno = $_REQUEST['materno'];
     $folio = $_REQUEST['folio'];
-    Asesor::retomarProyecto($folio, null, null, $noControlA, $nombre, $paterno, $materno);
+    $proposito = $_REQUEST['proposito'];
+    Asesor::retomarProyecto($folio, null, null, $noControlA, $nombre, $paterno, $materno,$proposito);
 }
