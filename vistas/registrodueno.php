@@ -111,7 +111,7 @@ session_start();
                             <input class="txt text-input " type="text " name="primres"        id="primres"        value="<?php echo $primres?>" hidden/>
                             <input class="txt text-input " type="text " name="correo"         id="correo"         value="<?php echo $correo?>"hidden/>
                             <input class="txt text-input " type="text " name="justificacion"  id="justificacion"  value="<?php echo $justificacion?>"  hidden/>
-                            <input class="txt text-input " type="text " name="titulo"         id="titulo"        value="<?php echo $titulo?>"hidden />
+                            <input class="txt text-input " type="text " name="titulo"         id="titulo"         value="<?php echo $titulo?>"hidden />
                             <input class="txt text-input " type="text " name="alcances"       id="alcances"       value="<?php echo $alcances?>" hidden/>
                             <input class="txt text-input " type="text " name="resumen"        id="resumen"        value="<?php echo $resumen?>"hidden/>
                             <input class="txt text-input " type="text " name="folio"          id="folio"          value="<?php echo $folio?>"hidden/>
