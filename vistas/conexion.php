@@ -1,16 +1,22 @@
 <?php
 
+function conectarBase(){
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-
+}
 
 
 //prueba();
 //login($con);
-registraUsuario($con);
+conexionAClases($con);
 //conecta($con);
-function prueba()
+function conexionAClases($con)
 {
-   print_r('hola');
+   if (isset($_POST['registrar'])) {
+      header('location: registrousuario.html');
+   }
+   else if (isset($_POST['login'])) {
+login($con);
+   }
 }
 
 function login($conexion)
@@ -108,27 +114,7 @@ function conecta($conexion)
 }
 function registraUsuario($conexion)
 {
-   print_r('por aca');
-
-   $correo = $_REQUEST['correo'];
-   $nombre = $_REQUEST['nombre'];
-   $primerApellido = $_REQUEST['paterno'];
-   $segundoApellido = $_REQUEST['materno'];
-   $noControl = $_REQUEST['noControl'];
-   $contrasena = $_REQUEST['contrasena'];
-   $contrasena2 = $_REQUEST['contrasena2'];
-   $carrera = $_REQUEST['carrera'];
-   $tipoUsuario = 'Asesor';
-if($contrasena==$contrasena2){
-   $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
-   mysqli_query($conexion, $sql);
-   mysqli_close($conexion);
-   header('location: registrousuario.html');
-}
-else{
-
-   echo "<p> esta mal la contraseña</p>";
-}
+ 
 }
 
 function registraDueno($conexion)

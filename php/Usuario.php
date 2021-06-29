@@ -12,42 +12,29 @@ class Usuario{
     private $tipoUsuario;
     private $tiempoInactividad;
 
-    /**
-     * Usuario constructor.
-     * @param $nombre
-     * @param $primerApellido
-     * @param $segundoApellido
-     * @param $noControl
-     * @param $correo
-     * @param $contraseña
-     * @param $carrera
-     * @param $tipoUsuario
-     * @param $tiempoInactividad
-     */
-    public function __construct($nombre, $primerApellido, $segundoApellido, $noControl, $correo, $contraseña, $carrera, $tipoUsuario, $tiempoInactividad)
-    {
-        $this->nombre = $nombre;
-        $this->primerApellido = $primerApellido;
-        $this->segundoApellido = $segundoApellido;
-        $this->noControl = $noControl;
-        $this->correo = $correo;
-        $this->contraseña = $contraseña;
-        $this->carrera = $carrera;
-        $this->tipoUsuario = $tipoUsuario;
-        $this->tiempoInactividad = $tiempoInactividad;
-    }
 
+    public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario){
+        print_r('por aca');
 
-    public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contraseña,$carrera,$tipoUsuario,$tiempoInactividad){
-        $this->nombre = $nombre;
-        $this->primerApellido = $primerApellido;
-        $this->segundoApellido = $segundoApellido;
-        $this->noControl = $noControl;
-        $this->correo = $correo;
-        $this->contraseña = $contraseña;
-        $this->carrera =  $carrera;
-        $this->tipoUsuario = $tipoUsuario;
-        $this->tiempoInactividad = $tiempoInactividad;
+        $correo = $_REQUEST['correo'];
+        $nombre = $_REQUEST['nombre'];
+        $primerApellido = $_REQUEST['paterno'];
+        $segundoApellido = $_REQUEST['materno'];
+        $noControl = $_REQUEST['noControl'];
+        $contrasena = $_REQUEST['contrasena'];
+        $contrasena2 = $_REQUEST['contrasena2'];
+        $carrera = $_REQUEST['carrera'];
+        $tipoUsuario = 'Asesor';
+     if($contrasena==$contrasena2){
+        $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
+        mysqli_query($con, $sql);
+        mysqli_close($con);
+        header('location: registrousuario.html');
+     }
+     else{
+     
+        echo "<p> esta mal la contraseña</p>";
+     }
     }
 
     public function inicioSesion($correo,$contraseña){

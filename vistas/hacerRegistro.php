@@ -32,4 +32,7 @@ function hacer()
     if (isset($_POST['terminar'])) {
         Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, 'Coasesor', ' ', ' ', $folio);
     }
+    else{
+echo "<p>si sirve el isset</p>"
+    }
 }
