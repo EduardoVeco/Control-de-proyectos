@@ -12,10 +12,10 @@ conexionAClases($con);
 function conexionAClases($con)
 {
    if (isset($_POST['registrar'])) {
-      header('location: registrousuario.html');
-   }
-   else if (isset($_POST['login'])) {
-login($con);
+      registraUsuario($con);
+      //header('location: registrousuario.html');
+   } else if (isset($_POST['login'])) {
+      login($con);
    }
 }
 
@@ -114,7 +114,26 @@ function conecta($conexion)
 }
 function registraUsuario($conexion)
 {
- 
+   print_r('por aca');
+   //$con=conectarBase();
+   $correo = $_REQUEST['correo'];
+   $nombre = $_REQUEST['nombre'];
+   $primerApellido = $_REQUEST['paterno'];
+   $segundoApellido = $_REQUEST['materno'];
+   $noControl = $_REQUEST['noControl'];
+   $contrasena = $_REQUEST['contrasena'];
+   $contrasena2 = $_REQUEST['contrasena2'];
+   $carrera = $_REQUEST['carrera'];
+   $tipoUsuario = 'Asesor';
+   if ($contrasena == $contrasena2) {
+      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
+      mysqli_query($conexion, $sql);
+      mysqli_close($conexion);
+      header('location: registrousuario.html');
+   } else {
+
+      echo "<p> esta mal la contraseña</p>";
+   }
 }
 
 function registraDueno($conexion)
@@ -146,7 +165,7 @@ function registraDueno($conexion)
 
    mysqli_query($conexion, $sql);
    mysqli_close($conexion);
-   header('location: registroequipo.php');
+   header('location: index.html');
 }
 
 function registraEquipo($conexion)
