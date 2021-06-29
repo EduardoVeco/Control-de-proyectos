@@ -30,9 +30,9 @@ function hacer()
     $nombre = '';
     $nombre = $nombre . $nom .' '. $app.' ' . $apm;
     if (isset($_POST['terminar'])) {
-        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, 'Coasesor', ' ', ' ', $folio);
+        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, 'Coasesor', ' ', ' ', $folio,'terminar');
     }
     else{
-echo "<p>si sirve el isset</p>"
+echo "<p>si sirve el isset</p>";
     }
 }

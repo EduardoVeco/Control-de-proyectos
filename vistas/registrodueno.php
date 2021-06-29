@@ -12,7 +12,7 @@ $resumen = $_REQUEST['resumen'];
 $folio = $_REQUEST['folio'];
 $tempFolio = $_REQUEST['tempFolio'];
 
-$folio = $_REQUEST['folio'];
+
 
 print_r($primjust);
 print_r($primtit);
@@ -37,17 +37,6 @@ if (!isset($_SESSION['correo'])) {
 }
 
 
-$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-
-session_start();
-if (!isset($_SESSION['correo'])) {
-    header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
-        header('location: logout.php');
-    }
-}
-print_r($folio);
 
 ?>
 
