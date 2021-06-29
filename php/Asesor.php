@@ -126,8 +126,48 @@ class Asesor
     }
 
 
-    public function retomarProyecto($noFolio, $equipo, $coAsesor)
+    public static function retomarProyecto($noFolio, $equipo, $coAsesor,$noControl,$nombre,$primerApellido,$segundoApellido)
     {
+        //Numero de control
+        $token2 = strtok($noControl, " ");
+        $aNC = array();
+        while ($token2 !== false) {
+            array_push($aNC, $token2);
+            $token2 = strtok(" ");
+        }
+        //nombre
+        $token3 = strtok($nombre, " ");
+        $aNom = array();
+        while ($token3 !== false) {
+            array_push($aNom, $token3);
+            $token3 = strtok(" ");
+        }
+        //primer apellido
+        $token4 = strtok($primerApellido, " ");
+        $aPA = array();
+        while ($token4 !== false) {
+            array_push($aPA, $token4);
+            $token4 = strtok(" ");
+        }
+        //segundo apellido
+        $token5= strtok($segundoApellido, " ");
+        $aSA = array();
+        while ($token5 !== false) {
+            array_push($aSA, $token5);
+            $token5= strtok(" ");
+        }
+        $consulta =mysqli_query($con,"INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,)");
+        $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
+foreach($aNC as $contador){
+$contador=$contador+1;
+}
+for($i=0;$i<$contador;$i++){
+$consulta =mysqli_query($con,"SELECT * FROM integrantes where noControl=$aNC[$i]");
+if(mysqli_num_rows($consulta) != 0){
+
+}
+}
+
     }
 
     public function actualizarProyecto($evidencia, $porcentaje)
