@@ -1,16 +1,16 @@
 <?php
-$folio=$_REQUEST['folio'] 
+$folio = $_REQUEST['folio'];
 
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,11 +38,11 @@ session_start();
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -84,7 +84,7 @@ session_start();
                         <div class="row">
                             <div class="col-4 justify-content-left input-group">
                                 <p> Introduzca el correo del asesor</p>
-                                <input class="txt text-buscar" type="text" placeholder="Correo institucional" name="correo" id="correo" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required/>
+                                <input class="txt text-buscar" type="text" placeholder="Correo institucional" name="correo" id="correo" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required />
                                 <button class="btn btn-buscar " type="submit" id="btnCorreo"><img class="fa fa-icon " src="../imagenes/search.png " /> </button>
                             </div>
                             <div class="col-4">
@@ -133,19 +133,19 @@ session_start();
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
-                <br>
-                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                <br>
-            </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
+                    <br>
+                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                    <br>
+                </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                <br>
+                    <br>
                     Metepec, Edo. De México, México C.P. 52149
-                <br>         
-                    Tel. (52) (722) 2 08 72 00     
+                    <br>
+                    Tel. (52) (722) 2 08 72 00
                 </label>
             </div>
         </div>

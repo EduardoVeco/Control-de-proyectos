@@ -1,5 +1,5 @@
 <?php
-//$error = $_REQUEST['error'];
+$error = $_REQUEST['error'];
 $correo = $_REQUEST['correo'];
 $contrasena = $_REQUEST['contrasena'];
 ?>
@@ -63,36 +63,35 @@ $contrasena = $_REQUEST['contrasena'];
                     <form action="conexion.php" method="POST" id="login">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Correo </p>
-                            <input class="txt text-input" type="text " name="correo" id="correo" value="<?php echo $correo ?>" data-toggle="tooltip" data-placement="right" 
-                            title="El correo debe ser institucional ejem@toluca.tecnm.mx" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required />
+                            <input class="txt text-input" type="text " name="correo" id="correo" value="<?php echo $correo ?>" data-toggle="tooltip" data-placement="right" title="El correo debe ser institucional ejem@toluca.tecnm.mx" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required />
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" value="<?php echo $contrasena ?>"  data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" required />
+                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" value="<?php echo $contrasena ?>" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" required />
 
                         </div>
 
-                    <?php
-                    if (!empty($error)) {
-                        if ($error == true) {
-                    ?>
-                            <p class="pa pa-texto" style="color: #D9534F;">Contraseña o correo incorrectos</p>
-                    <?php
+                        <?php
+                        if (!empty($error)) {
+                            if ($error == true) {
+                        ?>
+                                <p class="pa pa-texto" style="color: #D9534F;">Contraseña o correo incorrectos</p>
+                        <?php
+                            }
+                        } else {
                         }
-                    } else {
-                    }
-                    ?>
+                        ?>
 
-                    <div class="row">
-                        <div class="col-6">
-                            <button class="btn btn-boton " type="submit" onclick="location.href='registrousuario.html'"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-boton " type="submit" onclick="location.href='registrousuario.html'"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
 
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-boton " type="submit" name="login" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesion</button>
+
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-boton " type="submit" name="login" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesion</button>
-
-                        </div>
-                    </div>
                     </form>
                     <p id="advertencias"></p>
                     <br>
