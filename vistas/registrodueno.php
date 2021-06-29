@@ -9,6 +9,7 @@ $titulo = $_REQUEST['titulo'];
 $alcances = $_REQUEST['alcances'];
 $resumen = $_REQUEST['resumen'];
 $folio=$_REQUEST['folio'];
+$tempFolio=$_REQUEST['tempFolio'];
 print_r($primjust);
 print_r($primtit);
 print_r($primalc);
@@ -18,7 +19,7 @@ print_r($titulo);
 print_r($alcances);
 print_r($resumen);
 print_r($correo);
-<<<<<<< Updated upstream
+print_r($tempFolio);
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
@@ -29,9 +30,6 @@ session_start();
                 header('location: logout.php');
             }
         }
-=======
-print_r($folio);
->>>>>>> Stashed changes
 
 ?>
 

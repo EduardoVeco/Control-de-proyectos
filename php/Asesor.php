@@ -30,10 +30,11 @@ $i=1;
        if (mysqli_num_rows($consulta) != 0) {
 while($i>0){
   
-    $consulta=mysqli_query($con,"SELECT * from proyectos where noFolio='$str'");
+    $consult=mysqli_query($con,"SELECT * from proyectos where noFolio='$str'");
    
-    if (mysqli_num_rows($consulta) != 0) {
+    if (mysqli_num_rows($consult) != 0) {
         $num=$num+1;
+        $str='';
         $str=$str.$aprobacion.$dia.$mes.$año.$num;
     }
     else{
@@ -45,13 +46,14 @@ if($aprobacion=='A'){
 $aprobacion='APROBADO';
 }
 $consulta=mysqli_query($con,"INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','perrito')");
-       }else{
+
+}else{
         if($aprobacion=='A'){
             $aprobacion='APROBADO';
             }
         $consulta=mysqli_query($con,"INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','perrito')");
-
        }
+       $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");       
     }
 
     public function retomarProyecto($noFolio, $equipo, $coAsesor)
