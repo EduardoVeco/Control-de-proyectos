@@ -2,7 +2,15 @@
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-
+session_start();
+        if(!ISSET($_SESSION['correo'])){
+            header('location:index.php');
+        }else{
+            if((time() - $_SESSION['time']) > 930){
+                header('location: logout.php');
+            }
+        }
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +38,11 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 </head>
 
 <body class="body">
-
+        <?php
+            require 'conexion.php';
+            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+            $fetch = $query->fetch_array();
+        ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
