@@ -192,7 +192,8 @@ propositoForm.addEventListener('submit', e => {
             if (campos.proposito) {
                 console.log('Aqui ya pasaste a la otra ventana carnal')
                 console.log(document.getElementById('proposito').value)
-                window.location = "formarequipo.php?noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;;
+                propositoFinal = document.getElementById('proposito')
+                window.location = "formarequipo.php?noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio + '&proposito=' + propositoFinal;
                 if (campos.nombre && campos.paterno && campos.materno) {
                     //  noControl.push(campos.nc)
                     //  nombre.push(document.getElementById('nombre').value)
