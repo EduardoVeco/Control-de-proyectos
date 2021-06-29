@@ -71,7 +71,6 @@ $contrasena = $_REQUEST['contrasena'];
                             <input class="txt text-input " type="password" name="contrasena" id="contrasena" value="<?php echo $contrasena ?>"  data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" required />
 
                         </div>
-                    </form>
 
                     <?php
                     if (!empty($error)) {
@@ -94,6 +93,7 @@ $contrasena = $_REQUEST['contrasena'];
 
                         </div>
                     </div>
+                    </form>
                     <p id="advertencias"></p>
                     <br>
                     <div class="justify-content-center" style="text-align: center;">
