@@ -1,6 +1,5 @@
 const registro = document.getElementById("registrodueno")
 const inputs = document.querySelectorAll('#registrodueno input')
-const selects = document.querySelectorAll('#registrodueno select')
 const buttons = document.querySelectorAll('#registrodueno button')
 
 
@@ -19,9 +18,6 @@ const campos = {
 
 const validar = (e) => {
     switch (e.target.name) {
-        case "noControl":
-            validarCampo(expreg.noControl, e.target, 'noControl')
-            break;
         case "nombre":
             validarCampo(expreg.nombre, e.target, 'nombre')
             break;
@@ -30,14 +26,6 @@ const validar = (e) => {
             break;
         case "materno":
             validarCampo(expreg.nombre, e.target, 'materno')
-            break;
-        case "tdueno":
-            if (e.target.value != 'Seleccione una opcion') {
-                document.getElementById('tdueno').classList.remove('slct-combo-error')
-                campos.tipodueno = true
-            } else {
-                campos.tipodueno = false
-            }
             break;
     }
 }
@@ -59,33 +47,45 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validar);
 });
 
-selects.forEach((select) => {
-    select.addEventListener('blur', validar);
-    select.addEventListener('change', validar);
-});
-
 registro.addEventListener('submit', e => {
     e.preventDefault()
-
-    if (campos.nombre && campos.paterno && campos.materno && campos.noControl && campos.tipodueno) {
+    console.log(campos.nombre)
+    console.log(campos.paterno)
+    console.log(campos.materno)
+    if (campos.nombre && campos.paterno && campos.materno) {
         campos.nombre = false
         campos.paterno = false
         campos.materno = false
-        campos.noControl = false
-        campos.tipodueno = false
 
 
-        registro.reset()
+        var nom = document.getElementById('nombre').value
+        var pat = document.getElementById('paterno').value
+        var mat = document.getElementById('materno').value
+
         if (e.submitter.id == 'terminar') {
-            console.log('terminar')
-            window.location.href = "asesor.html"
+
+            window.location.href = "asesor.php?nom=" + nom
+
         } else if (e.submitter.id == 'siguiente') {
-            console.log('siguiente')
-            window.location.href = "registroequipo.html"
+
+            console.log('terminar')
+            $.ajax({
+                type: 'REQUEST',
+                url: 'prueba.php',
+                data: {
+                    nom: nom,
+                    pat: pat,
+                    mat: mat
+                },
+                success: function(data) {
+                    //  alert("success!");
+                    console.log(data);
+                }
+            });
+
+
+            window.location.href = "prueba.php?nom=" + nom
         }
-    } else if (!campos.tipodueno) {
-        document.getElementById('tdueno').classList.add('slct')
-        document.getElementById('tdueno').classList.add('slct-combo-error')
     } else {
         document.getElementById("mensaje").innerHTML = "<p>Algunos campos no son validos</p>";
         document.getElementById('mensajeCont').classList.remove('div')

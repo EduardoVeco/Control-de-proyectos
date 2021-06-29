@@ -159,7 +159,3 @@ function registraAsesor($conexion)
     mysqli_close($conexion);
     header('location: registroequipo.html');
 }
-function pruba(){
-print_r('hola');
-
-}

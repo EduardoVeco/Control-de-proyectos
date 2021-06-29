@@ -9,18 +9,6 @@ var noControlA = []
 var nombre = []
 var paterno = []
 var materno = []
-    /*
-    var noControl
-    var nombre
-    var paterno
-    var materno*/
-    //noControl.push(JSON.parse(nc))
-    /*
-    noControlA.push(JSON.parse(n))
-    nombre.push(JSON.parse(nom))
-    paterno.push(JSON.parse(ap))
-    materno.push(JSON.parse(am))
-    */
 
 noControlA += ' ' + JSON.parse(n)
 nombre += ' ' + JSON.parse(nom)

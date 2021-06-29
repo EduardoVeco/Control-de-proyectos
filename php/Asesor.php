@@ -7,25 +7,21 @@ class Asesor extends Usuario
         parent::__construct($nombre, $primerApellido, $segundoApellido, $noControl, $correo, $contraseña, $carrera, $tipoUsuario, $tiempoInactividad);
     }
 
-    public function consultarProyectos($noControl){
-
+    public function consultarProyectos($noControl)
+    {
     }
 
-    public function registrarProyecto($titulo,$justificacion,$alcance,$resumen,$priTitulo,$priJustificacion,$priAlcance,$priResumen){
+    public function registrarProyecto($titulo, $justificacion, $alcance, $resumen, $priTitulo, $priJustificacion, $priAlcance, $priResumen, $asesor, $dueno, $fecha_registro, $directorio, $aprobacion)
+    {
 
         //return $folio;   se debe generar el folio primero
     }
 
-    public function terminoRegistroProyecto($aprobacion,$equipo,$asesor,$coAsesor,$dueño,$noControlDueño,$tipoDueño){
-
+    public function retomarProyecto($noFolio, $equipo, $coAsesor)
+    {
     }
 
-    public function retomarProyecto($equipo,$asesor,$coAsesor){
-
+    public function actualizarProyecto($evidencia, $porcentaje)
+    {
     }
-
-    public function actualizarProyecto($evidencia,$porcentaje){
-
-    }
-
 }
