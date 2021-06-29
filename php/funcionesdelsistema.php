@@ -29,7 +29,7 @@ class FuncionesDelSistema
 
     public static function comparar($justificacion, $alcances, $resumen, $titulo, $tituloOri, $justificacionOri, $alcancesOri, $resumenOri, $correo)
     {
-        print_r('funcionesssssss');
+       
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $consulta = mysqli_query($con, "select * from primitivas");
 
@@ -193,11 +193,7 @@ class FuncionesDelSistema
                 if ($porcentajeAux > $porcentaje) {
                     $porcentaje = $porcentajeAux;
                 }
-                //print_r($porcenTit);
-                //print_r($porcenJus);
-                //print_r($porcenAlc);
-                //print_r($porcenRes);
-                //print_r($porcentaje);
+           
 
                 if ($porcentaje <= 50) {
                     $str = '';
@@ -216,11 +212,29 @@ class FuncionesDelSistema
                     foreach ($resumen as $jus3) {
                         $str2 = $str2 . ' ' . $jus3;
                     }
-                    header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri.'&correo='.$correo);
+                    $folio='A';
+                    header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio);
                 } else if ($porcentaje <= 60 && $porcentaje > 50) {
-                    print_r('else if');
+                    $str = '';
+                    $str1 = '';
+                    $str2 = '';
+                    $str3 = '';
+                    foreach ($justificacion as $jus) {
+                        $str = $str . ' ' . $jus;
+                    }
+                    foreach ($titulo as $jus2) {
+                        $str3 = $str3 . ' ' . $jus2;
+                    }
+                    foreach ($alcances as $jus1) {
+                        $str1 = $str1 . ' ' . $jus1;
+                    }
+                    foreach ($resumen as $jus3) {
+                        $str2 = $str2 . ' ' . $jus3;
+                    }
+                    $folio='R';
+                    header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio);
                 } else {
-                    print_r('else');
+                    print_r('Tu pryotecto sobre pasa el maximo de similitud');
                 }
             }
         } else {

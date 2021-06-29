@@ -4,8 +4,8 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 
 
-prueba();
-//conecta($con);
+//prueba();
+conecta($con);
 //conecta($con);
 function prueba(){
 print_r('hola');
