@@ -11,6 +11,31 @@ function prueba(){
 print_r('hola');
 
 }
+
+funtion login($conexion){
+   if(ISSET($_POST['login'])){
+      if(!empty($_POST['correo']) && !empty($_POST['contrasena'])){
+         $username = $_POST['correo'];
+         $password = $_POST['contrasena'];
+         $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$username' && `contrasenia` = '$password' ") or die(mysqli_errno());
+         $row = $query->num_rows;
+         $fetch = $query->fetch_array();
+         if($row > 0){
+            session_start();
+            $_SESSION['correo'] = $fetch['correo'];
+            $_SESSION['time'] = time();
+            echo "<script>window.location='proyecto.php'</script>";
+         }else{
+            echo "<script>window.location='index1.php'</script>";
+         }
+      }else{
+            echo "<script>window.location='index1.php'</script>";
+      }
+      
+   };
+   funtion
+}
+
 function cambioContrasena($conexion){
    $correo = $_REQUEST['correo'];
 $contra1=$_REQUEST['contrasenaA'];
