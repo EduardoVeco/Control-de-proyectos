@@ -5,7 +5,8 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 
 //prueba();
-login($con);
+//login($con);
+registraUsuario($con);
 //conecta($con);
 function prueba()
 {
@@ -115,14 +116,19 @@ function registraUsuario($conexion)
    $segundoApellido = $_REQUEST['materno'];
    $noControl = $_REQUEST['noControl'];
    $contrasena = $_REQUEST['contrasena'];
+   $contrasena2 = $_REQUEST['contrasena2'];
    $carrera = $_REQUEST['carrera'];
    $tipoUsuario = 'Asesor';
-
+if($contrasena==$contrasena2){
    $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
-
    mysqli_query($conexion, $sql);
    mysqli_close($conexion);
    header('location: registrousuario.html');
+}
+else{
+
+   echo "<p> esta mal la contraseña</p>";
+}
 }
 
 function registraDueno($conexion)
