@@ -13,7 +13,7 @@ class Asesor
     public static function registrarProyecto($titulo, $justificacion, $alcance, $resumen, $priTitulo, $priJustificacion, $priAlcance, $priResumen, $correo, $dueno, $coasesor, $fecha_registro, $directorio, $aprobacion, $variable)
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-        if ($variable = 'terminar') {
+        if ($variable == 'terminar') {
             $dia = date("d") - 1;
             $mes = date("m");
             $año = date("Y");
@@ -44,24 +44,33 @@ class Asesor
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 }
-                $fecha = $fecha . $año . '-' . $dia . '-' . $mes;
+                $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
                 $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                if (!mkdir($ruta, 0777, false)) {
+                    die('Fallo al crear las carpetas...');
+                } else {
+                    print_r('Si le cree wey');
+                }
+                header('location: asesor.php?correo=' . $correo);
             } else {
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 }
-                $fecha = $fecha . $año . '-' . $dia . '-' . $mes;
+                $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
                 $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',$num,'$fecha','$ruta')");
+                if (!mkdir($ruta, 0777, false)) {
+                    die('Fallo al crear las carpetas...');
+                } else {
+                    print_r('Si le cree wey');
+                }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
-        } 
-        
-        
-        else if ($variable = 'continuar') {
+                       header('location: asesor.php?correo=' . $correo);
+        } else if ($variable == 'continuar') {
 
             $dia = date("d") - 1;
             $mes = date("m");
@@ -69,7 +78,7 @@ class Asesor
             $num = 1;
             $str = '';
             $fecha = '';
-            $fecha = $fecha . $año . '-' . $dia . '-' . $mes;
+            $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
             $str = $str . $aprobacion . $dia . $mes . $año . $num;
             $i = 1;
             $consulta = mysqli_query($con, "SELECT * from proyectos where noFolio='$str'");
@@ -93,7 +102,7 @@ class Asesor
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 }
-                $fecha = $fecha . $año . '-' . $dia . '-' . $mes;
+                $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
                 $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','$ruta')");
@@ -101,12 +110,13 @@ class Asesor
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 }
-                $fecha = $fecha . $año . '-' . $dia . '-' . $mes;
+                $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
                 $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','ACTIVO','$aprobacion',$num,'$fecha','$ruta')");
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
+            header('location: registroequipo.php?folio=' . $str);
         }
     }
 
