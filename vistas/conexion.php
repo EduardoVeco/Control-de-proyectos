@@ -5,73 +5,82 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 
 //prueba();
-conecta($con);
+login($con);
 //conecta($con);
-function prueba(){
-print_r('hola');
-
+function prueba()
+{
+   print_r('hola');
 }
 
-funtion login($conexion){
-   if(ISSET($_POST['login'])){
-      if(!empty($_POST['correo']) && !empty($_POST['contrasena'])){
-         $username = $_POST['correo'];
-         $password = $_POST['contrasena'];
-         $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$username' && `contrasenia` = '$password' ") or die(mysqli_errno());
-         $row = $query->num_rows;
-         $fetch = $query->fetch_array();
-         if($row > 0){
-            session_start();
-            $_SESSION['correo'] = $fetch['correo'];
-            $_SESSION['time'] = time();
-            echo "<script>window.location='proyecto.php'</script>";
-         }else{
-            echo "<script>window.location='index1.php'</script>";
+function login($conexion)
+{
+   //if (isset($_POST['login'])) {
+   if (!empty($_POST['correo']) && !empty($_POST['contrasena'])) {
+      $username = $_POST['correo'];
+      $password = $_POST['contrasena'];
+      $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
+      $result = mysqli_query($conexion, $sql);
+      print_r($result);
+
+      if (mysqli_num_rows($result) == 1) {
+         $mostrar = mysqli_fetch_array($result);
+         session_start();
+         $_SESSION['correo'] = $mostrar['correo'];
+         $_SESSION['time'] = time();
+
+         if ($mostrar['tipoUsuario'] == 'Asesor') {
+            header('location: asesor.php?correo=' . $username);
+         } else {
+            header('location: dptoinvestigacion.php?correo=' . $username);
          }
-      }else{
-            echo "<script>window.location='index1.php'</script>";
+         //echo "<script>window.location='proyecto.php'</script>";
+      } else {
+         header('location: index1.php?correo=' . $username . '&contrasena=' . $password);
+         //   echo "<script>window.location='index1.php'</script>";
       }
-      
-   };
-   funtion
-}
+      /* } else {
 
-function cambioContrasena($conexion){
-   $correo = $_REQUEST['correo'];
-$contra1=$_REQUEST['contrasenaA'];
-$contra2=$_REQUEST['contrasenaN'];
-$contra3=$_REQUEST['contrasenaNN'];
-print_r($correo);
-$sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
-   $result = mysqli_query($conexion, $sql);
-   if ($result && mysqli_num_rows($result) == 1) {
-      if($contra2==$contra3){
-         print_r('ando aca'); 
-         $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
-         mysqli_query($conexion, $sqll);
+         echo "<script>window.location='index1.php'</script>";
       }
-   }
-   else{
+   };*/
    }
 }
 
-function olvidoContrasena($conexion){
+function cambioContrasena($conexion)
+{
    $correo = $_REQUEST['correo'];
-$contra2=$_REQUEST['contrasenaN'];
-$contra3=$_REQUEST['contrasenaNN'];
-print_r($correo);
-$sql = "SELECT * from usuarios where correo='$correo'";
+   $contra1 = $_REQUEST['contrasenaA'];
+   $contra2 = $_REQUEST['contrasenaN'];
+   $contra3 = $_REQUEST['contrasenaNN'];
+   print_r($correo);
+   $sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
    $result = mysqli_query($conexion, $sql);
    if ($result && mysqli_num_rows($result) == 1) {
-      if($contra2==$contra3){
-         print_r('ando aca'); 
+      if ($contra2 == $contra3) {
+         print_r('ando aca');
          $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
          mysqli_query($conexion, $sqll);
       }
+   } else {
    }
-   else{
-   }
+}
 
+function olvidoContrasena($conexion)
+{
+   $correo = $_REQUEST['correo'];
+   $contra2 = $_REQUEST['contrasenaN'];
+   $contra3 = $_REQUEST['contrasenaNN'];
+   print_r($correo);
+   $sql = "SELECT * from usuarios where correo='$correo'";
+   $result = mysqli_query($conexion, $sql);
+   if ($result && mysqli_num_rows($result) == 1) {
+      if ($contra2 == $contra3) {
+         print_r('ando aca');
+         $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
+         mysqli_query($conexion, $sqll);
+      }
+   } else {
+   }
 }
 
 
@@ -100,7 +109,7 @@ function conecta($conexion)
 
       $query = http_build_query($query);
       header("Location: index1.php?$query");
-   }  
+   }
 }
 function registraUsuario($conexion)
 {
@@ -124,63 +133,63 @@ function registraUsuario($conexion)
 
 function registraDueno($conexion)
 {
-    //print_r('por aca');
+   //print_r('por aca');
 
-    $noFolio="";
-    $correo = $_REQUEST['correo'];
-    $nombre = $_REQUEST['nombre'];
-    $primerApellido = $_REQUEST['paterno'];
-    $segundoApellido = $_REQUEST['materno'];
-    $primjust = $_REQUEST['primjust'];
-    $primtit = $_REQUEST['primtit'];
-    $primalc = $_REQUEST['primalc'];
-    $primres = $_REQUEST['primres'];
-    $duenio = $nombre-' '.$primerApellido.' '.$segundoApellido;
-    $aprobado = $_REQUEST['aprobado'];
-    $directorio = "/documentos/$noFolio/";
-    $titulo = $_REQUEST['titulo'];
-    $justificacion = $_REQUEST['justificacion'];
-    $alcances = $_REQUEST['alcances'];
-    $resumen = $_REQUEST['resumen'];
+   $noFolio = "";
+   $correo = $_REQUEST['correo'];
+   $nombre = $_REQUEST['nombre'];
+   $primerApellido = $_REQUEST['paterno'];
+   $segundoApellido = $_REQUEST['materno'];
+   $primjust = $_REQUEST['primjust'];
+   $primtit = $_REQUEST['primtit'];
+   $primalc = $_REQUEST['primalc'];
+   $primres = $_REQUEST['primres'];
+   $duenio = $nombre - ' ' . $primerApellido . ' ' . $segundoApellido;
+   $aprobado = $_REQUEST['aprobado'];
+   $directorio = "/documentos/$noFolio/";
+   $titulo = $_REQUEST['titulo'];
+   $justificacion = $_REQUEST['justificacion'];
+   $alcances = $_REQUEST['alcances'];
+   $resumen = $_REQUEST['resumen'];
 
-    $sql = "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$noFolio','$correo','$duenio','null','$titulo','$justificacion','$alcances','$resumen','Inactivo','$aprobado',0.0,sysdate,'$directorio'";
+   $sql = "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$noFolio','$correo','$duenio','null','$titulo','$justificacion','$alcances','$resumen','Inactivo','$aprobado',0.0,sysdate,'$directorio'";
 
-    mysqli_query($conexion, $sql);
+   mysqli_query($conexion, $sql);
 
-    $sql ="INSERT INTO primitivas(noFolio,tituloPRimitivas,justificacionPRimitivas,alcancesPRimitivas,resumenPRimitivas) VALUES ('$noFolio','$primtit','$primjust','$primalc')";
+   $sql = "INSERT INTO primitivas(noFolio,tituloPRimitivas,justificacionPRimitivas,alcancesPRimitivas,resumenPRimitivas) VALUES ('$noFolio','$primtit','$primjust','$primalc')";
 
-    mysqli_query($conexion,$sql);
-    mysqli_close($conexion);
-    header('location: registroequipo.php');
+   mysqli_query($conexion, $sql);
+   mysqli_close($conexion);
+   header('location: registroequipo.php');
 }
 
 function registraEquipo($conexion)
 {
-    //print_r('por aca');
+   //print_r('por aca');
 
-    $noEquipo = $_REQUEST['noEquipo'];
-    $proposito = $_REQUEST['proposito'];
-    $noControl = $_REQUEST['noControl'];
+   $noEquipo = $_REQUEST['noEquipo'];
+   $proposito = $_REQUEST['proposito'];
+   $noControl = $_REQUEST['noControl'];
 
-    $sql = "INSERT INTO equipos(noEquipo,proposito,noControl) VALUES ('$noEquipo','$proposito','$noControl')";
+   $sql = "INSERT INTO equipos(noEquipo,proposito,noControl) VALUES ('$noEquipo','$proposito','$noControl')";
 
-    mysqli_query($conexion, $sql);
-    mysqli_close($conexion);
-    header('location: registroequipo.html');
+   mysqli_query($conexion, $sql);
+   mysqli_close($conexion);
+   header('location: registroequipo.html');
 }
 
 function registraAsesor($conexion)
 {
-    //print_r('por aca');
+   //print_r('por aca');
 
-    $nombre = $_REQUEST['nombre'];
-    $primerApellido = $_REQUEST['paterno'];
-    $segundoApellido = $_REQUEST['materno'];
-    $noControl = $_REQUEST['noControl'];
+   $nombre = $_REQUEST['nombre'];
+   $primerApellido = $_REQUEST['paterno'];
+   $segundoApellido = $_REQUEST['materno'];
+   $noControl = $_REQUEST['noControl'];
 
-    $sql = "INSERT INTO usuarios(nombre,primerApellido,segundoApellido,noControl) VALUES ('$nombre','$primerApellido','$segundoApellido','$noControl')";
+   $sql = "INSERT INTO usuarios(nombre,primerApellido,segundoApellido,noControl) VALUES ('$nombre','$primerApellido','$segundoApellido','$noControl')";
 
-    mysqli_query($conexion, $sql);
-    mysqli_close($conexion);
-    header('location: registroequipo.html');
+   mysqli_query($conexion, $sql);
+   mysqli_close($conexion);
+   header('location: registroequipo.html');
 }

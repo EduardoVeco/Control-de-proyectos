@@ -35,14 +35,14 @@ for ($i = 2; $i < count($arrayArchivos); $i++) {
 }
 
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -82,11 +82,11 @@ session_start();
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -223,7 +223,7 @@ session_start();
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png" /> Cancelar</button>
-                                            <button class="btn btn-boton-ext " type="submit"  form="actualizar"><img class="fa fa-icon " src="../imagenes/check.png" /> Aceptar</button>
+                                            <button class="btn btn-boton-ext " type="submit" form="actualizar"><img class="fa fa-icon " src="../imagenes/check.png" /> Aceptar</button>
                                         </div>
                                     </div>
                                 </div>

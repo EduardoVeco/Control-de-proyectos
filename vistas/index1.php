@@ -1,5 +1,5 @@
 <?php
-$error = $_REQUEST['error'];
+//$error = $_REQUEST['error'];
 $correo = $_REQUEST['correo'];
 $contrasena = $_REQUEST['contrasena'];
 ?>
@@ -89,7 +89,7 @@ $contrasena = $_REQUEST['contrasena'];
 
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-boton " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesion</button>
+                            <button class="btn btn-boton " type="submit" name="login" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesion</button>
 
                         </div>
                     </div>
