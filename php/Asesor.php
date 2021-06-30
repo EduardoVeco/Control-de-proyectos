@@ -167,11 +167,15 @@ class Asesor
             if (mysqli_num_rows($consulta) != 0) {
                 //no hace nada 
             } else {
-                $consulta = mysqli_query($con, "INSERT INTO integrantes (noControl,nombre,primerApellido,segundoApellido) VALUES ");
+                $consulta = mysqli_query($con, "INSERT INTO integrantes (noControl,nombre,primerApellido,segundoApellido) VALUES ('$aNC[$i]','$aNom[$i]','$aPA[$i]','$aSA[$i]')");
             }
         }
-
-
+        $consulta = mysqli_query($con, "SELECT max(noEquipo) as valorMax from equipos");
+        $mostrar = mysqli_fetch_array($consulta);
+        $resultado=$mostrar['valorMax'];
+        for ($i = 0; $i < $contador; $i++) {
+            $consulta=mysqli_query($con, "INSERT INTO historicos(id,noFolio,noEquipo,noControl) VALUE (null,'$noFolio','$resultado','$aNC[$i]')");
+        }
     }
 
     public function actualizarProyecto($evidencia, $porcentaje)
