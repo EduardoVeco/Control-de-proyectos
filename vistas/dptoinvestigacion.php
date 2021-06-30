@@ -67,7 +67,7 @@ session_start();
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav text-left">
-                    <li class="nav-item"><a class="nav-link " href="comparacion.html">Comparar proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link " href="comparacion.php">Comparar proyecto</a></li>
                     <li class="nav-item"><a class="nav-link " href="autorizarproyecto.html">Autorizar proyecto</a></li>
                 </ul>
             </div>
