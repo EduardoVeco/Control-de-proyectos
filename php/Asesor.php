@@ -209,11 +209,12 @@ class Asesor
             header('location: registrocoasesor.php?folio=' . $folio);
         }else if($coAsesor!=null&&$equipo==null){
             $consulta=mysqli_query($con,"UPDATE proyectos SET coasesor='$coAsesor' where noFolio='$folio'");
-            
         }
     }
 
-    public function actualizarProyecto($evidencia, $porcentaje)
+    public static function actualizarProyecto($evidencia, $porcentaje)
     {
+        $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
+        $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$evidencia'");
     }
 }

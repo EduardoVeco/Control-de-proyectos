@@ -162,20 +162,20 @@ if (!isset($_SESSION['correo'])) {
                                     <?php
                                     }
                                 } else {
-                                    $sql = "SELECT p.titulo,p.nofolio,e.proposito,p.estatus,aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.coasesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
+                                    $sql = "SELECT p.titulo,p.noFolio,e.proposito,p.estatus,p.aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.coasesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                             FROM proyectos as p, usuarios as u, historicos as h, equipos as e
-                                            WHERE p.nofolio='$folio'
-                                            AND h.nofolio=p.nofolio
+                                            WHERE p.noFolio='$folio'
+                                            AND h.noFolio=p.noFolio
                                             AND e.noEquipo=h.noEquipo
                                             AND p.correo=u.correo
-                                            AND h.fecha_final IS NULL";
+                                            AND e.fecha_final IS NULL";
 
                                     $result = mysqli_query($conexion, $sql);
 
                                     while ($mostrar = mysqli_fetch_array($result)) {
                                     ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
-                                        <p class="pa pa-texto">folio: <?php echo $mostrar['nofolio'] ?></p>
+                                        <p class="pa pa-texto">folio: <?php echo $mostrar['noFolio'] ?></p>
                                         <p class="pa pa-texto">Proposito: <?php echo $mostrar['proposito'] ?></p>
                                         <p class="pa pa-texto">Estatus: <?php echo $mostrar['estatus'] ?></p>
                                         <p class="pa pa-texto">Estatus aprobacion: <?php echo $mostrar['aprobacion'] ?></p>
@@ -194,7 +194,8 @@ if (!isset($_SESSION['correo'])) {
                     <div class="row">
                         <div class="col-12">
                             <!-- Button trigger modal -->
-                            <button class="btn btn-boton-ext " type="button " data-toggle="modal" data-target="#actualizarModal"><img class="fa fa-icon " src="../imagenes/data-actualization-on-cloud.png " /> Actualizar progreso</button>
+                            <button class="btn btn-boton-ext " type="button " data-toggle="modal" data-target="#actualizarModal">
+                                <img class="fa fa-icon " src="../imagenes/data-actualization-on-cloud.png " /> Actualizar progreso</button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="actualizarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -207,10 +208,12 @@ if (!isset($_SESSION['correo'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="" method="post" id="actualizar">
+                                            <form  method="post" id="actualizar">
                                                 <br>
                                                 <p>Ingrese el porcentaje %</p>
                                                 <input class="txt text-input" type="text" name="porcentaje" id="porcentaje" placeholder="introduzca un valor entre 0 y 100" style="width:100%" pattern="[0-9]{0,3}">
+                                                <input class="txt text-input" type="text" name="folio" id="folio" value="<?php echo $folio?>" hidden>
+                                                
                                                 <br>
                                             </form>
                                             <form action="guarda.php" method="post" enctype="multipart/form-data" name="archivos" id="archivos">
@@ -222,8 +225,10 @@ if (!isset($_SESSION['correo'])) {
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png" /> Cancelar</button>
-                                            <button class="btn btn-boton-ext " type="submit" form="actualizar"><img class="fa fa-icon " src="../imagenes/check.png" /> Aceptar</button>
+                                            <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal">
+                                                <img class="fa fa-icon " src="../imagenes/cancel.png" /> Cancelar</button>
+                                            <button class="btn btn-boton-ext " type="submit" form="actualizar" id="actualizarBtn">
+                                                <img class="fa fa-icon " src="../imagenes/check.png" /> Aceptar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -352,11 +357,10 @@ if (!isset($_SESSION['correo'])) {
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $sql = "SELECT i.noControl,i.nombre,i.primerApellido,i.segundoApellido,i.noEquipo
+                                        $sql = "SELECT i.noControl,i.nombre,i.primerApellido,i.segundoApellido,e.noEquipo
                                                 FROM integrantes as i, historicos as h, equipos as e
                                                 WHERE h.nofolio='$folio'
-                                                AND e.noEquipo=h.noEquipo
-                                                AND i.noEquipo=e.noEquipo";
+                                                AND e.noEquipo=h.noEquipo";
                                         $result = mysqli_query($conexion, $sql);
 
                                         while ($mostrar = mysqli_fetch_array($result)) {

@@ -5,6 +5,7 @@ const archivo = document.getElementById("real-file")
 const boton = document.getElementById("seleccionador")
 texto = document.getElementById("archivoInfo")
 const historialBtn = document.getElementById("historial")
+const actualizarBtn = document.getElementById("actualizarBtn")
 
 //console.log(folio)
 
@@ -75,4 +76,13 @@ btnCeder.addEventListener("click", e => {
     var folio = JSON.parse(f)
     window.location = "cederproyecto.html?folio=" + folio;
     console.log(folio)
+})
+
+actualizarBtn.addEventListener("click", e => {
+    e.preventDefault()
+    var folio = JSON.parse(f)
+    var porcentaje=document.getElementById('porcentaje').value
+   window.location = "actualizarPorcentaje.php?folio=" + folio +'&porcentaje='+porcentaje;
+   // console.log(folio)
+    //console.log(porcentaje)
 })
