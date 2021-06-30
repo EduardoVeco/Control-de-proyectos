@@ -212,7 +212,7 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-    <script src="../js/registroequipo.js"></script>
+    
 
     <script>
         $(document).ready(function() {
