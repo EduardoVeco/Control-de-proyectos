@@ -16,6 +16,11 @@ function conexionAClases($con)
       //header('location: registrousuario.html');
    } else if (isset($_POST['login'])) {
       login($con);
+   }else if(isset($_POST['olvidada'])){
+      olvidoContrasena($con);
+   }
+   else if(isset($_POST['cambio'])){
+      cambioContrasena($con);
    }
 }
 

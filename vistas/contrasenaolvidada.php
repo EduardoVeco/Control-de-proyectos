@@ -68,7 +68,7 @@ $correo = $_REQUEST['correo'];
                         <div class="col-1">
                         </div>
                         <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" form="login"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
+                            <button class="btn btn-boton-ext " type="submit" name="olvidada" form="login"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
 
                         </div>
                         <div class="col-1">

@@ -219,7 +219,7 @@ if (!isset($_SESSION['correo'])) {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-
+<script src="../js/registroequipo.js"></script>
 </body>
 
 </html>
