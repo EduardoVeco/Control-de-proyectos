@@ -1,4 +1,6 @@
 <?php
+$folio=$_REQUEST['folio'];
+print_r($folio);
 session_start();
         if(!ISSET($_SESSION['correo'])){
             header('location:index.php');
@@ -7,7 +9,7 @@ session_start();
                 header('location: logout.php');
             }
         }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,7 +35,7 @@ session_start();
 <body class="body">
          <?php
             require 'conexion.php';
-            $query = $conn->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+            $query = $con->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
             $fetch = $query->fetch_array();
         ?>
     <div class="container">
@@ -72,9 +74,10 @@ session_start();
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">
 
-                    <form action="" method="POST" id="registroasesor">
+                    <form action="registroCoasesor1.php" method="POST" id="registroasesor">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Control </p>
+                            <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio?>" hidden/>
                             <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" required />
 
                         </div>
@@ -95,11 +98,9 @@ session_start();
                     <br><br>
                     <form action="" method="POST" id="botonesForm">
                         <div class="row">
-                            <div class="col-6">
-                                <button class="btn btn-cancelar " type="submit" id="atras" form="registroasesor"><img class="fa fa-icon " src="../imagenes/previous.png " /> Atras</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn btn-aceptar " type="submit" id="terminar" form="registroasesor"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
+                            
+                            <div class="col-12">
+                                <button class="btn btn-aceptar-ext " type="submit" name="terminar2"id="terminar2" form="registroasesor"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
                             </div>
                         </div>
                     </form>

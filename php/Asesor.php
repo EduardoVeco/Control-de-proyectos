@@ -128,53 +128,88 @@ class Asesor
 
     public static function retomarProyecto($noFolio, $equipo, $coAsesor, $noControl, $nombre, $primerApellido, $segundoApellido, $proposito)
     {
-        //Numero de control
-        $token2 = strtok($noControl, " ");
-        $aNC = array();
-        while ($token2 !== false) {
-            array_push($aNC, $token2);
-            $token2 = strtok(" ");
-        }
-        //nombre
-        $token3 = strtok($nombre, " ");
-        $aNom = array();
-        while ($token3 !== false) {
-            array_push($aNom, $token3);
-            $token3 = strtok(" ");
-        }
-        //primer apellido
-        $token4 = strtok($primerApellido, " ");
-        $aPA = array();
-        while ($token4 !== false) {
-            array_push($aPA, $token4);
-            $token4 = strtok(" ");
-        }
-        //segundo apellido
-        $token5 = strtok($segundoApellido, " ");
-        $aSA = array();
-        while ($token5 !== false) {
-            array_push($aSA, $token5);
-            $token5 = strtok(" ");
-        }
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-        $consulta = mysqli_query($con, "INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,$proposito,now(),null");
+        $folio = trim($noFolio, "\"\"");
+        if ($coAsesor == null && $equipo==null) {
+          
 
-        foreach ($aNC as $contador) {
-            $contador = $contador + 1;
-        }
-        for ($i = 0; $i < $contador; $i++) {
-            $consulta = mysqli_query($con, "SELECT * FROM integrantes where noControl=$aNC[$i]");
-            if (mysqli_num_rows($consulta) != 0) {
-                //no hace nada 
-            } else {
-                $consulta = mysqli_query($con, "INSERT INTO integrantes (noControl,nombre,primerApellido,segundoApellido) VALUES ('$aNC[$i]','$aNom[$i]','$aPA[$i]','$aSA[$i]')");
+            //Numero de control
+            $token2 = strtok($noControl, " ");
+            $aNC = array();
+            while ($token2 !== false) {
+                array_push($aNC, $token2);
+                $token2 = strtok(" ");
             }
-        }
-        $consulta = mysqli_query($con, "SELECT max(noEquipo) as valorMax from equipos");
-        $mostrar = mysqli_fetch_array($consulta);
-        $resultado=$mostrar['valorMax'];
-        for ($i = 0; $i < $contador; $i++) {
-            $consulta=mysqli_query($con, "INSERT INTO historicos(id,noFolio,noEquipo,noControl) VALUE (null,'$noFolio','$resultado','$aNC[$i]')");
+            //nombre
+            $token3 = strtok($nombre, " ");
+            $aNom = array();
+            while ($token3 !== false) {
+                array_push($aNom, $token3);
+                $token3 = strtok(" ");
+            }
+            //primer apellido
+            $token4 = strtok($primerApellido, " ");
+            $aPA = array();
+            while ($token4 !== false) {
+                array_push($aPA, $token4);
+                $token4 = strtok(" ");
+            }
+            //segundo apellido
+            $token5 = strtok($segundoApellido, " ");
+            $aSA = array();
+            while ($token5 !== false) {
+                array_push($aSA, $token5);
+                $token5 = strtok(" ");
+            }
+            print_r($aPA);
+           
+            $consulta = mysqli_query($con, "INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,'$proposito',now(),null)");
+            $contador = 0;
+            foreach ($aNC as $perro) {
+                $contador = $contador + 1;
+            }
+            for ($i = 0; $i <= $contador - 1; $i++) {
+                $str = '';
+                $str = $str . $aNC[$i] . '';
+                $str2 = '';
+                $str2 = $str2 . $aNom[$i] . '';
+                $str3 = '';
+                $str3 = $str3 . $aPA[$i] . '';
+                $str4 = '';
+                $str4 = $str4 . $aSA[$i] . '';
+                $consulta = mysqli_query($con, "SELECT * FROM integrantes where noControl=$str");
+                if (mysqli_num_rows($consulta) != 0) {
+                    //no hace nada 
+                } else {
+                    $consulta = mysqli_query($con, "INSERT INTO integrantes (noControl ,nombre,primerApellido,segundoApellido) VALUES ('$str','$str2','$str3','$str4')");
+                }
+            }
+            $consulta = mysqli_query($con, "SELECT max(noEquipo) as valorMax from equipos");
+            $mostrar = mysqli_fetch_array($consulta);
+            $resultado = $mostrar['valorMax'];
+            print_r($resultado);
+            print_r($folio);
+            $contador = 0;
+            $token2 = '';
+            $token2 = strtok($noControl, " ");
+            $aNC = array();
+            while ($token2 !== false) {
+                array_push($aNC, $token2);
+                $token2 = strtok(" ");
+            }
+            print_r($aNC);
+
+            for ($j = 0; $j <= $contador; $j++) {
+                print_r('hola');
+                $str = '';
+                $str = $str . $aNC[$j] . '';
+                print_r($str);
+                $consulta = mysqli_query($con, "INSERT INTO historicos (id,noFolio,noEquipo,noControl) VALUES (null,'$folio','$resultado','$str')");
+            }
+            header('location: registrocoasesor.php?folio=' . $folio);
+        }else if($coAsesor!=null&&$equipo==null){
+            $consulta=mysqli_query($con,"UPDATE proyectos SET coasesor='$coAsesor' where noFolio='$folio'");
+            
         }
     }
 

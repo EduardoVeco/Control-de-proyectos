@@ -35,4 +35,5 @@ function hacer()
     else if(isset($_POST['siguiente'])) {
         Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, null, ' ', ' ', $folio,'continuar');
     }
+
 }
