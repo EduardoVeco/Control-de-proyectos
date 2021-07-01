@@ -1,15 +1,12 @@
 <?php
-print_r("perro");
-$folio='';
-$porcentaje=2;
+include "../php/Asesor.php";
 
-actualiza($pocentaje,$folio);
 
-function actualiza($pocentaje,$folio){
-    $folio=$_REQUEST('folio');
-    $porcentaje=$_REQUEST('porcentaje');
-
-    Asesor::actualizarProyecto($folio,$pocentaje);
+actualizar();
+function   actualizar(){
+    $folio=$_REQUEST['folio'];
+    $porcentaje=$_REQUEST['porcentaje'];
+    Asesor::actualizarProyecto($folio,$porcentaje);
 }
 
 ?>
