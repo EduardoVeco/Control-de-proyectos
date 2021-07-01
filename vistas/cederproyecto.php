@@ -12,6 +12,9 @@ if (!isset($_SESSION['correo'])) {
     }
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 

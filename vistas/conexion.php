@@ -7,6 +7,7 @@ $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli
 
 //prueba();
 //login($con);
+
 conexionAClases($con);
 //conecta($con);
 function conexionAClases($con)
@@ -16,10 +17,9 @@ function conexionAClases($con)
       //header('location: registrousuario.html');
    } else if (isset($_POST['login'])) {
       login($con);
-   }else if(isset($_POST['olvidada'])){
+   } else if (isset($_POST['olvidada'])) {
       olvidoContrasena($con);
-   }
-   else if(isset($_POST['cambio'])){
+   } else if (isset($_POST['cambio'])) {
       cambioContrasena($con);
    }
 }
@@ -44,13 +44,14 @@ function login($conexion)
          } else {
             header('location: dptoinvestigacion.php?correo=' . $username);
          }
-         //echo "<script>window.location='proyecto.php'</script>";
-      } else {
-         header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&error=' . true);
-         //   echo "<script>window.location='index1.php'</script>";
       }
    }
 }
+//conecta($con);
+//function prueba(){
+//print_r('hola');
+
+//}
 
 function cambioContrasena($conexion)
 {
@@ -99,7 +100,7 @@ function conecta($conexion)
    $sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contrasena'";
    $result = mysqli_query($conexion, $sql);
 
-   if ($result && mysqli_num_rows($result) == 1) {
+   if (mysqli_num_rows($result) == 1) {
       $mostrar = mysqli_fetch_array($result);
       if ($mostrar['tipoUsuario'] == 'Asesor') {
          header('location: asesor.php?correo=' . $correo);
