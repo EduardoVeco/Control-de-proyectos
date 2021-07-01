@@ -126,12 +126,11 @@ session_start();
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT CONCAT(i.nombre,' ', i.primerApellido,' ',i.segundoApellido ) as integrante,i.noControl,e.noEquipo,e.proposito,DATE_FORMAT(h.fecha_inicial, '%d-%m-%Y') as fi,DATE_FORMAT(h.fecha_final, '%d-%m-%Y') as ff
+                                    $sql = "SELECT CONCAT(i.nombre,' ', i.primerApellido,' ',i.segundoApellido ) as integrante,i.noControl,e.noEquipo,e.proposito,DATE_FORMAT(e.fecha_inicial, '%d-%m-%Y') as fi,DATE_FORMAT(e.fecha_final, '%d-%m-%Y') as ff
                                         FROM integrantes as i,equipos as e,historicos as h
-                                        WHERE e.noEquipo=i.noEquipo
-                                        AND e.noEquipo=h.noEquipo
+                                        WHERE e.noEquipo=h.noEquipo
                                         AND h.nofolio='$folio'
-                                        ORDER BY h.fecha_inicial,h.fecha_final";
+                                        ORDER BY e.fecha_inicial,e.fecha_final";
                                     $result = mysqli_query($conexion, $sql);
 
                                     while ($mostrar = mysqli_fetch_array($result)) {

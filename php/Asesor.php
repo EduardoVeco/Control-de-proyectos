@@ -130,8 +130,8 @@ class Asesor
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $folio = trim($noFolio, "\"\"");
-        if ($coAsesor == null && $equipo==null) {
-          
+        if ($coAsesor == null && $equipo == null) {
+
 
             //Numero de control
             $token2 = strtok($noControl, " ");
@@ -162,7 +162,7 @@ class Asesor
                 $token5 = strtok(" ");
             }
             print_r($aPA);
-           
+
             $consulta = mysqli_query($con, "INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,'$proposito',now(),null)");
             $contador = 0;
             foreach ($aNC as $perro) {
@@ -207,14 +207,23 @@ class Asesor
                 $consulta = mysqli_query($con, "INSERT INTO historicos (id,noFolio,noEquipo,noControl) VALUES (null,'$folio','$resultado','$str')");
             }
             header('location: registrocoasesor.php?folio=' . $folio);
-        }else if($coAsesor!=null&&$equipo==null){
-            $consulta=mysqli_query($con,"UPDATE proyectos SET coasesor='$coAsesor' where noFolio='$folio'");
+        } else if ($coAsesor != null && $equipo == null) {
+            $consulta = mysqli_query($con, "UPDATE proyectos SET coasesor='$coAsesor' where noFolio='$folio'");
         }
     }
 
-    public static function actualizarProyecto($evidencia, $porcentaje)
+    public static function actualizarProyecto($folio, $porcentaje)
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-        $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$evidencia'");
+
+        $consulta1 = mysqli_query($con, "SELECT avance from proyectos where noFolio='$folio'");
+        $mostrar2 = mysqli_fetch_array($consulta1);
+        $resultado=$mostrar2['avance'];
+        if($porcentaje<$resultado){
+            header('location: proyecto.php?folio=' . $folio);
+        }else{
+        $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$folio'");
+        header('location: proyecto.php?folio=' . $folio);
+        }
     }
 }

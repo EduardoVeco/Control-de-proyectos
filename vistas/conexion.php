@@ -44,6 +44,8 @@ function login($conexion)
          } else {
             header('location: dptoinvestigacion.php?correo=' . $username);
          }
+      }else{
+         header('location: index.html?');
       }
    }
 }
@@ -121,7 +123,6 @@ function conecta($conexion)
 function registraUsuario($conexion)
 {
    print_r('por aca');
-   //$con=conectarBase();
    $correo = $_REQUEST['correo'];
    $nombre = $_REQUEST['nombre'];
    $primerApellido = $_REQUEST['paterno'];
@@ -130,77 +131,20 @@ function registraUsuario($conexion)
    $contrasena = $_REQUEST['contrasena'];
    $contrasena2 = $_REQUEST['contrasena2'];
    $carrera = $_REQUEST['carrera'];
-   $tipoUsuario = 'Asesor';
    if ($contrasena == $contrasena2) {
-      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
+      if($noControl=='XXX00XXX'){
+      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
       mysqli_query($conexion, $sql);
       mysqli_close($conexion);
-      header('location: registrousuario.html');
+      header('location: index.html');
+   }else{
+      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Asesor')";
+      mysqli_query($conexion, $sql);
+      mysqli_close($conexion);
+      header('location: index.html');
+   }
    } else {
 
       echo "<p> esta mal la contraseña</p>";
    }
-}
-
-function registraDueno($conexion)
-{
-   //print_r('por aca');
-
-   $noFolio = "";
-   $correo = $_REQUEST['correo'];
-   $nombre = $_REQUEST['nombre'];
-   $primerApellido = $_REQUEST['paterno'];
-   $segundoApellido = $_REQUEST['materno'];
-   $primjust = $_REQUEST['primjust'];
-   $primtit = $_REQUEST['primtit'];
-   $primalc = $_REQUEST['primalc'];
-   $primres = $_REQUEST['primres'];
-   $duenio = $nombre - ' ' . $primerApellido . ' ' . $segundoApellido;
-   $aprobado = $_REQUEST['aprobado'];
-   $directorio = "/documentos/$noFolio/";
-   $titulo = $_REQUEST['titulo'];
-   $justificacion = $_REQUEST['justificacion'];
-   $alcances = $_REQUEST['alcances'];
-   $resumen = $_REQUEST['resumen'];
-
-   $sql = "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$noFolio','$correo','$duenio','null','$titulo','$justificacion','$alcances','$resumen','Inactivo','$aprobado',0.0,sysdate,'$directorio'";
-
-   mysqli_query($conexion, $sql);
-
-   $sql = "INSERT INTO primitivas(noFolio,tituloPRimitivas,justificacionPRimitivas,alcancesPRimitivas,resumenPRimitivas) VALUES ('$noFolio','$primtit','$primjust','$primalc')";
-
-   mysqli_query($conexion, $sql);
-   mysqli_close($conexion);
-   header('location: index.html');
-}
-
-function registraEquipo($conexion)
-{
-   //print_r('por aca');
-
-   $noEquipo = $_REQUEST['noEquipo'];
-   $proposito = $_REQUEST['proposito'];
-   $noControl = $_REQUEST['noControl'];
-
-   $sql = "INSERT INTO equipos(noEquipo,proposito,noControl) VALUES ('$noEquipo','$proposito','$noControl')";
-
-   mysqli_query($conexion, $sql);
-   mysqli_close($conexion);
-   header('location: registroequipo.html');
-}
-
-function registraAsesor($conexion)
-{
-   //print_r('por aca');
-
-   $nombre = $_REQUEST['nombre'];
-   $primerApellido = $_REQUEST['paterno'];
-   $segundoApellido = $_REQUEST['materno'];
-   $noControl = $_REQUEST['noControl'];
-
-   $sql = "INSERT INTO usuarios(nombre,primerApellido,segundoApellido,noControl) VALUES ('$nombre','$primerApellido','$segundoApellido','$noControl')";
-
-   mysqli_query($conexion, $sql);
-   mysqli_close($conexion);
-   header('location: registroequipo.html');
 }
