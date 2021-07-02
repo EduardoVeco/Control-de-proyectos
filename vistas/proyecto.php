@@ -17,22 +17,30 @@ while ($mostrar = mysqli_fetch_array($result)) {
 
 $nombre_archivo = "";
 
-$arrayArchivos = scandir($directorio);
-$fecha = array();
-$direccion = array();
-for ($i = 2; $i < count($arrayArchivos); $i++) {
-    $nombreAux = $arrayArchivos[$i];
-    $path = $directorio . $nombreAux;
-    $nombre_archivo = $path;
-    $direccion[$i - 2] = $path;
-    if (file_exists($nombre_archivo)) {
-        $fecha[$i - 2] = date("d-m-Y ", filectime($nombre_archivo));
-    }
-    $extension[$i - 2] = pathinfo($path, PATHINFO_EXTENSION);
+if (is_dir($directorio)){
+    $arrayArchivos = scandir($directorio);
+    $fecha = array();
+    $direccion = array();
+    for ($i = 2; $i < count($arrayArchivos); $i++) {
+        $nombreAux = $arrayArchivos[$i];
+        $path = $directorio . $nombreAux;
+        $nombre_archivo = $path;
+        $direccion[$i - 2] = $path;
+        if (file_exists($nombre_archivo)) {
+            $fecha[$i - 2] = date("d-m-Y ", filectime($nombre_archivo));
+        }
+        $extension[$i - 2] = pathinfo($path, PATHINFO_EXTENSION);
 
-    $ex = explode(" .", $nombreAux);
-    $nombre[$i - 2] = $ex[0];
+        $ex = explode(" .", $nombreAux);
+        $nombre[$i - 2] = $ex[0];
+    }
+} else {
+    $fecha = array();
+    $direccion = array();
+    $nombre = array();
+    $extension = array();
 }
+
 
 session_start();
 if (!isset($_SESSION['correo'])) {
@@ -479,6 +487,8 @@ if (!isset($_SESSION['correo'])) {
 
 
         <?php
+        print_r($folio);
+        print_r('A10720212');
         $sql = "SELECT avance
             FROM proyectos
             WHERE nofolio='$folio'";
@@ -491,6 +501,7 @@ if (!isset($_SESSION['correo'])) {
         ?>
             <?php
             $progreso = $mostrar['avance'];
+            print_r($progreso);
             ?>
         <?php
         }
