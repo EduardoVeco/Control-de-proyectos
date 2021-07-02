@@ -15,24 +15,33 @@ while ($mostrar = mysqli_fetch_array($result)) {
 //$directorio = '../documentos/A2306202101/';
 
 
-$nombre_archivo = "";
+
+
+
 
 if (is_dir($directorio)){
     $arrayArchivos = scandir($directorio);
-    $fecha = array();
-    $direccion = array();
-    for ($i = 2; $i < count($arrayArchivos); $i++) {
-        $nombreAux = $arrayArchivos[$i];
-        $path = $directorio . $nombreAux;
-        $nombre_archivo = $path;
-        $direccion[$i - 2] = $path;
-        if (file_exists($nombre_archivo)) {
-            $fecha[$i - 2] = date("d-m-Y ", filectime($nombre_archivo));
-        }
-        $extension[$i - 2] = pathinfo($path, PATHINFO_EXTENSION);
+    if (count($arrayArchivos)>2){
+        $fecha = array();
+        $direccion = array();
+        for ($i = 2; $i < count($arrayArchivos); $i++) {
+            $nombreAux = $arrayArchivos[$i];
+            $path = $directorio . $nombreAux;
+            $nombre_archivo = $path;
+            $direccion[$i - 2] = $path;
+            if (file_exists($nombre_archivo)) {
+                $fecha[$i - 2] = date("d-m-Y ", filectime($nombre_archivo));
+            }
+            $extension[$i - 2] = pathinfo($path, PATHINFO_EXTENSION);
 
-        $ex = explode(" .", $nombreAux);
-        $nombre[$i - 2] = $ex[0];
+            $ex = explode(" .", $nombreAux);
+            $nombre[$i - 2] = $ex[0];
+        }
+    }else {
+        $fecha = array();
+        $direccion = array();
+        $nombre = array();
+        $extension = array();
     }
 } else {
     $fecha = array();
@@ -389,7 +398,7 @@ if (!isset($_SESSION['correo'])) {
                                 <?php
                                 $sql = "SELECT estatus,aprobacion
                                         FROM proyectos
-                                        WHERE nofolio='$folio'";
+                                        WHERE nofolio ='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
                                 while ($mostrar = mysqli_fetch_array($result)) {
