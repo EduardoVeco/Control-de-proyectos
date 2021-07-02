@@ -78,20 +78,20 @@ session_start();
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Control </p>
                             <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio?>" hidden/>
-                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" required />
+                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})"  />
 
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})" required />
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})" required />
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})" required />
+                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
                         </div>
                     </form>
 
