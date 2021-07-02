@@ -92,15 +92,15 @@ session_start();
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
                         </div>
                     </form>
 
