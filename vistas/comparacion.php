@@ -55,7 +55,7 @@ function get()
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
 
-            <a class="navbar-brand" href="dptoinvestigacion.html" style="font-size: 20px;">Control de proyectos</a>
+            <a class="navbar-brand" href="dptoinvestigacion.php" style="font-size: 20px;">Control de proyectos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
