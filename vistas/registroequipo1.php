@@ -123,15 +123,15 @@ if (!isset($_SESSION['correo'])) {
                         <form action="" method="POST" id="registroequipo">
                             <div class="form-group mx-sm-7 pt-3">
                                 <p class="pa pa-texto ">Nombre </p>
-                                <input class="txt text-input " type="text " name="nombre" id="nombre" required />
+                                <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" required />
                             </div>
                             <div class="form-group mx-sm-7 pt-3">
                                 <p class="pa pa-texto ">Primer apellido </p>
-                                <input class="txt text-input " type="text " name="paterno" id="paterno" required />
+                                <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" required />
                             </div>
                             <div class="form-group mx-sm-7 pt-3">
                                 <p class="pa pa-texto ">Segundo apellido </p>
-                                <input class="txt text-input " type="text " name="materno" id="materno" required />
+                                <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" required />
                             </div <br>
                             <button class="btn btn-boton-ext " type="submit" id="agregar" form="registroequipo"><img class="fa fa-icon " src="../imagenes/signin.png " /> Agregar integrante</button>
                             <br>
