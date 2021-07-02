@@ -1,21 +1,6 @@
 <?php
-$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-session_start();
-if (!isset($_SESSION['correo'])) {
-    header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
-        header('location: logout.php');
-    }
-}
-
-function get()
-{
-    $folio1 = $_POST['folio1'];
-    $folio2 = $_POST['folio2'];
-}
+$folio = $_REQUEST['folio']
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,16 +20,11 @@ function get()
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="../js/Chart.min.js" type="text/javascript"></script>
 </head>
 
 <body class="body">
-    <?php
-    require 'conexion.php';
-    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-    $fetch = $query->fetch_array();
-    ?>
+
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -56,13 +36,13 @@ function get()
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
 
-            <a class="navbar-brand" href="dptoinvestigacion.php" style="font-size: 20px;">Control de proyectos</a>
+            <a class="navbar-brand" href="dptoinvestigacion.html" style="font-size: 20px;">Control de proyectos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav text-left">
-                    <li class="nav-item"><a class="nav-link " href="comparacion.php">Comparar proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link " href="comparacion.html">Comparar proyecto</a></li>
                     <li class="nav-item"><a class="nav-link " href="autorizarproyecto.html">Autorizar proyecto</a></li>
                 </ul>
             </div>
@@ -70,85 +50,52 @@ function get()
     </div>
 
 
+
+
     <br>
+
 
 
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1 col-sm-13" style="margin: 0 auto;">
             <div class="formulario col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                <form action="">
+                    <div>
+                        <div class="div div-cabeza mx-sm-12">
+                            <p class="ti ti-texto ">Autorizar proyecto </p>
+                        </div>
 
-                <div>
-                    <div class="div div-cabeza mx-sm-12">
-                        <p class="ti ti-texto ">Comparar proyectos </p>
                     </div>
-
-                </div>
-                <div class="div div-cuerpo form-group mx-sm-12">
-                    <form method="POST" id="foliosForm">
+                    <div class="div div-cuerpo form-group mx-sm-12">
                         <div class="row">
                             <div class="col-6 justify-content-left input-group">
-                                <p class="pa pa-texto">Folio del proyecto en revision</p>
+                                <p class="pa pa-texto">Introduzca el folio</p>
                             </div>
                         </div>
-                        <br>
                         <div class="row">
-                            <div class="col-4 justify-content-left input-group">
-                                <input class="txt text-input " type="text " id="folio1" name="folio1" placeholder="Folio:" style="width: 100%;" pattern="[A-Z0-9]{7,15}" required />
+                            <div class="col-6 justify-content-left input-group">
+                                <input class="txt text-buscar " type="text " name="buscar" placeholder="Buscar" value="<?php echo $folio ?>" />
+                                <button class="btn btn-buscar " type="button "><img class="fa fa-icon " src="../imagenes/search.png " /> </button>
                             </div>
                         </div>
-                        <br>
+
                         <div class="col-13 ">
                             <table class="table1">
                                 <tr class="tr1">
                                     <th>Titulo</th>
-                                    <th>Correo del asesor</th>
-                                    <th>Estatus de aprobacion</th>
-                                </tr>
-                                <tr>
-                                </tr>
-                            </table>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6 justify-content-left input-group">
-                                <p class="pa pa-texto">Folio de proyecto aprobado</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-4 justify-content-left input-group">
-                                <input class="txt text-input " type="text " id="folio2" name="buscar" placeholder="Folio:" style="width: 100%;" pattern="[A-Z0-9]{7,15}" required />
-                            </div>
-                        </div>
-                        <br>
-                        <div class="col-13 ">
-                            <table class="table1">
-                                <tr class="tr1">
-                                    <th>Titulo</th>
-                                    <th>Correo del asesor</th>
-                                    <th>Estatus de aprobacion</th>
-                                </tr>
-                                <tr>
+                                    <th>Correo asesor</th>
+                                    <th>Aprobacion</th>
+                                    <th>Fecha</th>
                                 </tr>
                             </table>
                         </div>
                         <br>
-                    </form>
-                    <button class="btn btn-boton-ext " type="submit" id="compararBtn" name="compararBtn" form="foliosForm">
-                        <img class="fa fa-icon " src="../imagenes/comparar.png " /> Comparar proyectos</button>
-                </div>
+                        <button class="btn btn-aceptar-ext " type="button "><img class="fa fa-icon " src="../imagenes/check.png " /> Autorizar proyecto</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="container div div-ocultar" id="mensajeCont">
-        <div class="col-12 justify-content-center">
-            <div class="div div-mensaje" id="mensaje">
-                <p>Correo o contraseña incorrectas</p>
-            </div>
-        </div>
-    </div>
-    <script src="../js/comparar.js"></script>
-
 
     <div class="container">
         <div class="row">
@@ -171,7 +118,5 @@ function get()
             </div>
         </div>
     </div>
-
-
 
 </html>

@@ -81,8 +81,8 @@ btnCeder.addEventListener("click", e => {
 actualizarBtn.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
-    var porcentaje=document.getElementById('porcentaje').value
-   window.location = "actualizarPorcentaje.php?folio=" + folio +'&porcentaje='+porcentaje;
-   // console.log(folio)
+    var porcentaje = document.getElementById('porcentaje').value
+    window.location.href = "actualizarPorcentaje.php?folio=" + folio + '&porcentaje=' + porcentaje;
+    // console.log(folio)
     //console.log(porcentaje)
 })
