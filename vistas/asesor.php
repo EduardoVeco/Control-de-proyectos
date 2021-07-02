@@ -121,10 +121,10 @@ if (!isset($_SESSION['correo'])) {
                                 ?>
                                     <tr>
                                         <td><?php echo $mostrar['titulo'] ?></td>
-                                        <td onClick="document.location.href='proyecto.php';"><?php echo $mostrar['nofolio'] ?></td>
-                                        <td onClick="document.location.href='proyecto.php';"><?php echo $mostrar['avance'] ?></td>
-                                        <td onClick="document.location.href='proyecto.php';"><?php echo $mostrar['estatus'] ?></td>
-                                        <td onClick="document.location.href='proyecto.php';"><?php echo $mostrar['aprobacion'] ?></td>
+                                        <td><?php echo $mostrar['nofolio'] ?></td>
+                                        <td><?php echo $mostrar['avance'] ?></td>
+                                        <td><?php echo $mostrar['estatus'] ?></td>
+                                        <td><?php echo $mostrar['aprobacion'] ?></td>
                                     </tr>
                                 <?php
                                 }

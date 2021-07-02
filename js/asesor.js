@@ -1,13 +1,12 @@
-var correo = JSON.parse(c)
-console.log(correo)
-
 var oneTbody = document.querySelector("#tablax tbody"), //Cuerpo de la primera tabla
     seleccion = [], //Arreglo que almacenará a las filas seleccionadas
     seleccionar = function(event) { //Función a ejecutarse para seleccionar una fila
         if (event.target.tagName == "TD") {
+            var correo = JSON.parse(c)
+            console.log(correo)
             var fila = event.target.parentNode; //la contiene
             var folio = fila.children[1].innerHTML // toma el segundo valor de la fila
-            window.location = "proyecto.php?folio=" + folio + "&correo=" + correo;
+            window.location = "proyecto.php?correo=" + correo + "&folio=" + folio;
             console.log(folio)
         }
 
@@ -20,4 +19,5 @@ oneTbody.addEventListener("click", seleccionar, false);
     var folio = $(this).find("td:eq(1)").text();
     window.location = "proyecto.php?folio=" + folio;
     console.log(folio)
+    onClick="document.location.href='proyecto.php';
 }*/
