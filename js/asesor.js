@@ -7,7 +7,7 @@ var oneTbody = document.querySelector("#tablax tbody"), //Cuerpo de la primera t
         if (event.target.tagName == "TD") {
             var fila = event.target.parentNode; //la contiene
             var folio = fila.children[1].innerHTML // toma el segundo valor de la fila
-            window.location = "proyecto.php?folio=" + folio;
+            window.location = "proyecto.php?folio=" + folio + "&correo=" + correo;
             console.log(folio)
         }
 

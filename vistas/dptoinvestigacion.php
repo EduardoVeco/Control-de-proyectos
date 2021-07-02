@@ -62,15 +62,21 @@ if (!isset($_SESSION['correo'])) {
 
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
-
-            <a class="navbar-brand" href="dptoinvestigacion.php" style="font-size: 20px;">Control de proyectos</a>
+            <a class="navbar-brand" href="dptoinvestigacion.php?correo=<?php echo $correo ?>" style="font-size: 20px;">Control de proyectos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav text-left">
-                    <li class="nav-item"><a class="nav-link " href="comparacion.php">Comparar proyecto</a></li>
-                    <li class="nav-item"><a class="nav-link " href="autorizarproyecto.html">Autorizar proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link " href="comparacion.php?correo=<?php echo $correo ?>">Comparar proyecto</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>">Cambiar contraseña</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>

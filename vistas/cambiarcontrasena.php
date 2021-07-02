@@ -1,5 +1,4 @@
 <?php
-
 $correo = $_REQUEST['correo'];
 print_r($correo);
 
