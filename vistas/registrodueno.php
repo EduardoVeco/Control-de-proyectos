@@ -120,9 +120,8 @@ if (!isset($_SESSION['correo'])) {
                             <input class="txt text-input " type="text " name="noControl" id="noControl" required />
                         </div>!-->
                         <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">Nombre </p>
-              <input class="txt text-input " type="text " name="folio"          id="folio"          value="<?php echo $folio?>"hidden/>
 
+                            <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio ?>" hidden />
                             <input class="txt text-input " type="text " name="primjust" id="primjust" value="<?php echo $primjust ?>" hidden />
                             <input class="txt text-input " type="text " name="primtit" id="primtit" value="<?php echo $primtit ?>" hidden />
                             <input class="txt text-input " type="text " name="primalc" id="primalc" value="<?php echo $primalc ?>" hidden />
@@ -134,16 +133,16 @@ if (!isset($_SESSION['correo'])) {
                             <input class="txt text-input " type="text " name="resumen" id="resumen" value="<?php echo $resumen ?>" hidden />
                             <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio ?>" hidden />
 
-
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" required />
+                            <p class="pa pa-texto ">Nombre </p>
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" required pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" required />
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" required pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" required />
+                            <input class="txt text-input " type="text " name="materno" id="materno" required pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" />
                         </div>
                         <!--   <div class="form-group mx-sm-7 pt-3 justify-content-center">
                             <p class="pa pa-texto ">Tipo de dueño </p>

@@ -7,7 +7,10 @@
 		if($_FILES["archivo"]["name"][$key]) {
 			$filename = $_FILES["archivo"]["name"][$key]; //Obtenemos el nombre original del archivo
 			$source = $_FILES["archivo"]["tmp_name"][$key]; //Obtenemos un nombre temporal del archivo
-			
+			$corre=$_REQUEST['correo'];
+
+
+
 			$directorio = 'Documentos/'; //Declaramos un  variable con la ruta donde guardaremos los archivos
 			
 			//Validamos si la ruta de destino existe, en caso de no existir la creamos

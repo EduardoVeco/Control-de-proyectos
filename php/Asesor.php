@@ -218,12 +218,18 @@ class Asesor
 
         $consulta1 = mysqli_query($con, "SELECT avance from proyectos where noFolio='$folio'");
         $mostrar2 = mysqli_fetch_array($consulta1);
-        $resultado=$mostrar2['avance'];
-        if($porcentaje<$resultado){
-            header('location: proyecto.php?folio=' . $folio);
-        }else{
-        $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$folio'");
-        header('location: proyecto.php?folio=' . $folio);
+        $resultado = $mostrar2['avance'];
+        if ($porcentaje < $resultado) {
+            $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
+            $mostrar2 = mysqli_fetch_array($consulta);
+            $correo = $mostrar2['correo'];
+            header('location: proyecto.php?folio=' . $folio.'&correo='.$correo);
+        } else {
+            $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
+            $mostrar2 = mysqli_fetch_array($consulta);
+            $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$folio'");
+            $correo = $mostrar2['correo'];
+            header('location: proyecto.php?folio=' . $folio.'&correo='.$correo);
         }
     }
 }
