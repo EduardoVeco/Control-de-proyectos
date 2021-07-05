@@ -96,6 +96,7 @@ if (!isset($_SESSION['correo'])) {
 
     <script>
         var f = '<?php echo json_encode($folio); ?>';
+        var correo='<?php echo json_encode($correo);?>';
     </script>
 </head>
 

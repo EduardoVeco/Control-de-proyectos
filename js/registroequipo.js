@@ -10,12 +10,13 @@ var nombre = []
 var paterno = []
 var materno = []
 var folio
-
+var correo
 noControlA += ' ' + JSON.parse(n)
 nombre += ' ' + JSON.parse(nom)
 paterno += ' ' + JSON.parse(ap)
 materno += ' ' + JSON.parse(am)
 folio = f
+correo = correo1
 
 console.log(noControlA)
 console.log(nombre)
@@ -99,7 +100,8 @@ alumno.addEventListener('submit', e => {
         console.log(paterno)
         console.log(materno)
         console.log(folio)
-        window.location = "registroequipo1.php?noControl=" + campos.nc + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio;
+        console.log(correo)
+        window.location = "registroequipo1.php?noControl=" + campos.nc + "&noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio + '&correo=' + correo;
         console.log(noControl)
         document.getElementById("nombre").disabled = false;
         document.getElementById("paterno").disabled = false;
@@ -161,6 +163,7 @@ registro.addEventListener('submit', e => {
                 console.log(paterno)
                 console.log(materno)
                 console.log(folio)
+                console.log(correo)
                     //registro.reset()
                     //alumno.reset()
                 document.getElementById("noControl").value = '';

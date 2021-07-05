@@ -3,7 +3,7 @@ $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 //$folio = 'Descomente el folio perro';
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-
+print_r($correo);
 session_start();
 if (!isset($_SESSION['correo'])) {
     header('location:index.php');
@@ -36,6 +36,7 @@ if (!isset($_SESSION['correo'])) {
     <script src="../js/Chart.min.js" type="text/javascript"></script>
     <script>
         var f = '<?php echo json_encode($folio); ?>';
+        var correo1 = '<?php echo json_encode($correo); ?>';
     </script>
 
 </head>

@@ -53,6 +53,7 @@ class FuncionesDelSistema
             $porcenRes = 0;
             $porcenOri = 0;
             $porcenPrim = 0;
+            $tempFolio=0;
             $id = 1;
             $filasPrim = mysqli_num_rows($consulta);
             $simMaxima = 0;
@@ -240,6 +241,7 @@ class FuncionesDelSistema
                     $str2 = $str2 . ' ' . $jus3;
                 }
                 $folio = 'A';
+                $tempFolio='0';
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
             } else if ($porcentaje > 50 && $porcentaje <= 60) {
                 $str = '';

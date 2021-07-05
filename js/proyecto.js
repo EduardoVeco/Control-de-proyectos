@@ -6,7 +6,7 @@ const boton = document.getElementById("seleccionador")
 texto = document.getElementById("archivoInfo")
 const historialBtn = document.getElementById("historial")
 const actualizarBtn = document.getElementById("actualizarBtn")
-
+const retomarBtn = document.getElementById("btnRetomar")
 //console.log(folio)
 
 const campos = {
@@ -67,14 +67,16 @@ seleccion = [], //Arreglo que almacenará a las filas seleccionadas
 historialBtn.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
-    window.location = "historico.php?folio=" + folio;
+    var correo1 = JSON.parse(correo)
+    window.location = "historico.php?folio=" + folio+'&correo= '+correo1;
     console.log(folio)
 })
 
 btnCeder.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
-    window.location = "cederproyecto.html?folio=" + folio;
+    var correo1 = JSON.parse(correo)
+    window.location = "cederproyecto.php?folio=" + folio+'&correo= '+correo1;
     console.log(folio)
 })
 
@@ -83,6 +85,14 @@ actualizarBtn.addEventListener("click", e => {
     var folio = JSON.parse(f)
     var porcentaje = document.getElementById('porcentaje').value
     window.location.href = "actualizarPorcentaje.php?folio=" + folio + '&porcentaje=' + porcentaje;
+    // console.log(folio)
+    //console.log(porcentaje)
+})
+retomarBtn.addEventListener("click", e => {
+    e.preventDefault()
+    var folio = JSON.parse(f)
+    var correo1 = JSON.parse(correo)
+    window.location.href = "registroequipo.php?folio=" + folio+'&correo= '+correo1;
     // console.log(folio)
     //console.log(porcentaje)
 })
