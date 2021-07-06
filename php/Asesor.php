@@ -130,10 +130,10 @@ class Asesor
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $folio = trim($noFolio, "\"\"");
-        $folio = ltrim($noControl, ",");
-        $folio = ltrim($nombre, ",");
-        $folio = ltrim($primerApellido, ",");
-        $folio = ltrim($segundoApellido, ",");
+        $noControl = ltrim($noControl, ",");
+        $nombre = ltrim($nombre, ",");
+        $primerApellido = ltrim($primerApellido, ",");
+        $segundoApellido = ltrim($segundoApellido, ",");
         if ($coAsesor == null && $equipo == null) {
 
 
