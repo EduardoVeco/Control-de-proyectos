@@ -1,5 +1,6 @@
 <?php
 $correo = $_REQUEST['correo'];
+$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 print_r($correo);
 
 ?>
@@ -65,8 +66,7 @@ print_r($correo);
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p name="correo" form="login">
                             </p>
-                            <p class="pa pa-texto ">Contraseña actual </p>
-                            <input type="text" name="correo" id="correo" value="<?php echo $correo ?>" hidden/>
+                            <input type="text" name="correo" id="correo" value="<?php echo $correo ?>" hidden />
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Contraseña actual </p>
@@ -86,11 +86,31 @@ print_r($correo);
                         </div>
                     </form>
                     <div class="row">
-                        <div class="col-1">
-                        </div>
-                        <div class="col-10">
-                            <button class="btn btn-boton-ext " type="submit" name="cambio" form="login" id="cambiar" name="cambiar"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar contraseña</button>
+                        <div class="col-6">
+                            <?php
+                            $sql = "SELECT tipoUsuario FROM usuarios
+                                                WHERE correo='$correo'";
+                            $result = mysqli_query($conexion, $sql);
 
+                            while ($mostrar = mysqli_fetch_array($result)) {
+                                if ($mostrar['tipoUsuario'] == 'XXX000XXX') {
+                            ?>
+                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='deptoinvestigacion.php?correo=<?php echo $correo ?>'">
+                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='asesor.php?correo=<?php echo $correo ?>'">
+                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
+
+                            <?php
+                                }
+                            }
+                            ?>
+
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-boton-ext " type="submit" name="cambio" form="login" id="cambiar" name="cambiar"><img class="fa fa-icon " src="../imagenes/key.png " /> Cambiar</button>
                         </div>
                         <div class="col-1">
                         </div>
@@ -122,7 +142,6 @@ print_r($correo);
             </div>
         </div>
     </div>
-
 
     <script>
         $(document).ready(function() {
