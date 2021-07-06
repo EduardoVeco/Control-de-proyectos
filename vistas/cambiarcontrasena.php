@@ -1,7 +1,9 @@
 <?php
 $correo = $_REQUEST['correo'];
+$estado = $_REQUEST['estado'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 print_r($correo);
+print_r($estado);
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +50,28 @@ print_r($correo);
     </div>
 
     <br>
+
+    <div class="container div" id="mensajeCont">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10 justify-content-center">
+                <?php
+                if ($estado == '0') {
+                } else {
+                ?>
+                    <div class="div div-mensaje" id="mensaje">
+                        <p><?php echo $estado ?></p>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+
+    </div>
 
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
