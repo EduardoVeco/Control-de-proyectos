@@ -44,7 +44,7 @@ function login($conexion)
          } else {
             header('location: dptoinvestigacion.php?correo=' . $username);
          }
-      }else{
+      } else {
          header('location: index.html?');
       }
    }
@@ -65,12 +65,20 @@ function cambioContrasena($conexion)
    $sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
    $result = mysqli_query($conexion, $sql);
    if ($result && mysqli_num_rows($result) == 1) {
-      if ($contra2 == $contra3) {
-         print_r('ando aca');
-         $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
-         mysqli_query($conexion, $sqll);
+      if ($contra1 != $contra2) {
+         if ($contra2 == $contra3) {
+            print_r('ando aca');
+            $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
+            header('location: cambiarcontrasena.php?correo=' . $correo . '&estado=Contraseña cambiada con exito');
+            mysqli_query($conexion, $sqll);
+         } else {
+            header('location: cambiarcontrasena.php?correo=' . $correo . '&estado=Las contraseñas no coinciden');
+         }
+      } else {
+         header('location: cambiarcontrasena.php?correo=' . $correo . '&estado=La contraseña nueva no puede ser igual a la antigua');
       }
    } else {
+      header('location: cambiarcontrasena.php?correo=' . $correo . '&estado=La contraseña actual es incorrecta');
    }
 }
 
@@ -86,6 +94,7 @@ function olvidoContrasena($conexion)
       if ($contra2 == $contra3) {
          print_r('ando aca');
          $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
+         header('location: asesor.php?correo=' . $correo);
          mysqli_query($conexion, $sqll);
       }
    } else {
@@ -132,17 +141,17 @@ function registraUsuario($conexion)
    $contrasena2 = $_REQUEST['contrasena2'];
    $carrera = $_REQUEST['carrera'];
    if ($contrasena == $contrasena2) {
-      if($noControl=='XXX00XXX'){
-      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
-      mysqli_query($conexion, $sql);
-      mysqli_close($conexion);
-      header('location: index.html');
-   }else{
-      $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Asesor')";
-      mysqli_query($conexion, $sql);
-      mysqli_close($conexion);
-      header('location: index.html');
-   }
+      if ($noControl == 'XXX00XXX') {
+         $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
+         mysqli_query($conexion, $sql);
+         mysqli_close($conexion);
+         header('location: index.html');
+      } else {
+         $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Asesor')";
+         mysqli_query($conexion, $sql);
+         mysqli_close($conexion);
+         header('location: index.html');
+      }
    } else {
 
       echo "<p> esta mal la contraseña</p>";

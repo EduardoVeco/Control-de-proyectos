@@ -7,7 +7,7 @@
 		if($_FILES["archivo"]["name"][$key]) {
 			$filename = $_FILES["archivo"]["name"][$key]; //Obtenemos el nombre original del archivo
 			$source = $_FILES["archivo"]["tmp_name"][$key]; //Obtenemos un nombre temporal del archivo
-			$corre=$_REQUEST['correo'];
+			$correo=$_REQUEST['correo'];
 
 
 
