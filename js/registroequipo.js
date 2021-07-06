@@ -10,10 +10,10 @@ var nombre = []
 var paterno = []
 var materno = []
 var folio
-noControlA += ' ' + JSON.parse(n)
-nombre += ' ' + JSON.parse(nom)
-paterno += ' ' + JSON.parse(ap)
-materno += ' ' + JSON.parse(am)
+noControlA += ',' + JSON.parse(n)
+nombre += ',' + JSON.parse(nom)
+paterno += ',' + JSON.parse(ap)
+materno += ',' + JSON.parse(am)
 folio = f
 
 console.log(noControlA)
@@ -146,14 +146,14 @@ registro.addEventListener('submit', e => {
                 campos.nombre = false
                 campos.paterno = false
                 campos.materno = false
-                    /*noControlA.push(document.getElementById('noControl').value)
-                    nombre.push(document.getElementById('nombre').value)
-                    paterno.push(document.getElementById('paterno').value)
-                    materno.push(document.getElementById('materno').value)*/
-                noControlA += ' ' + document.getElementById('noControl').value
-                nombre += ' ' + document.getElementById('nombre').value
-                paterno += ' ' + document.getElementById('paterno').value
-                materno += ' ' + document.getElementById('materno').value
+                    /* noControlA.push(document.getElementById('noControl').value)
+                     nombre.push(document.getElementById('nombre').value)
+                     paterno.push(document.getElementById('paterno').value)
+                     materno.push(document.getElementById('materno').value)*/
+                noControlA += ',' + document.getElementById('noControl').value
+                nombre += ',' + document.getElementById('nombre').value
+                paterno += ',' + document.getElementById('paterno').value
+                materno += ',' + document.getElementById('materno').value
 
                 console.log(noControlA)
                 console.log(nombre)
@@ -209,10 +209,10 @@ propositoForm.addEventListener('submit', e => {
                         /* nombre += ' ' + document.getElementById('nombre').value
                          paterno += ' ' + document.getElementById('paterno').value
                          materno += ' ' + document.getElementById('materno').value*/
-                    noControlA += ' ' + document.getElementById('noControl').value
-                    nombre += ' ' + document.getElementById('nombre').value
-                    paterno += ' ' + document.getElementById('paterno').value
-                    materno += ' ' + document.getElementById('materno').value
+                        /*    noControlA += ' ' + document.getElementById('noControl').value
+                            nombre += ' ' + document.getElementById('nombre').value
+                            paterno += ' ' + document.getElementById('paterno').value
+                            materno += ' ' + document.getElementById('materno').value*/
                     console.log(noControl)
                     console.log(nombre)
                     console.log(paterno)

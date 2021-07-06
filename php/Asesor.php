@@ -130,36 +130,40 @@ class Asesor
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $folio = trim($noFolio, "\"\"");
+        $folio = ltrim($noControl, ",");
+        $folio = ltrim($nombre, ",");
+        $folio = ltrim($primerApellido, ",");
+        $folio = ltrim($segundoApellido, ",");
         if ($coAsesor == null && $equipo == null) {
 
 
             //Numero de control
-            $token2 = strtok($noControl, " ");
+            $token2 = strtok($noControl, ",");
             $aNC = array();
             while ($token2 !== false) {
                 array_push($aNC, $token2);
-                $token2 = strtok(" ");
+                $token2 = strtok(",");
             }
             //nombre
-            $token3 = strtok($nombre, " ");
+            $token3 = strtok($nombre, ",");
             $aNom = array();
             while ($token3 !== false) {
                 array_push($aNom, $token3);
-                $token3 = strtok(" ");
+                $token3 = strtok(",");
             }
             //primer apellido
-            $token4 = strtok($primerApellido, " ");
+            $token4 = strtok($primerApellido, ",");
             $aPA = array();
             while ($token4 !== false) {
                 array_push($aPA, $token4);
-                $token4 = strtok(" ");
+                $token4 = strtok(",");
             }
             //segundo apellido
-            $token5 = strtok($segundoApellido, " ");
+            $token5 = strtok($segundoApellido, ",");
             $aSA = array();
             while ($token5 !== false) {
                 array_push($aSA, $token5);
-                $token5 = strtok(" ");
+                $token5 = strtok(",");
             }
             print_r($aPA);
 
@@ -223,13 +227,13 @@ class Asesor
             $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
             $mostrar2 = mysqli_fetch_array($consulta);
             $correo = $mostrar2['correo'];
-            header('location: proyecto.php?folio=' . $folio.'&correo='.$correo);
+            header('location: proyecto.php?folio=' . $folio . '&correo=' . $correo);
         } else {
             $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
             $mostrar2 = mysqli_fetch_array($consulta);
             $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$folio'");
             $correo = $mostrar2['correo'];
-            header('location: proyecto.php?folio=' . $folio.'&correo='.$correo);
+            header('location: proyecto.php?folio=' . $folio . '&correo=' . $correo);
         }
     }
 }
