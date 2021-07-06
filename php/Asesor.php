@@ -210,6 +210,7 @@ class Asesor
                 print_r($str);
                 $consulta = mysqli_query($con, "INSERT INTO historicos (id,noFolio,noEquipo,noControl) VALUES (null,'$folio','$resultado','$str')");
             }
+            $consulta = mysqli_query($con, "UPDATE proyectos SET estatus='ACTIVO' where noFolio='$folio'");
             header('location: registrocoasesor.php?folio=' . $folio);
         } else if ($coAsesor != null && $equipo == null) {
             $consulta = mysqli_query($con, "UPDATE proyectos SET coasesor='$coAsesor' where noFolio='$folio'");
