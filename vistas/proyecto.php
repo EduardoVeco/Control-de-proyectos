@@ -20,9 +20,9 @@ while ($mostrar = mysqli_fetch_array($result)) {
 
 
 
-if (is_dir($directorio)){
+if (is_dir($directorio)) {
     $arrayArchivos = scandir($directorio);
-    if (count($arrayArchivos)>2){
+    if (count($arrayArchivos) > 2) {
         $fecha = array();
         $direccion = array();
         for ($i = 2; $i < count($arrayArchivos); $i++) {
@@ -38,7 +38,7 @@ if (is_dir($directorio)){
             $ex = explode(" .", $nombreAux);
             $nombre[$i - 2] = $ex[0];
         }
-    }else {
+    } else {
         $fecha = array();
         $direccion = array();
         $nombre = array();
@@ -96,7 +96,7 @@ if (!isset($_SESSION['correo'])) {
 
     <script>
         var f = '<?php echo json_encode($folio); ?>';
-        var correo='<?php echo json_encode($correo);?>';
+        var correo = '<?php echo json_encode($correo); ?>';
     </script>
 </head>
 
@@ -235,15 +235,15 @@ if (!isset($_SESSION['correo'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form  method="post" id="actualizar">
+                                            <form method="post" id="actualizar">
                                                 <br>
                                                 <p>Ingrese el porcentaje %</p>
                                                 <input class="txt text-input" type="text" name="porcentaje" id="porcentaje" placeholder="introduzca un valor entre 0 y 100" style="width:100%" pattern="[0-9]{0,3}">
-                                                <input class="txt text-input" type="text" name="folio" id="folio" value="<?php echo $folio?>" hidden>
-                                                
+                                                <input class="txt text-input" type="text" name="folio" id="folio" value="<?php echo $folio ?>" hidden>
+
                                                 <br>
                                             </form>
-                                            <form action="guarda.php" method="post" enctype="multipart/form-data" name="archivos" id="archivos">
+                                            <form action="guarda.php?folio=<?php echo $folio ?>" method="post" enctype="multipart/form-data" name="archivos" id="archivos">
                                                 <input type="file" id="real-file" name="archivo[]" multiple="" hidden>
                                                 <button class="btn btn-boton-ext" type="button" id="seleccionador"><img class="fa fa-icon " src="../imagenes/addfile.png" /> Agregar evidencias</button>
                                                 <span id="archivoInfo"> archivo seleccionado</span>
