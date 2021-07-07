@@ -155,7 +155,31 @@ if (!isset($_SESSION['correo'])) {
                         <br>
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn btn-aceptar " type="submit " form="registrodueno" name="terminar" id="terminar"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
+                                <button class="btn btn-aceptar" type="button" data-toggle="modal" data-target="#terminarModal">
+                                    <img class="fa fa-icon" src="../imagenes/check.png " /> Terminar</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="terminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Terminar registro</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <br>
+                                                <p>EL proyecto quedara como inactivo en la seccion de mis proyectos</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal">
+                                                    <img class="fa fa-icon " src="../imagenes/cancel.png" /> Cancelar</button>
+                                                <button class="btn btn-boton-ext " type="submit" name="terminar" id="terminar"form="registrodueno" id="actualizarBtn">
+                                                    <img class="fa fa-icon " src="../imagenes/check.png" /> Continuar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-6">
                                 <button class="btn btn-boton " type="submit " form="registrodueno" name="siguiente" id="siguiente"><img class="fa fa-icon " src="../imagenes/next.png " /> Siguiente</button>
