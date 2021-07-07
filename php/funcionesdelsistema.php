@@ -243,7 +243,7 @@ class FuncionesDelSistema
                 $folio = 'A';
                 $tempFolio='0';
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
-            } else if ($porcentaje > 50 && $porcentaje <= 60) {
+            } else if ($porcentaje > 50 && $porcentaje <= 90) {
                 $str = '';
                 $str1 = '';
                 $str2 = '';
@@ -261,9 +261,17 @@ class FuncionesDelSistema
                     $str2 = $str2 . ' ' . $jus3;
                 }
                 $folio = 'R';
-
-              header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
-            } else if ($porcentaje > 60) {
+                
+                for ($i = 1; $i <= mysqli_num_rows($consulta); $i++) {
+                    $consulta1=mysqli_query($con,"SELECT noFolio FROM primitivas WHERE id='$i'");
+                    if($tempFolio==$i){
+                        $mostrar4=mysqli_fetch_array($consulta1);
+                        $resultado=$mostrar4['noFolio'];
+                        $i=mysqli_num_rows($consulta)+1;
+                    }
+                }
+              header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
+            } else if ($porcentaje > 90) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
                 header('location: asesor.php?correo=' . $correo);
             }
