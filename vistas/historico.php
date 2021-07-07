@@ -3,13 +3,13 @@ $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +44,11 @@ session_start();
 </head>
 
 <body class="body">
-        <?php
-            require 'conexion.php';
-            $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -136,10 +136,11 @@ session_start();
                                 <tbody>
                                     <?php
                                     $sql = "SELECT CONCAT(i.nombre,' ', i.primerApellido,' ',i.segundoApellido ) as integrante,i.noControl,e.noEquipo,e.proposito,DATE_FORMAT(e.fecha_inicial, '%d-%m-%Y') as fi,DATE_FORMAT(e.fecha_final, '%d-%m-%Y') as ff
-                                        FROM integrantes as i,equipos as e,historicos as h
-                                        WHERE e.noEquipo=h.noEquipo
-                                        AND h.nofolio='$folio'
-                                        ORDER BY e.fecha_inicial,e.fecha_final";
+                                            FROM integrantes as i,equipos as e,historicos as h
+                                            WHERE h.nofolio='$folio'
+                                            AND e.noEquipo=h.noEquipo
+                                            AND h.noControl=i.noControl
+                                            ORDER BY e.fecha_final;";
                                     $result = mysqli_query($conexion, $sql);
 
                                     while ($mostrar = mysqli_fetch_array($result)) {

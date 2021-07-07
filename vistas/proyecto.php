@@ -138,7 +138,6 @@ if (!isset($_SESSION['correo'])) {
         </nav>
     </div>
 
-
     <br>
 
     <div class="container">
@@ -166,7 +165,7 @@ if (!isset($_SESSION['correo'])) {
                                 $result = mysqli_query($conexion, $sql);
                                 $mostrar = mysqli_fetch_array($result);
 
-                                if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO') {
+                                if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'REVISION') {
 
                                     $sql = "SELECT p.titulo,p.nofolio,p.estatus,aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                     FROM proyectos as p, usuarios as u
@@ -189,7 +188,7 @@ if (!isset($_SESSION['correo'])) {
                                     <?php
                                     }
                                 } else {
-                                    $sql = "SELECT p.titulo,p.noFolio,e.proposito,p.estatus,p.aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.coasesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
+                                    $sql = "SELECT DISTINCT p.titulo,p.noFolio,e.proposito,p.estatus,p.aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.coasesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                             FROM proyectos as p, usuarios as u, historicos as h, equipos as e
                                             WHERE p.noFolio='$folio'
                                             AND h.noFolio=p.noFolio
@@ -388,6 +387,7 @@ if (!isset($_SESSION['correo'])) {
                                                 FROM integrantes as i, historicos as h, equipos as e
                                                 WHERE h.nofolio='$folio'
                                                 AND e.noEquipo=h.noEquipo
+                                                AND i.noControl=h.noControl
                                                 AND e.fecha_final IS NULL";
                                         $result = mysqli_query($conexion, $sql);
 
