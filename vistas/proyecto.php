@@ -387,7 +387,8 @@ if (!isset($_SESSION['correo'])) {
                                         $sql = "SELECT i.noControl,i.nombre,i.primerApellido,i.segundoApellido,e.noEquipo
                                                 FROM integrantes as i, historicos as h, equipos as e
                                                 WHERE h.nofolio='$folio'
-                                                AND e.noEquipo=h.noEquipo";
+                                                AND e.noEquipo=h.noEquipo
+                                                AND e.fecha_final IS NULL";
                                         $result = mysqli_query($conexion, $sql);
 
                                         while ($mostrar = mysqli_fetch_array($result)) {
@@ -416,12 +417,12 @@ if (!isset($_SESSION['correo'])) {
                                     <?php
                                     if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'APROBADO') {
                                     ?>
-                                        <button type="button" class="btn btn-boton-ext " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
+                                        <button type="button" name="desvincular" id="desvincular" class="btn btn-boton-ext " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
 
                                     <?php
                                     } else {
                                     ?>
-                                        <button type="button" class="btn btn-boton-ext " data-dismiss="modal" disabled><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
+                                        <button type="button" name="desvincular" id="desvincular" class="btn btn-boton-ext " data-dismiss="modal" disabled><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
                                     <?php
                                     }
                                     ?>
