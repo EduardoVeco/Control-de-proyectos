@@ -31,7 +31,9 @@ class FuncionesDelSistema
     {
 
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
-        $consulta = mysqli_query($con, "select * from primitivas");
+        $consulta = mysqli_query($con, "SELECT * from primitivas as pr, proyectos as p 
+                                        WHERE  pr.noFolio=p.noFolio
+                                        AND p.aprobacion='APROBADO'");
 
 
         if (mysqli_num_rows($consulta) != 0) {
@@ -59,7 +61,9 @@ class FuncionesDelSistema
             $simMaxima = 0;
             for ($i = 1; $i <= $filasPrim; $i++) {
                 $mostrar = '';
-                $consulta1 = mysqli_query($con, "select tituloPrimitivas from primitivas WHERE id = $i  ");
+                $consulta1 = mysqli_query($con, "SELECT pr.tituloPrimitivas from primitivas as pr, proyectos as p   
+                                                WHERE p.noFolio=pr.noFolio
+                                                AND p.aprobacion='APROBADO'");
                 $mostrar = mysqli_fetch_array($consulta1);
                 $jus2 = '';
                 $jus3 = '';
@@ -101,7 +105,9 @@ class FuncionesDelSistema
                 $contPrimComun = 0;
                 $mostrar1 = '';
                 $token4 = '';
-                $consulta2 = mysqli_query($con, "select justificacionPrimitivas from primitivas WHERE id = $i ");
+                $consulta2 = mysqli_query($con, "SELECT pr.justificacionPrimitivas from primitivas as pr, proyectos as p 
+                                                 WHERE  pr.noFolio=p.noFolio
+                                                 AND p.aprobacion='APROBADO'");
                 $mostrar1 = mysqli_fetch_array($consulta2);
                 $token4 = strtok($mostrar1['justificacionPrimitivas'], " ");
                 $jus4 = '';
@@ -142,7 +148,9 @@ class FuncionesDelSistema
                 $jus7 = '';
                 $contAlc = 0;
                 $contAlcSel = 0;
-                $consulta3 = mysqli_query($con, "select alcancesPrimitivas from primitivas WHERE id = $i ");
+                $consulta3 = mysqli_query($con, "SELECT pr.alcancesPrimitivas from primitivas as pr, proyectos as p 
+                                                WHERE  pr.noFolio=p.noFolio
+                                                AND p.aprobacion='APROBADO'");
                 $mostrar2 = mysqli_fetch_array($consulta3);
                 $token5 = strtok($mostrar2['alcancesPrimitivas'], " ");
                 $aT2 = array();
@@ -180,7 +188,9 @@ class FuncionesDelSistema
                 $contRes = 0;
                 $contResSel = 0;
 
-                $consulta4 = mysqli_query($con, "select resumenPrimitivas from primitivas WHERE id = $i ");
+                $consulta4 = mysqli_query($con, "SELECT pr.resumenPrimitivas from primitivas as pr, proyectos as p 
+                                                 WHERE  pr.noFolio=p.noFolio
+                                                 AND p.aprobacion='APROBADO'");
                 $mostrar3 = mysqli_fetch_array($consulta4);
                 $token6 = strtok($mostrar3['resumenPrimitivas'], " ");
                 $aT3 = array();
