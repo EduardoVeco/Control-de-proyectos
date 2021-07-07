@@ -170,7 +170,7 @@ if (!isset($_SESSION['correo'])) {
                                             </div>
                                             <div class="modal-body">
                                                 <br>
-                                                <p>EL proyecto quedara como inactivo en la seccion de mis proyectos</p>
+                                                <p>El proyecto quedara como inactivo en la seccion de mis proyectos</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal">
