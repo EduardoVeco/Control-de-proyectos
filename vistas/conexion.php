@@ -29,23 +29,31 @@ function login($conexion)
    if (!empty($_POST['correo']) && !empty($_POST['contrasena'])) {
       $username = $_POST['correo'];
       $password = $_POST['contrasena'];
-      $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
+
+      $sql = "SELECT * from usuarios where correo='$username'";
       $result = mysqli_query($conexion, $sql);
-      print_r($result);
 
       if (mysqli_num_rows($result) == 1) {
-         $mostrar = mysqli_fetch_array($result);
-         session_start();
-         $_SESSION['correo'] = $mostrar['correo'];
-         $_SESSION['time'] = time();
 
-         if ($mostrar['tipoUsuario'] == 'Asesor') {
-            header('location: asesor.php?correo=' . $username);
+         $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
+         $result = mysqli_query($conexion, $sql);
+         $mostrar = mysqli_fetch_array($result);
+         if (mysqli_num_rows($result) == 1) {
+
+            session_start();
+            $_SESSION['correo'] = $mostrar['correo'];
+            $_SESSION['time'] = time();
+
+            if ($mostrar['tipoUsuario'] == 'Asesor') {
+               header('location: asesor.php?correo=' . $username);
+            } else {
+               header('location: dptoinvestigacion.php?correo=' . $username);
+            }
          } else {
-            header('location: dptoinvestigacion.php?correo=' . $username);
+            header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&estado=Contraseña o correo incorrectos');
          }
       } else {
-         header('location: index.html?');
+         header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&estado=El usuario no esta registrado');
       }
    }
 }

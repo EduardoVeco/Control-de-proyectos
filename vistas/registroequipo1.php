@@ -53,7 +53,6 @@ if (!isset($_SESSION['correo'])) {
         var ap = '<?php echo json_encode($paterno); ?>';
         var am = '<?php echo json_encode($materno); ?>';
         var f = '<?php echo json_encode($folio); ?>';
-        
     </script>
 </head>
 
@@ -75,6 +74,13 @@ if (!isset($_SESSION['correo'])) {
 
     <br>
 
+    <div class="container div div-ocultar" id="mensajeCont">
+        <div class="col-12 justify-content-center">
+            <div class="div div-mensaje" id="mensaje">
+                <p>Mensaje importante</p>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
@@ -167,13 +173,7 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-    <div class="container div div-ocultar" id="mensajeCont">
-        <div class="col-12 justify-content-center">
-            <div class="div div-mensaje" id="mensaje">
-                <p>Mensaje importante</p>
-            </div>
-        </div>
-    </div>
+
 
     <div class="container">
         <div class="row">
@@ -197,14 +197,14 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-    
+
 
     <script>
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-<script src="../js/registroequipo.js"></script>
+    <script src="../js/registroequipo.js"></script>
 </body>
 
 </html>

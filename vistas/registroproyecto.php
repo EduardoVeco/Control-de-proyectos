@@ -90,11 +90,11 @@ session_start();
                                 <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" placeholder="Ingrese el titulo 1-150 caracteres" pattern=".{1,150}" required>
                                 <br>
                                 <p>Justificación</p>
-                                <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="ingrese la justificacion 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
+                                <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="Ingrese la justificacion 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
                                 <p>Alcances</p>
-                                <textarea class="txt txt-texto-area " name="alcances" id="alcances" placeholder="ingrese los alcances 1-13,000 caracteres" pattern=".{1,13000}" required></textarea>
+                                <textarea class="txt txt-texto-area " name="alcances" id="alcances" placeholder="Ingrese los alcances 1-13,000 caracteres" pattern=".{1,13000}" required></textarea>
                                 <p>Resumen</p>
-                                <textarea class=" txt txt-texto-area " name="resumen" id="resumen" placeholder="ingrese el resumen 1-25,000 caracteres" pattern=".{1,25000}" required></textarea>
+                                <textarea class=" txt txt-texto-area " name="resumen" id="resumen" placeholder="Ingrese el resumen 1-25,000 caracteres" pattern=".{1,25000}" required></textarea>
 
                                 <input type="text" name="correo" value="<?php echo $correo?>" hidden>
                                 <br>
