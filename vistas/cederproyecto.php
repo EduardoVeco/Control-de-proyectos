@@ -2,7 +2,7 @@
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-
+print_r($folio);
 session_start();
 if (!isset($_SESSION['correo'])) {
     header('location:index.php');
@@ -36,7 +36,7 @@ if (!isset($_SESSION['correo'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <script>
-        var f = '<?php echo json_encode($folio); ?>';
+        var f = <?php echo json_encode($folio); ?>;
     </script>
 </head>
 

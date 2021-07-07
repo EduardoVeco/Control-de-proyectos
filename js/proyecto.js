@@ -7,6 +7,7 @@ texto = document.getElementById("archivoInfo")
 const historialBtn = document.getElementById("historial")
 const actualizarBtn = document.getElementById("actualizarBtn")
 const retomarBtn = document.getElementById("btnRetomar")
+const desvincularBtn = document.getElementById("desvincular")
 //console.log(folio)
 
 const campos = {
@@ -93,6 +94,15 @@ retomarBtn.addEventListener("click", e => {
     var folio = JSON.parse(f)
     var correo1 = JSON.parse(correo)
     window.location.href = "registroequipo.php?folio=" + folio+'&correo= '+correo1;
+    // console.log(folio)
+    //console.log(porcentaje)
+})
+desvincularBtn.addEventListener("click", e => {
+    e.preventDefault()
+    var folio = JSON.parse(f)
+    var correo1 = JSON.parse(correo)
+
+    window.location.href = "borraEquipo.php?folio=" + folio;
     // console.log(folio)
     //console.log(porcentaje)
 })
