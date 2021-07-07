@@ -61,6 +61,13 @@ class Asesor
                     $aprobacion = 'APROBADO';
                 }else if($aprobacion == 'R'){
                     $aprobacion = 'REVISION';
+
+                    $destino = $correo;
+	                $desde = "From:" . "Control de proyectos";
+	                $asunto = 'Proyecto similar';
+	                $mensaje = 'El folio de su proyecto es el siguiente ' .$str .' se parece al siguiente folio '.$tempFolio;
+	                mail($destino, $asunto, $mensaje, $desde);
+	                echo "Correo enviado...";
                 }
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
