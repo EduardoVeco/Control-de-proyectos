@@ -61,7 +61,7 @@ session_start();
 
                     <form action="registroCoasesor1.php" method="POST" id="registroasesor">
                         <div class="form-group mx-sm-7 pt-3">
-                            <p class="pa pa-texto ">No. Control </p>
+                            <p class="pa pa-texto ">No. Empleado </p>
                             <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio?>" hidden/>
                             <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})"/>
 
