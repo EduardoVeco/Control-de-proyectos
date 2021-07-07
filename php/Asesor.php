@@ -43,8 +43,14 @@ class Asesor
                 }
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
-                }else if($aprobacion == 'R'){
+                } else if ($aprobacion == 'R') {
                     $aprobacion = 'REVISION';
+                    $destino = $correo;
+                    $desde = "From:" . "Control de proyectos";
+                    $asunto = 'Proyecto similar';
+                    $mensaje = 'El folio de su proyecto es el siguiente ' . $str . ' se parece al siguiente folio ' . $tempFolio;
+                    mail($destino, $asunto, $mensaje, $desde);
+                    echo "Correo enviado...";
                 }
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
@@ -55,23 +61,17 @@ class Asesor
                 } else {
                     print_r('');
                 }
-                $destino = $correo;
-	                $desde = "From:" . "Control de proyectos";
-	                $asunto = 'Proyecto similar';
-	                $mensaje = 'El folio de su proyecto es el siguiente ' .$str .' se parece al siguiente folio '.$tempFolio;
-	                mail($destino, $asunto, $mensaje, $desde);
-	                echo "Correo enviado...";
             } else {
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
-                }else if($aprobacion == 'R'){
+                } else if ($aprobacion == 'R') {
                     $aprobacion = 'REVISION';
                     $destino = $correo;
-	                $desde = "From:" . "Control de proyectos";
-	                $asunto = 'Proyecto similar';
-	                $mensaje = 'El folio de su proyecto es el siguiente ' .$str .' se parece al siguiente folio '.$tempFolio;
-	                mail($destino, $asunto, $mensaje, $desde);
-	                echo "Correo enviado...";
+                    $desde = "From:" . "Control de proyectos";
+                    $asunto = 'Proyecto similar';
+                    $mensaje = 'El folio de su proyecto es el siguiente ' . $str . ' se parece al siguiente folio ' . $tempFolio;
+                    mail($destino, $asunto, $mensaje, $desde);
+                    echo "Correo enviado...";
                 }
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
@@ -92,7 +92,7 @@ class Asesor
             $año = date("Y");
             $num = 1;
             $str = '';
-            $fecha = ''; 
+            $fecha = '';
             $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
             $str = $str . $aprobacion . $dia . $mes . $año . $num;
             $i = 1;
@@ -216,7 +216,7 @@ class Asesor
                 $token2 = strtok(",");
             }
             print_r($aNC);
-            $contador=0;
+            $contador = 0;
             foreach ($aNC as $perro) {
                 $contador = $contador + 1;
             }

@@ -132,7 +132,7 @@ if (!isset($_SESSION['correo'])) {
                             <input class="txt text-input " type="text " name="titulo" id="titulo" value="<?php echo $titulo ?>" hidden />
                             <input class="txt text-input " type="text " name="alcances" id="alcances" value="<?php echo $alcances ?>" hidden />
                             <input class="txt text-input " type="text " name="resumen" id="resumen" value="<?php echo $resumen ?>" hidden />
-                            <input class="txt text-input " type="text " name="tempfolio" id="tempfolio" value="<?php echo $tempFolio ?>" hidden />
+                            <input class="txt text-input " type="text " name="tempFolio" id="tempFolio" value="<?php echo $tempFolio ?>" hidden />
 
                             <p class="pa pa-texto ">Nombre </p>
                             <input class="txt text-input " type="text " name="nombre" id="nombre" required pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" />

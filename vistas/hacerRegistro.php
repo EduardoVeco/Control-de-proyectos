@@ -29,13 +29,12 @@ function hacer()
     $nom = $_REQUEST['nombre'];
     $app = $_REQUEST['paterno'];
     $apm = $_REQUEST['materno'];
+    print_r($tempFolio);
     $nombre = '';
-    $nombre = $nombre . $nom .' '. $app.' ' . $apm;
+    $nombre = $nombre . $nom . ' ' . $app . ' ' . $apm;
     if (isset($_POST['terminar'])) {
-        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, null, ' ', ' ', $folio, $tempFolio,'terminar');
+        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo, $nombre, null, ' ', ' ', $folio, $tempFolio, 'terminar');
+    } else if (isset($_POST['siguiente'])) {
+        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo, $nombre, null, ' ', ' ', $folio, $tempFolio, 'continuar');
     }
-    else if(isset($_POST['siguiente'])) {
-        Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo,$nombre, null, ' ', ' ', $folio, $tempFolio,'continuar');
-    }
-
 }
