@@ -77,7 +77,7 @@ class Asesor
             $año = date("Y");
             $num = 1;
             $str = '';
-            $fecha = '';
+            $fecha = ''; 
             $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
             $str = $str . $aprobacion . $dia . $mes . $año . $num;
             $i = 1;
@@ -193,16 +193,18 @@ class Asesor
             $resultado = $mostrar['valorMax'];
             print_r($resultado);
             print_r($folio);
-            $contador = 0;
             $token2 = '';
-            $token2 = strtok($noControl, " ");
+            $token2 = strtok($noControl, ",");
             $aNC = array();
             while ($token2 !== false) {
                 array_push($aNC, $token2);
-                $token2 = strtok(" ");
+                $token2 = strtok(",");
             }
             print_r($aNC);
-
+            $contador=0;
+            foreach ($aNC as $perro) {
+                $contador = $contador + 1;
+            }
             for ($j = 0; $j <= $contador; $j++) {
                 print_r('hola');
                 $str = '';

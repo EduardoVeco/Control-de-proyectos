@@ -1,6 +1,7 @@
 <?php
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
+print_r($folio);
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
         if(!ISSET($_SESSION['correo'])){
@@ -81,7 +82,7 @@ session_start();
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1 col-sm-13" style="margin: 0 auto;">
             <div class="formulario col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-                <form action="" method="POST" id="cederForm">
+                <form action="cederProyecto12.php" method="POST" id="cederForm">
                     <div>
                         <div class="div div-cabeza mx-sm-12">
                             <p class="ti ti-texto ">Ceder proyecto </p>
@@ -92,7 +93,7 @@ session_start();
                             <div class="col-4 justify-content-left input-group">
                                 <p> Introduzca el correo del asesor</p>
                                 <input class="txt text-buscar" type="text" placeholder="Correo institucional" name="correo" id="correo" value="<?php echo $correo ?>" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" />
-                                <button class="btn btn-buscar " type="submit" id="btnCorreo"><img class="fa fa-icon " src="../imagenes/search.png " /> </button>
+                                <button class="btn btn-buscar " type="submit" name="btnCorreo" id="btnCorreo"><img class="fa fa-icon " src="../imagenes/search.png " /> </button>
                             </div>
                             <div class="col-4">
                             </div>
@@ -134,11 +135,11 @@ session_start();
                                 //Ejecutamos la sentencia SQL
                                 if (mysqli_num_rows($result) != 0) {
                                 ?>
-                                    <button class="btn btn-aceptar-ext " type="submit " id="btnCeder"><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
+                                    <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder"><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
                                 <?php
                                 } else {
                                 ?>
-                                    <button class="btn btn-aceptar-ext " type="submit " id="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
+                                    <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
                                 <?php
                                 }
                                 ?>
@@ -147,6 +148,7 @@ session_start();
                             </div>
                         </div>
                     </div>
+                    <input  type="text"  name="folio" id="folio" value="<?php echo $folio ?>" hidden/>
                 </form>
             </div>
         </div>
