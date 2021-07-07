@@ -34,12 +34,12 @@
 
 .div.div-mensaje {
     font-size: 18px;
-    height: 38px;
+    height: auto;
     width: 100%;
     background-color: #FF8D57;
     border-radius: 7px;
     font-family: sans-serif;
-    padding: 4px;
+    padding: 5px;
     padding-bottom: 15px;
     border-color: #FF8D57;
     margin-bottom: 10px;

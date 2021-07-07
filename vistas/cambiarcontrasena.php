@@ -70,7 +70,6 @@ print_r($estado);
             <div class="col-1">
             </div>
         </div>
-
     </div>
 
     <div class="container">

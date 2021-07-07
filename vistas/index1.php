@@ -1,5 +1,5 @@
 <?php
-$error = $_REQUEST['error'];
+$estado = $_REQUEST['estado'];
 $correo = $_REQUEST['correo'];
 $contrasena = $_REQUEST['contrasena'];
 ?>
@@ -47,6 +47,20 @@ $contrasena = $_REQUEST['contrasena'];
 
     <br>
 
+    <div class="container div" id="mensajeCont">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10 justify-content-center">
+                <div class="div div-mensaje" id="mensaje">
+                    <p><?php echo $estado ?></p>
+                </div>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
             <div class="formulario col-10 col-sm-9 col-md-7 col-lg-5 col-xl-4 ">
@@ -54,7 +68,6 @@ $contrasena = $_REQUEST['contrasena'];
                     <div class="div div-cabeza mx-sm-7">
                         <p class="ti ti-texto ">Iniciar Sesion </p>
                     </div>
-
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">
                     <div class="mx-sm-4 pt-3 " style="text-align: center;">
@@ -71,16 +84,6 @@ $contrasena = $_REQUEST['contrasena'];
 
                         </div>
 
-                        <?php
-                        if (!empty($error)) {
-                            if ($error == true) {
-                        ?>
-                                <p class="pa pa-texto" style="color: #D9534F;">Contraseña o correo incorrectos</p>
-                        <?php
-                            }
-                        } else {
-                        }
-                        ?>
 
                         <div class="row">
                             <div class="col-6">
@@ -105,16 +108,6 @@ $contrasena = $_REQUEST['contrasena'];
             </div>
         </div>
     </div>
-
-
-    <div class="container div div-ocultar" id="mensaje">
-        <div class="col-12 justify-content-center">
-            <div class="div div-mensaje">
-                <p>Correo o contraseña incorrectas</p>
-            </div>
-        </div>
-    </div>
-
 
     <div class="container">
         <div class="row">
