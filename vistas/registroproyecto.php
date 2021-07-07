@@ -86,8 +86,8 @@ session_start();
                         <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
                             <form action="primitivas.php" method="POST" id="registroProyecto">
                                 <br>
-                                <p>Titulo</p>
-                                <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" placeholder="Ingrese el titulo 1-150 caracteres" pattern=".{1,150}" required>
+                                <p>Título</p>
+                                <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" placeholder="Ingrese el título 1-150 caracteres" pattern=".{1,150}" required>
                                 <br>
                                 <p>Justificación</p>
                                 <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="Ingrese la justificacion 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
