@@ -17,6 +17,7 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 
 		while ($mostrar = mysqli_fetch_array($result)) {
 			$directorio = $mostrar['directorio']; //Declaramos un variable con la ruta donde guardaremos los archivos
+			$correo = $mostrar['correo']; 
 
 		}
 
