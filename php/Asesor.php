@@ -66,7 +66,6 @@ class Asesor
                     $aprobacion = 'APROBADO';
                 }else if($aprobacion == 'R'){
                     $aprobacion = 'REVISION';
-
                     $destino = $correo;
 	                $desde = "From:" . "Control de proyectos";
 	                $asunto = 'Proyecto similar';
