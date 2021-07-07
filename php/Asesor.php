@@ -44,11 +44,18 @@ class Asesor
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 } else if ($aprobacion == 'R') {
+                    $consulta = mysqli_query($con, "SELECT carrera from usuarios where correo='$correo'");
+                    $mostrar = mysqli_fetch_array($consulta);
+                    $carreraAux = $mostrar['correo'];
+                    $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
+                    $mostrar = mysqli_fetch_array($consulta);
+                    $correoDepto = $mostrar['correo'];
+
                     $aprobacion = 'REVISION';
-                    $destino = $correo;
+                    $destino = $correoDepto;
                     $desde = "From:" . "Control de proyectos";
                     $asunto = 'Proyecto similar';
-                    $mensaje = 'El folio de su proyecto es el siguiente ' . $str . ' se parece al siguiente folio ' . $tempFolio;
+                    $mensaje = 'Se registro un proyecto con el folio' . $str . 'que tiene similitud con el proyecto' . $tempFolio;
                     mail($destino, $asunto, $mensaje, $desde);
                     echo "Correo enviado...";
                 }
