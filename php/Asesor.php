@@ -59,6 +59,8 @@ class Asesor
             } else {
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
+                }else if($aprobacion == 'R'){
+                    $aprobacion = 'REVISION';
                 }
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
