@@ -24,6 +24,7 @@ and open the template in the editor.
 
     function hacerprimitivas($string1, $string2, $string, $string3,$correo)
     {
+        $nexos = array('además', 'menos', 'a', 'la', 'par', 'al', 'mismo', 'tiempo', 'aparte', 'propósito', 'asimismo', 'su', 'vez', 'todo', 'esto', 'cabe', 'de', 'igual', 'forma', 'manera', 'modo', 'misma', 'del', 'en', 'cuanto', 'es', 'igualmente', 'inclusive', 'incluso', 'aún', 'ni', 'siquiera', 'paralelamente', 'remate', 'para', 'colmo', 'por', 'añadidura', 'cierto', 'lo', 'demás', 'otra', 'parte', 'otro', 'lado', 'si', 'fuera', 'poco', 'puede', 'agregarse', 'también', 'tampoco', 'todavía', 'más', 'y', 'excepción', 'con', 'salvedad', 'excepto', 'salvo', 'aclarar', 'que', 'quiero', 'decir', 'conviene', 'precisar', 'dicho', 'otras', 'palabras', 'otros', 'términos', 'bueno', 'anterior', 'no', 'quiere', 'significa', 'o', 'sea', 'mejor', 'vale', 'u', 'bien', 'ya', 'pesar', 'así', 'aun', 'cuando', 'aunque', 'cualquier', 'todas', 'todos', 'formas', 'maneras', 'modos', 'caso', 'obstante', 'pese', 'sin', 'embargo', 'ahora', 'contrario', 'antes', 'contrariamente', 'desde', 'punto', 'vista', 'empero', 'cambio', 'contraposición', 'contraste', 'oposición', 'inversamente', 'mientras', 'muy', 'el', 'pero', 'pues', 'sino', 'obstar', 'solo', 'se');
         $alcances = array();
         $resumen = array();
         $justificacion = array();
@@ -37,7 +38,7 @@ and open the template in the editor.
         }
         foreach ($aT as &$value3)
             $value3 = strtolower($value3);
-        $aT = array_diff($aT, array('en', 'el', 'la', 'se', 'y', 'o', 'de', 'del', 'para', 'con'));
+        $aT = array_diff($aT, $nexos);
         foreach ($aT as &$value3) {
             $result = stemm_es::stemm($value3);
             array_push($titulo, $result);
@@ -53,7 +54,7 @@ and open the template in the editor.
         }
         foreach ($aR as &$value)
             $value = strtolower($value);
-        $aR = array_diff($aR, array('en', 'el', 'la', 'se', 'y', 'o', 'de', 'del', 'para', 'con'));
+        $aR = array_diff($aR, $nexos);
         foreach ($aR as &$value) {
             $result = stemm_es::stemm($value);
             array_push($resumen, $result);
@@ -68,7 +69,7 @@ and open the template in the editor.
         }
         foreach ($aJ as &$value1)
             $value1 = strtolower($value1);
-        $aJ = array_diff($aJ, array('en', 'el', 'la', 'se', 'y', 'o', 'de', 'del', 'para', 'con'));
+        $aJ = array_diff($aJ, $nexos);
         foreach ($aJ as &$value1) {
             $result1 = stemm_es::stemm($value1);
             array_push($justificacion, $result1);
@@ -83,7 +84,7 @@ and open the template in the editor.
         }
         foreach ($aA as &$value2)
             $value2 = strtolower($value2);
-        $aA = array_diff($aA, array('en', 'el', 'la', 'se', 'y', 'o', 'de', 'del', 'para', 'con'));
+        $aA = array_diff($aA, $nexos);
         foreach ($aA as &$value2) {
             $result2 = stemm_es::stemm($value2);
             array_push($alcances, $result2);
