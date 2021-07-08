@@ -6,7 +6,9 @@ if (isset($_POST['enviar'])) {
 	$desde = "From:" . "Control de proyectos";
 	$asunto = 'Cambio de contraseña';
 	$mensaje = 'Para cambiar  la contraseña siga el link:  https://localhost/Control-de-proyectos/vistas/contrasenaolvidada.php?correo=' . $destino;
-	mail($destino, $asunto, $mensaje, $desde);
+    $asunto=utf8_decode($asunto);
+    $mensaje=utf8_decode($mensaje);
+    mail($destino, $asunto, $mensaje, $desde);
 	echo "Correo enviado...";
 	header("Location: index.html");
 } else {
