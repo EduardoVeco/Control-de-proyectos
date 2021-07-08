@@ -291,7 +291,7 @@ class FuncionesDelSistema
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
             } else if ($porcentaje > 90) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
-                header('location: asesor.php?correo=' . $correo);
+                header('location: denegar.php?correo=' . $correo);
             }
         } else {
             $folio = 'A';

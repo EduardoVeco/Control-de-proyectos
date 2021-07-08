@@ -88,7 +88,7 @@ class Asesor
                     $mostrar = mysqli_fetch_array($consulta);
                     $correoDepto = $mostrar['correo'];
                     print_r($correoDepto);
-
+                    
                     $aprobacion = 'REVISION';
                     $destino = $correo;
                     $desde = "From:" . "Control de proyectos";
@@ -116,7 +116,7 @@ class Asesor
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
-            //header('location: asesor.php?correo=' . $correo);
+            header('location: asesor.php?correo=' . $correo);
         } else if ($variable == 'continuar') {
 
             $dia = date("d") - 1;
