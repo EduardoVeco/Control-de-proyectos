@@ -1,7 +1,6 @@
 <?php
 $correo = $_REQUEST['correo'];
 print_r($correo);
-//onclick="window.location.href='asesor.php?correo=<?php echo $correo
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +63,7 @@ print_r($correo);
                         <div class="col-4">
                         </div>
                         <div class="col-4">
-                            <button class="btn btn-boton-ext " type="button" onclick="location.href='https://www.facebook.com'" >
+                            <button class="btn btn-boton-ext " type="button" onclick="location.href='asesor.php?correo=<?php echo $correo ?>'">
                                 <img class="fa fa-icon " src="../imagenes/next.png" /> Salir</button>
                         </div>
                         <div class="col-4">
