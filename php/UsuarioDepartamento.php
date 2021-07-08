@@ -16,8 +16,8 @@ class UsuarioDepartamento
         $correoenvio=$mostrar['correo'];
         print_r($correoenvio);
         $desde = "From:" . "Control de proyectos";
-        $asunto = 'Cambio de contraseña';
-        $mensaje = 'Para cambiar  la contraseña siga el link: ';
+        $asunto = 'PROYECTO APROBADOOOOOOOOOOOOOOO';
+        $mensaje = 'Su proyecto con folio='.$folio.' fue aprobado con éxito';
         mail($correoenvio, $asunto, $mensaje, $desde);
         echo "Correo enviado...";
        header('location: dptoinvestigacion.php?correo=' . $correo);

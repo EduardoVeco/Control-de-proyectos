@@ -13,6 +13,7 @@ function borrar($folio, $con)
     $resultado = $result['equipo'];
     $consulta1 = mysqli_query($con, "UPDATE equipos set fecha_final=now() where noEquipo='$resultado'");
     $consulta2 = mysqli_query($con, "UPDATE proyectos set estatus='INACTIVO' where noFolio='$folio'");
+    $consulta2 = mysqli_query($con, "UPDATE proyectos set coasesor=null where noFolio='$folio'");
     $consulta3 = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
     $mostrar = mysqli_fetch_array($consulta3);
     $correo = $mostrar['correo'];
