@@ -25,5 +25,5 @@ btnComparar.addEventListener('click', e => {
 actualizarBtn.addEventListener('click', e => {
     e.preventDefault()
     var folio1 = document.getElementById('folio1').value
-    window.location.href = "update a proyecto.php?folio1=" + folio1;
+    window.location.href = "llamadaUD.php?folio1=" + folio1;
 })
