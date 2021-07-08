@@ -46,10 +46,19 @@ class Asesor
                 } else if ($aprobacion == 'R') {
                     $consulta = mysqli_query($con, "SELECT carrera from usuarios where correo='$correo'");
                     $mostrar = mysqli_fetch_array($consulta);
-                    $carreraAux = $mostrar['correo'];
+                    $carreraAux = $mostrar['carrera'];
                     $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
                     $mostrar = mysqli_fetch_array($consulta);
                     $correoDepto = $mostrar['correo'];
+                    print_r($correoDepto);
+
+                    $aprobacion = 'REVISION';
+                    $destino = $correo;
+                    $desde = "From:" . "Control de proyectos";
+                    $asunto = 'Proyecto similar';
+                    $mensaje = 'El folio de su proyecto es el siguiente ' . $str . ' se parece al siguiente folio ' . $tempFolio;
+                    mail($destino, $asunto, $mensaje, $desde);
+                    echo "Correo enviado...";
 
                     $aprobacion = 'REVISION';
                     $destino = $correoDepto;
@@ -72,11 +81,27 @@ class Asesor
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
                 } else if ($aprobacion == 'R') {
+                    $consulta = mysqli_query($con, "SELECT carrera from usuarios where correo='$correo'");
+                    $mostrar = mysqli_fetch_array($consulta);
+                    $carreraAux = $mostrar['carrera'];
+                    $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
+                    $mostrar = mysqli_fetch_array($consulta);
+                    $correoDepto = $mostrar['correo'];
+                    print_r($correoDepto);
+
                     $aprobacion = 'REVISION';
                     $destino = $correo;
                     $desde = "From:" . "Control de proyectos";
                     $asunto = 'Proyecto similar';
                     $mensaje = 'El folio de su proyecto es el siguiente ' . $str . ' se parece al siguiente folio ' . $tempFolio;
+                    mail($destino, $asunto, $mensaje, $desde);
+                    echo "Correo enviado...";
+
+                    $aprobacion = 'REVISION';
+                    $destino = $correoDepto;
+                    $desde = "From:" . "Control de proyectos";
+                    $asunto = 'Proyecto similar';
+                    $mensaje = 'Se registro un proyecto con el folio' . $str . 'que tiene similitud con el proyecto' . $tempFolio;
                     mail($destino, $asunto, $mensaje, $desde);
                     echo "Correo enviado...";
                 }
@@ -91,7 +116,7 @@ class Asesor
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
-            header('location: asesor.php?correo=' . $correo);
+            //header('location: asesor.php?correo=' . $correo);
         } else if ($variable == 'continuar') {
 
             $dia = date("d") - 1;

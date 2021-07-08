@@ -301,7 +301,7 @@ if (!isset($_SESSION['correo'])) {
                         <form action="">
                             <p>Escriba una conclusión</p>
                         </form>
-                        <textarea class="txt txt-texto-area "></textarea>
+                        <textarea class="txt txt-texto-area " id="conclusion"></textarea>
                         <div class="row">
                             <div class="col-6">
                                 <br>
