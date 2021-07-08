@@ -2,7 +2,7 @@ console.log('Soy JS')
 btnComparar = document.getElementById('compararBtn')
 actualizarBtn = document.getElementById('actualizarBtn')
 var correo = JSON.parse(c)
-conclusion = document.getElementById('conclusion')
+
 
 btnComparar.addEventListener('click', e => {
     e.preventDefault()
@@ -25,6 +25,7 @@ btnComparar.addEventListener('click', e => {
 
 actualizarBtn.addEventListener('click', e => {
     e.preventDefault()
+    var conclusion = document.getElementById('conclusion').value
     var folio1 = document.getElementById('folio1').value
-    window.location.href = "update a proyecto.php?folio1=" + folio1;
+    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo;
 })
