@@ -1,6 +1,7 @@
 console.log('Soy JS')
 btnComparar = document.getElementById('compararBtn')
 actualizarBtn = document.getElementById('actualizarBtn')
+negarBtn = document.getElementById('cancelar')
 var correo = JSON.parse(c)
 
 
@@ -27,5 +28,14 @@ actualizarBtn.addEventListener('click', e => {
     e.preventDefault()
     var conclusion = document.getElementById('conclusion').value
     var folio1 = document.getElementById('folio1').value
-    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo;
+    
+    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo+"&elemento="+"si";
 })
+
+negarBtn.addEventListener('click', e => {
+    e.preventDefault()
+    var conclusion = document.getElementById('conclusion').value
+    var folio1 = document.getElementById('folio1').value
+    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo+"&elemento=no";
+})
+
