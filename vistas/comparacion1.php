@@ -305,7 +305,7 @@ if (!isset($_SESSION['correo'])) {
                         <div class="row">
                             <div class="col-6">
                                 <br>
-                                <button class="btn btn-cancelar-ext " type="button "><img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="button "><img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
                             </div>
                             <div class="col-6">
                                 <br>
