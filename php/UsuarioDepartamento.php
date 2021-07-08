@@ -24,7 +24,7 @@ class UsuarioDepartamento
                 $correoenvio = $mostrar['correo'];
                 print_r($correoenvio);
                 $desde = "From:" . "Control de proyectos";
-                $asunto = 'PROYECTO APROBADO';
+                $asunto = 'PROYECTO NO APROBADO';
                 $mensaje = 'El departamento concluyo que ' . $conclusion . ' Por lo que ' . 'su proyecto con folio=' . $folio . ' NO fue aprobado con éxito';
                 mail($correoenvio, $asunto, $mensaje, $desde);
                 echo "Correo enviado...";
