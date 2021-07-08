@@ -19,9 +19,9 @@ class UsuarioDepartamento
                 print_r('Aqui modifica yayo mensaje');
             } else {
                 $consulta = mysqli_query($con, "UPDATE proyectos SET aprobacion='NO APROBADO' where noFolio='$folio'");
-                $consulta1 = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
-                $mostrar = mysqli_fetch_array($consulta1);
-                $correoenvio = $mostrar['correo'];
+                $consulta2 = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
+                $mostrar2 = mysqli_fetch_array($consulta2);
+                $correoenvio = $mostrar2['correo'];
                 print_r($correoenvio);
                 $desde = "From:" . "Control de proyectos";
                 $asunto = 'PROYECTO NO APROBADO';
