@@ -19,6 +19,13 @@ function cambio($folio, $correo, $con)
             $consulta = mysqli_query($con, "UPDATE proyectos SET correo='$correo' where noFolio='$folio'");
             print_r('aqui llegue');
             header('location: asesor.php?correo=' . $resultado);
+            
+            $destino = $correo;
+            $desde = "From:" . "Control de proyectos";
+            $asunto = 'Cesion de proyecto';
+            $mensaje = 'El asesor '. $resultado .' le cede el proyecto con folio '.$folio;
+            mail($destino, $asunto, $mensaje, $desde);
+            echo "Correo enviado...";
         }
     } else {
     }
