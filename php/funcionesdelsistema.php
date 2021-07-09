@@ -313,11 +313,26 @@ class FuncionesDelSistema
                 $str2 = $str2 . ' ' . $jus3;
             }
 
+            print_r($str);
+            print_r($str1);
+            print_r($str2);
+            print_r($str3);
+            print_r($justificacionOri);
+            print_r($tituloOri);
+            print_r($alcancesOri);
+            print_r($resumenOri);
+            print_r($correo);
+            print_r($folio);
+            print_r($tempFolio);
 
 
 
-
-            header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
+            header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri .
+                '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' .
+                $resumenOri . '&correo=' .
+                $correo . '&folio=' .
+                $folio .
+                '&tempFolio=' . 0);
         };
     }
 

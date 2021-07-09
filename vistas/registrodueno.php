@@ -50,7 +50,7 @@ if (!isset($_SESSION['correo'])) {
 <body class="body">
     <?php
     require 'conexion.php';
-    $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $query = $con->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
     $fetch = $query->fetch_array();
     $_SESSION['time'] = time();
     ?>
