@@ -8,7 +8,7 @@ const historialBtn = document.getElementById("historial")
 const actualizarBtn = document.getElementById("actualizarBtn")
 const retomarBtn = document.getElementById("btnRetomar")
 const desvincularBtn = document.getElementById("desvincular")
-//console.log(folio)
+    //console.log(folio)
 
 const campos = {
     porcentaje: false
@@ -69,7 +69,7 @@ historialBtn.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
     var correo1 = JSON.parse(correo)
-    window.location = "historico.php?folio=" + folio+'&correo= '+correo1;
+    window.location = "historico.php?folio=" + folio + '&correo= ' + correo1;
     console.log(folio)
 })
 
@@ -77,7 +77,7 @@ btnCeder.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
     var correo1 = JSON.parse(correo)
-    window.location = "cederproyecto.php?folio=" + folio+'&correo= '+correo1;
+    window.location = "cederproyecto.php?folio=" + folio + '&correo=' + correo1;
     console.log(folio)
 })
 
@@ -93,7 +93,7 @@ retomarBtn.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
     var correo1 = JSON.parse(correo)
-    window.location.href = "registroequipo.php?folio=" + folio+'&correo= '+correo1;
+    window.location.href = "registroequipo.php?folio=" + folio + '&correo= ' + correo1;
     // console.log(folio)
     //console.log(porcentaje)
 })
