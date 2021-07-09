@@ -17,8 +17,7 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 
 		while ($mostrar = mysqli_fetch_array($result)) {
 			$directorio = $mostrar['directorio']; //Declaramos un variable con la ruta donde guardaremos los archivos
-			$correo = $mostrar['correo']; 
-
+			$correo = $mostrar['correo'];
 		}
 
 
@@ -40,6 +39,19 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 		closedir($dir); //Cerramos el directorio de destino
 	}
 	else{
+        $correo = '';
+        $folio = $_REQUEST['folio'];
+
+        $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
+        $sql = "SELECT correo,directorio
+                FROM proyectos
+                WHERE nofolio='$folio'";
+        $result = mysqli_query($conexion, $sql);
+        while ($mostrar = mysqli_fetch_array($result)) {
+            $directorio = $mostrar['directorio']; //Declaramos un variable con la ruta donde guardaremos los archivos
+            $correo = $mostrar['correo'];
+        }
+
 		header('location: proyecto.php?correo=' . $correo . '&folio=' . $folio);
 
 	}
