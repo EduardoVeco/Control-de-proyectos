@@ -12,7 +12,7 @@ class UsuarioDepartamento
     {
         
         if($conclusion==''){
-            header('location: comparacion1.php?folio1=' . $folio.'&folio2='.$folio2.'&correo='.$correo.'&estado=Hay perros.'.'cantidad='.$cantidad);
+            header('location: comparacion1.php?folio1=' . $folio.'&folio2='.$folio2.'&correo='.$correo.'&estado=Hace falta conclusión'.'&cantidad='.$cantidad);
         }
         else{
         if ($aprobacion == 'NO APROBADO') {
