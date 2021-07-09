@@ -20,11 +20,11 @@ and open the template in the editor.
     $string1 = $_POST['justificacion'];
     $correo = $_POST['correo'];
     $string3 = $_POST['titulo'];
-    hacerPrimitivas($string1, $string2, $string, $string3,$correo);
+    hacerPrimitivas($string1, $string2, $string, $string3, $correo);
 
-    function hacerprimitivas($string1, $string2, $string, $string3,$correo)
+    function hacerprimitivas($string1, $string2, $string, $string3, $correo)
     {
-        $nexos = array('además', 'menos', 'a', 'la', 'par', 'al', 'mismo', 'tiempo', 'aparte', 'propósito', 'asimismo', 'su', 'vez', 'todo', 'esto', 'cabe', 'de', 'igual', 'forma', 'manera', 'modo', 'misma', 'del', 'en', 'cuanto', 'es', 'igualmente', 'inclusive', 'incluso', 'aún', 'ni', 'siquiera', 'paralelamente', 'remate', 'para', 'colmo', 'por', 'añadidura', 'cierto', 'lo', 'demás', 'otra', 'parte', 'otro', 'lado', 'si', 'fuera', 'poco', 'puede', 'agregarse', 'también', 'tampoco', 'todavía', 'más', 'y', 'excepción', 'con', 'salvedad', 'excepto', 'salvo', 'aclarar', 'que', 'quiero', 'decir', 'conviene', 'precisar', 'dicho', 'otras', 'palabras', 'otros', 'términos', 'bueno', 'anterior', 'no', 'quiere', 'significa', 'o', 'sea', 'mejor', 'vale', 'u', 'bien', 'ya', 'pesar', 'así', 'aun', 'cuando', 'aunque', 'cualquier', 'todas', 'todos', 'formas', 'maneras', 'modos', 'caso', 'obstante', 'pese', 'sin', 'embargo', 'ahora', 'contrario', 'antes', 'contrariamente', 'desde', 'punto', 'vista', 'empero', 'cambio', 'contraposición', 'contraste', 'oposición', 'inversamente', 'mientras', 'muy', 'el', 'pero', 'pues', 'sino', 'obstar', 'solo', 'se');
+        $nexos = array('además', 'menos', 'a', 'la', 'par', 'al', 'mismo', 'aparte', 'propósito', 'asimismo', 'su', 'vez', 'todo', 'esto', 'cabe', 'de', 'igual', 'forma', 'manera', 'modo', 'misma', 'del', 'en', 'cuanto', 'es', 'igualmente', 'inclusive', 'incluso', 'aún', 'ni', 'siquiera', 'paralelamente', 'remate', 'para', 'colmo', 'por', 'añadidura', 'cierto', 'lo', 'demás', 'otra', 'parte', 'otro', 'lado', 'si', 'fuera', 'poco', 'puede', 'agregarse', 'también', 'tampoco', 'todavía', 'más', 'y', 'excepción', 'con', 'salvedad', 'excepto', 'salvo', 'aclarar', 'que', 'quiero', 'decir', 'conviene', 'precisar', 'dicho', 'otras', 'palabras', 'otros', 'términos', 'bueno', 'anterior', 'no', 'quiere', 'significa', 'o', 'sea', 'mejor', 'vale', 'u', 'bien', 'ya', 'pesar', 'así', 'aun', 'cuando', 'aunque', 'cualquier', 'todas', 'todos', 'formas', 'maneras', 'modos', 'caso', 'obstante', 'pese', 'sin', 'embargo', 'ahora', 'contrario', 'antes', 'contrariamente', 'desde', 'punto', 'vista', 'empero', 'cambio', 'contraposición', 'contraste', 'oposición', 'inversamente', 'mientras', 'muy', 'el', 'pero', 'pues', 'sino', 'obstar', 'solo', 'se');
         $alcances = array();
         $resumen = array();
         $justificacion = array();
@@ -73,7 +73,7 @@ and open the template in the editor.
             $result1 = stemm_es::stemm($value1);
             array_push($justificacion, $result1);
         }
-       
+
         //Alcances
         $token2 = strtok($string2, " ,.:;");
         $aA = array();
@@ -88,8 +88,8 @@ and open the template in the editor.
             $result2 = stemm_es::stemm($value2);
             array_push($alcances, $result2);
         }
-        
-        funcionesdelsistema::comparar($justificacion, $alcances, $resumen, $titulo, $string3, $string1, $string2, $string,$correo);
+
+        funcionesdelsistema::comparar($justificacion, $alcances, $resumen, $titulo, $string3, $string1, $string2, $string, $correo);
     }
 
 
