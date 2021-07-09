@@ -161,7 +161,6 @@ function registraUsuario($conexion)
          header('location: index.html');
       }
    } else {
-
-      echo "<p> esta mal la contraseña</p>";
+      header('location: registrousuario.php?estado= Las contraseñas no coindiden');
    }
 }

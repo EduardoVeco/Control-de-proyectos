@@ -22,8 +22,9 @@ function cambio($folio, $correo, $con)
             
             $destino = $correo;
             $desde = "From:" . "Control de proyectos";
-            $asunto = 'Cesion de proyecto';
+            $asunto = 'Cesión de proyecto';
             $mensaje = 'El asesor '. $resultado .' le cede el proyecto con folio '.$folio;
+            $asunto=utf8_decode($asunto);
             mail($destino, $asunto, $mensaje, $desde);
             echo "Correo enviado...";
         }
