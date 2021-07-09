@@ -1,14 +1,14 @@
 <?php
-$folio=$_REQUEST['folio'];
+$folio = $_REQUEST['folio'];
 print_r($folio);
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+if (!isset($_SESSION['correo'])) {
+    header('location:index.php');
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
+        header('location: logout.php');
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -33,11 +33,11 @@ session_start();
 </head>
 
 <body class="body">
-         <?php
-            require 'conexion.php';
-            $query = $con->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
-            $fetch = $query->fetch_array();
-        ?>
+    <?php
+    require 'conexion.php';
+    $query = $con->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
+    $fetch = $query->fetch_array();
+    ?>
     <div class="container">
         <div class="row">
             <div class="borde col-sm-13 width:100%">
@@ -61,31 +61,33 @@ session_start();
 
                     <form action="registroCoasesor1.php" method="POST" id="registroasesor">
                         <div class="form-group mx-sm-7 pt-3">
+                            <p style="text-align: center; color: #FF8D57">Esta sección es opcional</p>
+                            <br>
                             <p class="pa pa-texto ">No. Empleado </p>
-                            <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio?>" hidden/>
-                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})"/>
+                            <input class="txt text-input " type="text " name="folio" id="folio" value="<?php echo $folio ?>" hidden />
+                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" />
 
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})"/>
+                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,37})" />
                         </div>
                     </form>
 
                     <br><br>
                     <form action="" method="POST" id="botonesForm">
                         <div class="row">
-                            
+
                             <div class="col-12">
-                                <button class="btn btn-aceptar-ext " type="submit" name="terminar2"id="terminar2" form="registroasesor"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
+                                <button class="btn btn-aceptar-ext " type="submit" name="terminar2" id="terminar2" form="registroasesor"><img class="fa fa-icon " src="../imagenes/check.png " /> Terminar</button>
                             </div>
                         </div>
                     </form>
