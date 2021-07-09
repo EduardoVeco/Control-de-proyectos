@@ -32,8 +32,7 @@ class FuncionesDelSistema
 
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $consulta = mysqli_query($con, "SELECT * from primitivas as pr, proyectos as p 
-                                        WHERE  pr.noFolio=p.noFolio
-                                        AND p.aprobacion='APROBADO'");
+                                        WHERE  pr.noFolio=p.noFolio");
 
 
         if (mysqli_num_rows($consulta) != 0) {
@@ -62,7 +61,7 @@ class FuncionesDelSistema
             for ($i = 1; $i <= $filasPrim; $i++) {
                 $mostrar = '';
                 $consulta1 = mysqli_query($con, "SELECT pr.tituloPrimitivas as tp from primitivas as pr, proyectos as p   
-                                                WHERE pr.id='$i'
+                                                WHERE pr.id='$id'
                                                 AND p.noFolio=pr.noFolio
                                                 AND p.aprobacion='APROBADO'");
                 $mostrar = mysqli_fetch_array($consulta1);
@@ -110,7 +109,7 @@ class FuncionesDelSistema
                 $token4 = '';
                 $consulta2 = mysqli_query($con, "SELECT pr.justificacionPrimitivas as jp from primitivas as pr, proyectos as p 
                                                  WHERE  pr.noFolio=p.noFolio
-                                                 AND pr.id='$i'
+                                                 AND pr.id='$id'
                                                  AND p.aprobacion='APROBADO'");
                 $mostrar1 = mysqli_fetch_array($consulta2);
                 $token4 = strtok($mostrar1['jp'], " ");
@@ -155,7 +154,7 @@ class FuncionesDelSistema
                 $contAlcSel = 0;
                 $consulta3 = mysqli_query($con, "SELECT pr.alcancesPrimitivas as ap from primitivas as pr, proyectos as p 
                                                 WHERE  pr.noFolio=p.noFolio
-                                                AND pr.id='$i'
+                                                AND pr.id='$id'
                                                 AND p.aprobacion='APROBADO'");
                 $mostrar2 = mysqli_fetch_array($consulta3);
                 $token5 = strtok($mostrar2['ap'], " ");
@@ -196,7 +195,7 @@ class FuncionesDelSistema
 
                 $consulta4 = mysqli_query($con, "SELECT pr.resumenPrimitivas as rp from primitivas as pr, proyectos as p 
                                                  WHERE  pr.noFolio=p.noFolio
-                                                 AND pr.id='$i'
+                                                 AND pr.id='$id'
                                                  AND p.aprobacion='APROBADO'");
                 $mostrar3 = mysqli_fetch_array($consulta4);
                 $token6 = strtok($mostrar3['rp'], " ");
@@ -241,17 +240,24 @@ class FuncionesDelSistema
                 if ($porcentaje > $simMaxima) {
                     $consulta5 = mysqli_query($con, "SELECT p.aprobacion 
                                                      FROM primitivas as pr,proyectos as p 
-                                                     WHERE pr.id = $i 
-                                                     AND p.noFolio=pr.noFolio
-                                                     AND p.aprobacion='APROBADO'");
+                                                     WHERE pr.id = '$id' 
+                                                     AND p.noFolio=pr.noFolio");
                     $mostrar4 = mysqli_fetch_array($consulta5);
                     if ($mostrar4['aprobacion'] == 'REVISION') {
                     } else {
+                        print_r('   aqui sustituto   ');
+                        print_r($id);
+                        print_r('Estoy mal');
                         $simMaxima = $porcentaje;
-                        $tempFolio = $i;
+                        $tempFolio = $id;
                     }
                 }
+                print_r('Esto me parezco');
                 print_r($simMaxima);
+                $id=$id+1;
+                print_r('PErro');
+                printf($id);
+                print_r('PErro');
             }
             if ($porcentaje <= 50) {
                 $str = '';
