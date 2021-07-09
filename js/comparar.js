@@ -30,7 +30,6 @@ actualizarBtn.addEventListener('click', e => {
     var folio1 = document.getElementById('folio1').value
     var folio2 = document.getElementById('folio2').value
     var cantidad = JSON.parse(can)
-    document.getElementById('mensajeCont').classList.add('div.ocultar')
     window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=" + "si" + "&folio2=" + folio2 + '&cantidad=' + cantidad;
 
 })
