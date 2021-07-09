@@ -8,8 +8,13 @@ class UsuarioDepartamento
     {
     }
 
-    public static function autoriza($folio, $aprobacion, $conclusion, $correo)
+    public static function autoriza($folio, $aprobacion, $conclusion, $correo,$folio2,$cantidad)
     {
+        
+        if($conclusion==''){
+            header('location: comparacion1.php?folio1=' . $folio.'&folio2='.$folio2.'&correo='.$correo.'&estado=Hay perros.'.'cantidad='.$cantidad);
+        }
+        else{
         if ($aprobacion == 'NO APROBADO') {
             $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
             $consulta = mysqli_query($con, "SELECT aprobacion from proyectos where noFolio='$folio'");
@@ -23,6 +28,7 @@ class UsuarioDepartamento
                 $mostrar2 = mysqli_fetch_array($consulta2);
                 $correoenvio = $mostrar2['correo'];
                 print_r($correoenvio);
+                
                 $desde = "From:" . "Control de proyectos";
                 $asunto = 'PROYECTO NO APROBADO';
                 $mensaje = 'El departamento concluyo que ' . $conclusion . ' Por lo que ' . 'su proyecto con folio=' . $folio . ' NO fue aprobado con éxito';
@@ -46,5 +52,5 @@ class UsuarioDepartamento
             echo "Correo enviado...";
             header('location: dptoinvestigacion.php?correo=' . $correo);
         }
-    }
+    }}
 }

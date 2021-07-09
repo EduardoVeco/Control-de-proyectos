@@ -1,9 +1,9 @@
 <?php
 
 $folio = $_REQUEST['folio'];
-$folio = $_REQUEST['folio2'];
+
 $correo = $_REQUEST['correo'];
-$cantidad = $_REQUEST['cantidad'];
+
 print_r($folio);
 print_r($correo);
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
