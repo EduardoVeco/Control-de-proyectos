@@ -66,6 +66,7 @@ class Asesor
                     mail($destino, $asunto, $mensaje, $desde);
                     echo "Correo enviado...";
                 }
+                print_r($correo);
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
@@ -73,7 +74,6 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-
                 }
             } else {
                 if ($aprobacion == 'A') {
@@ -85,7 +85,7 @@ class Asesor
                     $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
                     $mostrar = mysqli_fetch_array($consulta);
                     $correoDepto = $mostrar['correo'];
-                    
+
                     $aprobacion = 'REVISION';
                     $destino = $correo;
                     $desde = "From:" . "Control de proyectos";
@@ -109,7 +109,6 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
@@ -127,7 +126,7 @@ class Asesor
             $i = 1;
             $consulta = mysqli_query($con, "SELECT * from proyectos where noFolio='$str'");
 
-
+           
 
             if (mysqli_num_rows($consulta) != 0) {
                 while ($i > 0) {
@@ -148,7 +147,19 @@ class Asesor
                 $fecha = $fecha . date("Y") . '-' . date("d") . '-' . date("m");
                 $ruta = '';
                 $ruta = $ruta . '../documentos/' . $str . '/';
-                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INCACTIVO','$aprobacion',0,now(),'$ruta')");
+                print_r($correo);
+                print_r($str);
+                print_r($dueno);
+                print_r($coasesor);
+                print_r($titulo);
+                print_r($justificacion);
+                print_r($alcance);
+                print_r($resumen);
+                print_r($aprobacion);
+                print_r($ruta);
+
+                $consulta = mysqli_query($con, "INSERT INTO proyectos(noFolio,correo,duenio,coasesor,titulo,justificacion,alcances,resumen,estatus,aprobacion,avance,fecha_registro,directorio) VALUES 
+                ('$str','$correo','$dueno','$coasesor','$titulo','$justificacion','$alcance','$resumen','INACTIVO','$aprobacion',0,now(),'$ruta')");
             } else {
                 if ($aprobacion == 'A') {
                     $aprobacion = 'APROBADO';
@@ -162,9 +173,8 @@ class Asesor
             if (!mkdir($ruta, 0777, false)) {
                 die('Fallo al crear las carpetas...');
             } else {
-
             }
-            header('location: registroequipo.php?folio=' . $str);
+           // header('location: registroequipo.php?folio=' . $str);
         }
     }
 
@@ -270,8 +280,8 @@ class Asesor
             $correo = $mostrar2['correo'];
             header('location: proyecto.php?folio=' . $folio . '&correo=' . $correo);
         } else {
-            if($porcentaje==100){
-                $consulta = mysqli_query($con, "UPDATE proyectos SET estatus='COMPLETADO' WHERE noFolio='$folio'"); 
+            if ($porcentaje == 100) {
+                $consulta = mysqli_query($con, "UPDATE proyectos SET estatus='COMPLETADO' WHERE noFolio='$folio'");
             }
             $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
             $mostrar2 = mysqli_fetch_array($consulta);

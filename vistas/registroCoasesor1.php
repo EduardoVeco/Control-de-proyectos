@@ -21,13 +21,15 @@ function ingresar($folio, $nom, $app, $apm,$noControl)
          $consulta1 = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
          $mostrar1 = mysqli_fetch_array($consulta1);
          $correo = $mostrar1['correo'];
-         header('location: asesor.php?correo=' . $correo);
+        print_r($correo);
+         // header('location: asesor.php?correo=' . $correo);
       }
       else{
          $consulta2 = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
          $mostrar2 = mysqli_fetch_array($consulta2);
          $correo = $mostrar2['correo'];
-         header('location: asesor.php?correo=' . $correo);
+         print_r($correo);
+         //header('location: asesor.php?correo=' . $correo);
       }
    }
    else{
