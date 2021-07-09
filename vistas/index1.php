@@ -66,7 +66,7 @@ $contrasena = $_REQUEST['contrasena'];
             <div class="formulario col-10 col-sm-9 col-md-7 col-lg-5 col-xl-4 ">
                 <div>
                     <div class="div div-cabeza mx-sm-7">
-                        <p class="ti ti-texto ">Iniciar Sesion </p>
+                        <p class="ti ti-texto ">Iniciar Sesión </p>
                     </div>
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">

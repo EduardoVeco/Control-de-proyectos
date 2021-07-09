@@ -71,7 +71,7 @@ if (!isset($_SESSION['correo'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>

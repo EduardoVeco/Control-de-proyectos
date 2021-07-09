@@ -73,7 +73,7 @@ function get()
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
@@ -99,7 +99,7 @@ function get()
                     <form method="POST" id="foliosForm">
                         <div class="row">
                             <div class="col-6 justify-content-left input-group">
-                                <p class="pa pa-texto">Folio del proyecto en revision</p>
+                                <p class="pa pa-texto">Folio del proyecto en revisión</p>
                             </div>
                         </div>
                         <br>
@@ -112,9 +112,9 @@ function get()
                         <div class="col-13 ">
                             <table class="table1">
                                 <tr class="tr1">
-                                    <th>Titulo</th>
+                                    <th>Título</th>
                                     <th>Correo del asesor</th>
-                                    <th>Estatus de aprobacion</th>
+                                    <th>Estatus de aprobación</th>
                                 </tr>
                                 <tr>
                                 </tr>
@@ -136,9 +136,9 @@ function get()
                         <div class="col-13 ">
                             <table class="table1">
                                 <tr class="tr1">
-                                    <th>Titulo</th>
+                                    <th>Título</th>
                                     <th>Correo del asesor</th>
-                                    <th>Estatus de aprobacion</th>
+                                    <th>Estatus de aprobación</th>
                                 </tr>
                                 <tr>
                                 </tr>

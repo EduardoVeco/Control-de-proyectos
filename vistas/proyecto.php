@@ -131,7 +131,7 @@ if (!isset($_SESSION['correo'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
@@ -202,14 +202,14 @@ if (!isset($_SESSION['correo'])) {
                                     while ($mostrar = mysqli_fetch_array($result)) {
                                     ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
-                                        <p class="pa pa-texto">folio: <?php echo $mostrar['noFolio'] ?></p>
+                                        <p class="pa pa-texto">Folio: <?php echo $mostrar['noFolio'] ?></p>
                                         <p class="pa pa-texto">Proposito: <?php echo $mostrar['proposito'] ?></p>
                                         <p class="pa pa-texto">Estatus: <?php echo $mostrar['estatus'] ?></p>
                                         <p class="pa pa-texto">Estatus aprobacion: <?php echo $mostrar['aprobacion'] ?></p>
                                         <p class="pa pa-texto">Asesor:<?php echo $mostrar['asesor'] ?></p>
                                         <p class="pa pa-texto">Co-asesor:<?php echo $mostrar['coasesor'] ?></p>
                                         <p class="pa pa-texto">Dueño:<?php echo $mostrar['duenio'] ?></p>
-                                        <p class="pa pa-texto">fecha de registro: <?php echo $mostrar['fecha'] ?></p>
+                                        <p class="pa pa-texto">Fecha de registro: <?php echo $mostrar['fecha'] ?></p>
                                 <?php
                                     }
                                 }

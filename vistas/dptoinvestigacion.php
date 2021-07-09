@@ -75,7 +75,7 @@ if (!isset($_SESSION['correo'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
@@ -98,12 +98,12 @@ if (!isset($_SESSION['correo'])) {
                         <table class="table table-striped table-bordered" id="tablax" style="width: 100%;">
                             <thead>
                                 <tr class="tr1">
-                                    <th class="th th-cabeza">Ttiulo</th>
+                                    <th class="th th-cabeza">Título</th>
                                     <th class="th th-cabeza">Folio</th>
                                     <th class="th th-cabeza">Asesor</th>
                                     <th class="th th-cabeza">Progreso</th>
                                     <th class="th th-cabeza">Estatus</th>
-                                    <th class="th th-cabeza">Estatus de aprobacion</th>
+                                    <th class="th th-cabeza">Estatus de aprobación</th>
                                     <th class="th th-cabeza">Fecha</th>
                                 </tr>
                             </thead>

@@ -54,7 +54,7 @@ session_start();
             <div class="formulario col-10 col-sm-9 col-md-7 col-lg-5 col-xl-4 ">
                 <div>
                     <div class="div div-cabeza mx-sm-6">
-                        <p class="ti ti-texto ">Registro: coasesor </p>
+                        <p class="ti ti-texto ">Registro: co-asesor </p>
                     </div>
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">

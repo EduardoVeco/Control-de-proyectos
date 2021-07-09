@@ -104,7 +104,7 @@ alumno.addEventListener('submit', e => {
         document.getElementById('mensajeCont').classList.add('div.ocultar')
 
     } else {
-        document.getElementById("mensaje").innerHTML = "<p>El numero de control no es valido</p>";
+        document.getElementById("mensaje").innerHTML = "<p>El número de control no es válido</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
     }
@@ -206,7 +206,7 @@ propositoForm.addEventListener('submit', e => {
                 }
 
             } else {
-                document.getElementById("mensaje").innerHTML = "<p>El campo proposito es incorrecto</p>";
+                document.getElementById("mensaje").innerHTML = "<p>El campo propósito es incorrecto</p>";
                 document.getElementById('mensajeCont').classList.remove('div')
                 document.getElementById('mensajeCont').classList.remove('div.ocultar')
             }

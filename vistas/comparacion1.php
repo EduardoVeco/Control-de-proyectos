@@ -74,7 +74,7 @@ if (!isset($_SESSION['correo'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
@@ -101,7 +101,7 @@ if (!isset($_SESSION['correo'])) {
 
                         <div class="row">
                             <div class="col-6 justify-content-left input-group">
-                                <p class="pa pa-texto">Folio del proyecto en revision</p>
+                                <p class="pa pa-texto">Folio del proyecto en revisión</p>
                             </div>
                         </div>
                         <br>
@@ -115,9 +115,9 @@ if (!isset($_SESSION['correo'])) {
                             <table class="table1">
                                 <thead>
                                     <tr class="tr1">
-                                        <th>Titulo</th>
+                                        <th>Título</th>
                                         <th>Correo del asesor</th>
-                                        <th>Estatus de aprobacion</th>
+                                        <th>Estatus de aprobación</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -157,15 +157,15 @@ if (!isset($_SESSION['correo'])) {
                             <table class="table1">
                                 <thead>
                                     <tr class="tr1">
-                                        <th>Titulo</th>
+                                        <th>Título</th>
                                         <th>Correo del asesor</th>
-                                        <th>Estatus de aprobacion</th>
+                                        <th>Estatus de aprobación</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $sql = "SELECT titulo,correo,aprobacion FROM proyectos
-                                                WHERE noFolio='$folio1'";
+                                                WHERE noFolio='$folio2'";
                                     $result = mysqli_query($conexion, $sql);
                                     while ($mostrar = mysqli_fetch_array($result)) {
                                     ?>

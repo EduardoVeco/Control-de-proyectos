@@ -26,6 +26,7 @@ class UsuarioDepartamento
                 $desde = "From:" . "Control de proyectos";
                 $asunto = 'PROYECTO NO APROBADO';
                 $mensaje = 'El departamento concluyo que ' . $conclusion . ' Por lo que ' . 'su proyecto con folio=' . $folio . ' NO fue aprobado con éxito';
+                $mensaje=utf8_decode($mensaje);
                 mail($correoenvio, $asunto, $mensaje, $desde);
                 echo "Correo enviado...";
                 header('location: dptoinvestigacion.php?correo=' . $correo);
