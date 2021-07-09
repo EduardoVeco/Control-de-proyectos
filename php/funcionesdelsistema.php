@@ -225,16 +225,16 @@ class FuncionesDelSistema
                 if ($porcentajeAux > $porcentaje) {
                     $porcentaje = $porcentajeAux;
                 }
+                //print_r($i);
 
-
-                print_r($porcentajeAux);
+                print_r($porcentaje);
                 if ($porcentajeAux > $simMaxima) {
                     $consulta5 = mysqli_query($con, "select p.aprobacion 
                                                      from primitivas as pr,proyectos as p 
                                                      WHERE pr.id = $i 
                                                      AND p.noFolio=pr.noFolio");
                     $mostrar4 = mysqli_fetch_array($consulta5);
-                    if ($mostrar4['resumenPrimitivas'] == 'REVISION') {
+                    if ($mostrar4['aprobacion'] == 'REVISION') {
                     } else {
                         $simMaxima = $porcentajeAux;
                         $tempFolio = $i;
@@ -260,7 +260,7 @@ class FuncionesDelSistema
                 }
                 $folio = 'A';
                 $tempFolio = '0';
-                header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
+                //  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
             } else if ($porcentaje > 50 && $porcentaje <= 90) {
                 $str = '';
                 $str1 = '';
@@ -288,10 +288,10 @@ class FuncionesDelSistema
                         $i = mysqli_num_rows($consulta) + 1;
                     }
                 }
-                header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
+                //   header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
             } else if ($porcentaje > 90) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
-                header('location: denegar.php?correo=' . $correo);
+                //    header('location: denegar.php?correo=' . $correo);
             }
         } else {
             $folio = 'A';
@@ -327,12 +327,13 @@ class FuncionesDelSistema
 
 
 
-            header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri .
+            /*  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri .
                 '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' .
                 $resumenOri . '&correo=' .
                 $correo . '&folio=' .
                 $folio .
-                '&tempFolio=' . 0);
+                '&tempFolio=' . 0);*/
+            print_r("algo");
         };
     }
 

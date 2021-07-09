@@ -275,7 +275,7 @@ if (!isset($_SESSION['correo'])) {
                                 while ($mostrar = mysqli_fetch_array($result)) {
                                 ?>
                                     <?php
-                                    if ($mostrar['aprobacion'] == 'NO APROBADO') {
+                                    if ($mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'REVISION') {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnCeder" name="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Ceder</button>
                                     <?php
@@ -301,7 +301,7 @@ if (!isset($_SESSION['correo'])) {
                                 while ($mostrar = mysqli_fetch_array($result)) {
                                 ?>
                                     <?php
-                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO') {
+                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO' || $mostrar['aprobacion'] == 'REVISION') {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnRetomar" name="btnRetomar" disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Retomar</button>
                                     <?php
