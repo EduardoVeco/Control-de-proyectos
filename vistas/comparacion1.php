@@ -16,6 +16,14 @@ if (!isset($_SESSION['correo'])) {
         header('location: logout.php');
     }
 }
+$aprobacion;
+$sql = "SELECT aprobacion FROM proyectos
+        WHERE noFolio='$folio1'";
+$result = mysqli_query($conexion, $sql);
+while ($mostrar = mysqli_fetch_array($result)) {
+    $aprobacion = $mostrar['aprobacion'];
+}
+print_r($aprobacion);
 
 ?>
 
@@ -302,11 +310,44 @@ if (!isset($_SESSION['correo'])) {
                         <form action="">
                             <p>Escriba una conclusión</p>
                         </form>
-                        <textarea class="txt txt-texto-area " id="conclusion"></textarea>
+                        <textarea class="txt txt-texto-area " id="conclusion" required></textarea>
                         <div class="row">
                             <div class="col-6">
                                 <br>
-                                <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="button "><img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                <?php
+                                if ($aprobacion == 'APROBADO') {
+                                ?>
+                                    <button class="btn btn-cancelar-ext " name="aviso" id="aviso" type="button " data-toggle="modal" data-target="#avisoModal">
+                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="avisoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Aviso!</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>No se puede denegar un proyecto ya aprobado</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-boton-ext " type="button" data-dismiss="modal">
+                                                        <img class="fa fa-icon " src="../imagenes/check.png" /> Entendido</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="button ">
+                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="col-6">
                                 <br>

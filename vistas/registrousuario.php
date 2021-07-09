@@ -1,5 +1,5 @@
 <?php
-$estado=$_REQUEST['estado'];
+$estado = $_REQUEST['estado'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,28 +79,28 @@ $estado=$_REQUEST['estado'];
                     </div>
 
                 </div>
-                
+
                 <div class="div div-cuerpo form-group mx-sm-6">
                     <form action="conexion.php" method="POST" id="registro">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Correo </p>
-                            <input class="txt text-input" type="text " name="correo" id="correo" data-toggle="tooltip" data-placement="right" title="El correo debe ser institucional ejem@toluca.tecnm.mx" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required/>
+                            <input class="txt text-input" type="text " name="correo" id="correo" data-toggle="tooltip" data-placement="right" title="El correo debe ser institucional ejem@toluca.tecnm.mx" pattern="[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Nombre </p>
-                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required/>
+                            <input class="txt text-input " type="text " name="nombre" id="nombre" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required data-toggle="tooltip" data-placement="right" title="Solo letras y espacios" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Primer apellido </p>
-                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required/>
+                            <input class="txt text-input " type="text " name="paterno" id="paterno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required data-toggle="tooltip" data-placement="right" title="Solo letras y espacios" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Segundo apellido </p>
-                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required/>
+                            <input class="txt text-input " type="text " name="materno" id="materno" pattern="([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{1,35})" required data-toggle="tooltip" data-placement="right" title="Solo letras y espacios" />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Empleado </p>
-                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" required/>
+                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <select name="carrera" id="carrera" class="slct slct-combo" required>
@@ -118,11 +118,11 @@ $estado=$_REQUEST['estado'];
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required/>
+                            <input class="txt text-input " type="password" name="contrasena" id="contrasena" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
                             <p class="pa pa-texto ">Confirmar contraseña </p>
-                            <input class="txt text-input " type="password" name="contrasena2" id="contrasena2" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required/>
+                            <input class="txt text-input " type="password" name="contrasena2" id="contrasena2" data-toggle="tooltip" data-placement="right" title="Minimo 6 caracteres, una mayuscula y un numero" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,20}" required />
                         </div>
                     </form>
                     <div class="row">
@@ -158,19 +158,19 @@ $estado=$_REQUEST['estado'];
         <div class="row">
             <div class="borde col-sm-13 div div-pie-pagina width:100%">
                 <br><br>
-                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>  
-                <br>
-                Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
-                <br>
-            </label>
+                <label>Instituto Tecnológico de Toluca | <a href="http://www.ittoluca.edu.mx/">www.ittoluca.edu.mx</a>
+                    <br>
+                    Instituto Tecnologico de Toluca - Algunos derechos reservados © 2021
+                    <br>
+                </label>
                 <center><img class="div div-cabecera col" src="../imagenes/footer.png" title="footer"></center>
                 <br>
                 <label>
                     Av. Tecnológico s/n. Fraccionamiento La Virgen
-                <br>
+                    <br>
                     Metepec, Edo. De México, México C.P. 52149
-                <br>         
-                    Tel. (52) (722) 2 08 72 00     
+                    <br>
+                    Tel. (52) (722) 2 08 72 00
                 </label>
             </div>
         </div>
