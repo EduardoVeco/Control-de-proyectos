@@ -203,22 +203,7 @@ print_r($aprobacion);
 
 
 
-    <div class="container div" id="mensajeCont">
-        <div class="row">
-            <div class="col-10 justify-content-center">
-                <?php
-                if ($estado == '0') {
-                } else {
-                ?>
-                    <div class="div div-mensaje" id="mensaje">
-                        <p><?php echo $estado ?></p>
-                    </div>
-                <?php
-                }
-                ?>
-            </div>
-        </div>
-    </div>
+
 
 
     <div class="container">
@@ -309,6 +294,23 @@ print_r($aprobacion);
                         ?>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container div" id="mensajeCont">
+        <div class="row">
+            <div class="col-12 justify-content-center">
+                <?php
+                if ($estado == '0') {
+                } else {
+                ?>
+                    <div class="div div-mensaje" id="mensaje">
+                        <p><?php echo $estado ?></p>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
