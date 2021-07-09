@@ -87,13 +87,11 @@ $contrasena = $_REQUEST['contrasena'];
 
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn btn-boton " type="submit" onclick="location.href='registrousuario.html'"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
-
+                                <button class="btn btn-boton " type="submit" name="registrar" onclick="location.href='registrousuario.php?estado=0'"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
 
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-boton " type="submit" name="login" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesion</button>
-
+                                <button class="btn btn-boton " type="submit" name="login" form="login"><img class="fa fa-icon " src="../imagenes/login.png " /> Iniciar Sesión</button>
 
                             </div>
                         </div>

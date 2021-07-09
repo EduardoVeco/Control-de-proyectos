@@ -24,7 +24,13 @@ and open the template in the editor.
 
     function hacerprimitivas($string1, $string2, $string, $string3, $correo)
     {
-        $nexos = array('además', 'menos', 'a', 'la', 'par', 'al', 'mismo', 'aparte', 'propósito', 'asimismo', 'su', 'vez', 'todo', 'esto', 'cabe', 'de', 'igual', 'forma', 'manera', 'modo', 'misma', 'del', 'en', 'cuanto', 'es', 'igualmente', 'inclusive', 'incluso', 'aún', 'ni', 'siquiera', 'paralelamente', 'remate', 'para', 'colmo', 'por', 'añadidura', 'cierto', 'lo', 'demás', 'otra', 'parte', 'otro', 'lado', 'si', 'fuera', 'poco', 'puede', 'agregarse', 'también', 'tampoco', 'todavía', 'más', 'y', 'excepción', 'con', 'salvedad', 'excepto', 'salvo', 'aclarar', 'que', 'quiero', 'decir', 'conviene', 'precisar', 'dicho', 'otras', 'palabras', 'otros', 'términos', 'bueno', 'anterior', 'no', 'quiere', 'significa', 'o', 'sea', 'mejor', 'vale', 'u', 'bien', 'ya', 'pesar', 'así', 'aun', 'cuando', 'aunque', 'cualquier', 'todas', 'todos', 'formas', 'maneras', 'modos', 'caso', 'obstante', 'pese', 'sin', 'embargo', 'ahora', 'contrario', 'antes', 'contrariamente', 'desde', 'punto', 'vista', 'empero', 'cambio', 'contraposición', 'contraste', 'oposición', 'inversamente', 'mientras', 'muy', 'el', 'pero', 'pues', 'sino', 'obstar', 'solo', 'se');
+        $nexos = array('además', 'menos', 'a', 'la', 'par', 'al', 'mismo', 'aparte', 'propósito', 'asimismo', 'su', 'vez', 'todo', 'esto', 'cabe', 'de', 'igual', 'forma', 'manera', 
+        'modo', 'misma', 'del', 'en', 'cuanto', 'es', 'igualmente', 'inclusive', 'incluso', 'aún', 'ni', 'siquiera', 'paralelamente', 'remate', 'para', 'colmo', 'por', 'añadidura',
+        'cierto', 'lo', 'demás', 'otra', 'parte', 'otro', 'lado', 'si', 'fuera', 'poco', 'puede', 'agregarse', 'también', 'tampoco', 'todavía', 'más', 'y', 'excepción', 'con',
+        'salvedad', 'excepto', 'salvo', 'aclarar', 'que', 'quiero', 'decir', 'conviene', 'precisar', 'dicho', 'otras', 'palabras', 'otros', 'términos', 'bueno', 'anterior',
+        'no', 'quiere', 'significa', 'o', 'sea', 'mejor', 'vale', 'u', 'bien', 'ya', 'pesar', 'así', 'aun', 'cuando', 'aunque', 'cualquier', 'todas', 'todos', 'formas', 'maneras',
+        'modos', 'caso', 'obstante', 'pese', 'sin', 'embargo', 'ahora', 'contrario', 'antes', 'contrariamente', 'desde', 'punto', 'vista', 'empero', 'cambio', 'contraposición', 
+        'contraste', 'oposición', 'inversamente', 'mientras', 'muy', 'el', 'pero', 'pues', 'sino', 'obstar', 'solo', 'se','las','los');
         $alcances = array();
         $resumen = array();
         $justificacion = array();
