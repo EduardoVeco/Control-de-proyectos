@@ -13,20 +13,20 @@ function ingresar($folio, $nom, $app, $apm,$noControl)
    if (isset($_POST['terminar2'])) {
       $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
       $consulta = mysqli_query($con, "SELECT noControl FROM integrantes WHERE noControl='$noControl'");
-      //$mostrar = mysqli_fetch_array($consulta);
+      $mostrar = mysqli_fetch_array($consulta);
       if(mysqli_num_rows($consulta)==0){
       if ($nom != '' && $app != '' && $apm != '') {
          Asesor::retomarProyecto($folio, null, $nombre, null, null, null, null, null);
         
-         $consulta = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
-         $mostrar = mysqli_fetch_array($consulta);
-         $correo = $mostrar['correo'];
+         $consulta1 = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
+         $mostrar1 = mysqli_fetch_array($consulta1);
+         $correo = $mostrar1['correo'];
          header('location: asesor.php?correo=' . $correo);
       }
       else{
-         $consulta = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
-         $mostrar = mysqli_fetch_array($consulta);
-         $correo = $mostrar['correo'];
+         $consulta2 = mysqli_query($con, "SELECT correo FROM proyectos WHERE noFolio='$folio'");
+         $mostrar2 = mysqli_fetch_array($consulta2);
+         $correo = $mostrar2['correo'];
          header('location: asesor.php?correo=' . $correo);
       }
    }
