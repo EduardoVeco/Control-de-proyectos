@@ -344,7 +344,7 @@ print_r($aprobacion);
                                 <?php
                                 } else {
                                 ?>
-                                    <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="button ">
+                                    <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="submit">
                                         <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
                                 <?php
                                 }
@@ -366,6 +366,13 @@ print_r($aprobacion);
                                             </div>
                                             <div class="modal-body">
                                                 <form method="post" id="autorizaForm">
+                                                    <div class="container div div-ocultar" id="mensajeCont">
+                                                        <div class="col-12 justify-content-center">
+                                                            <div class="div div-mensaje" id="mensaje">
+                                                                <p>Mensaje importante</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <p>El proyecto <?php echo $folio1 ?> sera aprobado ¿Desea continuar?</p>
                                                 </form>
                                             </div>

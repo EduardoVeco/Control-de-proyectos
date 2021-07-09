@@ -28,14 +28,27 @@ actualizarBtn.addEventListener('click', e => {
     e.preventDefault()
     var conclusion = document.getElementById('conclusion').value
     var folio1 = document.getElementById('folio1').value
-    
-    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo+"&elemento="+"si";
+
+    if (conclusion == '') {
+        document.getElementById("mensaje").innerHTML = "<p>La conclusion no puede ser vacia</p>";
+        document.getElementById('mensajeCont').classList.remove('div')
+        document.getElementById('mensajeCont').classList.remove('div.ocultar')
+    } else {
+        document.getElementById('mensajeCont').classList.add('div.ocultar')
+        window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=" + "si";
+    }
 })
 
 negarBtn.addEventListener('click', e => {
     e.preventDefault()
     var conclusion = document.getElementById('conclusion').value
-    var folio1 = document.getElementById('folio1').value
-    window.location.href = "llamadaUD.php?folio1=" + folio1+"&conclusion="+conclusion+"&correo="+correo+"&elemento=no";
+    if (conclusion == '') {
+        document.getElementById("mensaje").innerHTML = "<p>La conclusion no puede ser vacia</p>";
+        document.getElementById('mensajeCont').classList.remove('div')
+        document.getElementById('mensajeCont').classList.remove('div.ocultar')
+    } else {
+        document.getElementById('mensajeCont').classList.add('div.ocultar')
+        var folio1 = document.getElementById('folio1').value
+            // window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=no";
+    }
 })
-
