@@ -116,6 +116,7 @@ if (!isset($_SESSION['correo'])) {
                                 <?php
                                 $sql = "SELECT titulo,nofolio,avance,estatus,aprobacion FROM proyectos
                                                 WHERE correo='$correo'
+                                                AND aprobacion!='NO APROBADO'
                                                 ORDER BY fecha_registro";
                                 $result = mysqli_query($conexion, $sql);
 

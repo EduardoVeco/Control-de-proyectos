@@ -39,5 +39,5 @@ negarBtn.addEventListener('click', e => {
     var conclusion = document.getElementById('conclusion').value
     document.getElementById('mensajeCont').classList.add('div.ocultar')
     var folio1 = document.getElementById('folio1').value
-        // window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=no";
+         window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=no";
 })

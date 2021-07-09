@@ -62,8 +62,8 @@ class FuncionesDelSistema
             for ($i = 1; $i <= $filasPrim; $i++) {
                 $mostrar = '';
                 $consulta1 = mysqli_query($con, "SELECT pr.tituloPrimitivas as tp from primitivas as pr, proyectos as p   
-                                                WHERE p.noFolio=pr.noFolio
-                                                AND pr.id='$i'
+                                                WHERE pr.id='$i'
+                                                AND p.noFolio=pr.noFolio
                                                 AND p.aprobacion='APROBADO'");
                 $mostrar = mysqli_fetch_array($consulta1);
                 $jus2 = '';
@@ -87,16 +87,18 @@ class FuncionesDelSistema
                     for ($k = 0; $k < $contTitSel; $k++) {
                         if ($titulo[$j] == $aT[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k = $contTitSel;
+                            // $k = $contTitSel;
                         }
                     }
                 }
 
-                $porcenOri = ($contPrimComun / $contTit) * 100;
+
                 if ($contTitSel != 0) {
-                    $porcenPrim = ($contPrimComun / $contTitSel) * 100;
+                    $porcenOri = ($contPrimComun / $contTitSel) * 100;
+                    $porcenPrim = ($contPrimComun / $contTit) * 100;
                     $porcenTit = ($porcenOri + $porcenPrim) / 2;
                 } else {
+                    $porcenOri = ($contPrimComun / 0.01 * 100);
                     $porcenPrim = ($contPrimComun / 0.01) * 100;
                     $porcenTit = ($porcenOri + $porcenPrim) / 2;
                 }
@@ -135,12 +137,13 @@ class FuncionesDelSistema
                         }
                     }
                 }
-                $porcenOri = ($contPrimComun / $contJus) * 100;
+
                 if ($contJusSel != 0) {
                 } else {
                     $contJusSel = 0.01;
                 }
-                $porcenPrim = ($contPrimComun / $contJusSel) * 100;
+                $porcenOri = ($contPrimComun / $contJusSel) * 100;
+                $porcenPrim = ($contPrimComun / $contJus) * 100;
                 $porcenJus = ($porcenOri + $porcenPrim) / 2;
 
                 $contPrimComun = 0;
@@ -171,7 +174,7 @@ class FuncionesDelSistema
                     for ($k = 0; $k < $contAlcSel; $k++) {
                         if ($alcances[$j] == $aT2[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k = $contAlcSel;
+                            //$k = $contAlcSel;
                         }
                     }
                 }
@@ -179,8 +182,8 @@ class FuncionesDelSistema
                 } else {
                     $contAlcSel = 0.01;
                 }
-                $porcenOri = ($contPrimComun / $contAlc) * 100;
-                $porcenPrim = ($contPrimComun / $contAlcSel) * 100;
+                $porcenOri = ($contPrimComun / $contAlcSel) * 100;
+                $porcenPrim = ($contPrimComun / $contAlc) * 100;
                 $porcenAlc = ($porcenOri + $porcenPrim) / 2;
 
                 $contPrimComun = 0;
@@ -197,7 +200,7 @@ class FuncionesDelSistema
                                                  AND p.aprobacion='APROBADO'");
                 $mostrar3 = mysqli_fetch_array($consulta4);
                 $token6 = strtok($mostrar3['rp'], " ");
-                print_r($mostrar3['rp']);
+                // print_r($mostrar3['rp']);
                 $aT3 = array();
                 while ($token6 !== false) {
                     array_push($aT3, $token6);
@@ -213,7 +216,7 @@ class FuncionesDelSistema
                     for ($k = 0; $k < $contResSel; $k++) {
                         if ($resumen[$j] == $aT3[$k]) {
                             $contPrimComun = $contPrimComun + 1;
-                            $k = $contResSel;
+                            //$k = $contResSel;
                         }
                     }
                 }
@@ -221,30 +224,34 @@ class FuncionesDelSistema
                 } else {
                     $contResSel = 0.01;
                 }
-                $porcenOri = ($contPrimComun / $contRes) * 100;
-                $porcenPrim = ($contPrimComun / $contResSel) * 100;
+                $porcenOri = ($contPrimComun / $contResSel) * 100;
+                $porcenPrim = ($contPrimComun / $contRes) * 100;
                 $porcenRes = ($porcenOri + $porcenPrim) / 2;
 
+                $porcentajeAux = 0;
 
                 $porcentajeAux = ($porcenTit + $porcenJus + $porcenAlc + $porcenRes) / 4;
                 if ($porcentajeAux > $porcentaje) {
+                    $porcentaje = 0;
                     $porcentaje = $porcentajeAux;
                 }
-                //print_r($i);
+                print_r($i);
 
                 print_r($porcentaje);
-                if ($porcentajeAux > $simMaxima) {
-                    $consulta5 = mysqli_query($con, "select p.aprobacion 
-                                                     from primitivas as pr,proyectos as p 
+                if ($porcentaje > $simMaxima) {
+                    $consulta5 = mysqli_query($con, "SELECT p.aprobacion 
+                                                     FROM primitivas as pr,proyectos as p 
                                                      WHERE pr.id = $i 
-                                                     AND p.noFolio=pr.noFolio");
+                                                     AND p.noFolio=pr.noFolio
+                                                     AND p.aprobacion='APROBADO'");
                     $mostrar4 = mysqli_fetch_array($consulta5);
                     if ($mostrar4['aprobacion'] == 'REVISION') {
                     } else {
-                        $simMaxima = $porcentajeAux;
+                        $simMaxima = $porcentaje;
                         $tempFolio = $i;
                     }
                 }
+                print_r($simMaxima);
             }
             if ($porcentaje <= 50) {
                 $str = '';
@@ -264,9 +271,10 @@ class FuncionesDelSistema
                     $str2 = $str2 . ' ' . $jus3;
                 }
                 $folio = 'A';
-                $tempFolio = '0';
-                print_r($str);
-               header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
+                print_r('gola'); 
+                print_r($tempFolio);
+
+                //  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
             } else if ($porcentaje > 50 && $porcentaje <= 90) {
                 $str = '';
                 $str1 = '';
@@ -294,10 +302,10 @@ class FuncionesDelSistema
                         $i = mysqli_num_rows($consulta) + 1;
                     }
                 }
-                   header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
+                header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
             } else if ($porcentaje > 90) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
-                    header('location: denegar.php?correo=' . $correo);
+                header('location: denegar.php?correo=' . $correo);
             }
         } else {
             $folio = 'A';
