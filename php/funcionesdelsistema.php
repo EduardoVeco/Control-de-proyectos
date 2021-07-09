@@ -61,8 +61,9 @@ class FuncionesDelSistema
             $simMaxima = 0;
             for ($i = 1; $i <= $filasPrim; $i++) {
                 $mostrar = '';
-                $consulta1 = mysqli_query($con, "SELECT pr.tituloPrimitivas from primitivas as pr, proyectos as p   
+                $consulta1 = mysqli_query($con, "SELECT pr.tituloPrimitivas as tp from primitivas as pr, proyectos as p   
                                                 WHERE p.noFolio=pr.noFolio
+                                                AND pr.id='$i'
                                                 AND p.aprobacion='APROBADO'");
                 $mostrar = mysqli_fetch_array($consulta1);
                 $jus2 = '';
@@ -70,7 +71,7 @@ class FuncionesDelSistema
                 $token3 = '';
                 $contTit = 0;
                 $contTitSel = 0;
-                $token3 = strtok($mostrar['tituloPrimitivas'], " ");
+                $token3 = strtok($mostrar['tp'], " ");
                 $aT = array();
                 while ($token3 !== false) {
                     array_push($aT, $token3);
@@ -105,11 +106,12 @@ class FuncionesDelSistema
                 $contPrimComun = 0;
                 $mostrar1 = '';
                 $token4 = '';
-                $consulta2 = mysqli_query($con, "SELECT pr.justificacionPrimitivas from primitivas as pr, proyectos as p 
+                $consulta2 = mysqli_query($con, "SELECT pr.justificacionPrimitivas as jp from primitivas as pr, proyectos as p 
                                                  WHERE  pr.noFolio=p.noFolio
+                                                 AND pr.id='$i'
                                                  AND p.aprobacion='APROBADO'");
                 $mostrar1 = mysqli_fetch_array($consulta2);
-                $token4 = strtok($mostrar1['justificacionPrimitivas'], " ");
+                $token4 = strtok($mostrar1['jp'], " ");
                 $jus4 = '';
                 $jus5 = '';
                 $contJus = 0;
@@ -148,11 +150,12 @@ class FuncionesDelSistema
                 $jus7 = '';
                 $contAlc = 0;
                 $contAlcSel = 0;
-                $consulta3 = mysqli_query($con, "SELECT pr.alcancesPrimitivas from primitivas as pr, proyectos as p 
+                $consulta3 = mysqli_query($con, "SELECT pr.alcancesPrimitivas as ap from primitivas as pr, proyectos as p 
                                                 WHERE  pr.noFolio=p.noFolio
+                                                AND pr.id='$i'
                                                 AND p.aprobacion='APROBADO'");
                 $mostrar2 = mysqli_fetch_array($consulta3);
-                $token5 = strtok($mostrar2['alcancesPrimitivas'], " ");
+                $token5 = strtok($mostrar2['ap'], " ");
                 $aT2 = array();
                 while ($token5 !== false) {
                     array_push($aT2, $token5);
@@ -188,11 +191,13 @@ class FuncionesDelSistema
                 $contRes = 0;
                 $contResSel = 0;
 
-                $consulta4 = mysqli_query($con, "SELECT pr.resumenPrimitivas from primitivas as pr, proyectos as p 
+                $consulta4 = mysqli_query($con, "SELECT pr.resumenPrimitivas as rp from primitivas as pr, proyectos as p 
                                                  WHERE  pr.noFolio=p.noFolio
+                                                 AND pr.id='$i'
                                                  AND p.aprobacion='APROBADO'");
                 $mostrar3 = mysqli_fetch_array($consulta4);
-                $token6 = strtok($mostrar3['resumenPrimitivas'], " ");
+                $token6 = strtok($mostrar3['rp'], " ");
+                print_r($mostrar3['rp']);
                 $aT3 = array();
                 while ($token6 !== false) {
                     array_push($aT3, $token6);
@@ -260,7 +265,8 @@ class FuncionesDelSistema
                 }
                 $folio = 'A';
                 $tempFolio = '0';
-                //  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
+                print_r($str);
+               header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
             } else if ($porcentaje > 50 && $porcentaje <= 90) {
                 $str = '';
                 $str1 = '';
@@ -288,10 +294,10 @@ class FuncionesDelSistema
                         $i = mysqli_num_rows($consulta) + 1;
                     }
                 }
-                //   header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
+                   header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
             } else if ($porcentaje > 90) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
-                //    header('location: denegar.php?correo=' . $correo);
+                    header('location: denegar.php?correo=' . $correo);
             }
         } else {
             $folio = 'A';
@@ -327,12 +333,12 @@ class FuncionesDelSistema
 
 
 
-            /*  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri .
+            header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri .
                 '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' .
                 $resumenOri . '&correo=' .
                 $correo . '&folio=' .
                 $folio .
-                '&tempFolio=' . 0);*/
+                '&tempFolio=' . 0);
             print_r("algo");
         };
     }
