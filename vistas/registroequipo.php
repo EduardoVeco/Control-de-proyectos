@@ -106,9 +106,14 @@ if (!isset($_SESSION['correo'])) {
                                     FROM proyectos 
                                     WHERE noFolio='$folio'";
                             $result = mysqli_query($conexion, $sql);
-                            $mostrar = mysqli_fetch_array($result)
+                            $mostrar = mysqli_fetch_array($result);
+                            while ($mostrar = mysqli_fetch_array($result)) {
                             ?>
-
+                                <button class="btn btn-cancelar " type="button " id="cancelar" form="registroequipo" onclick="location.href='asesor.php?correo='<?php echo $mostrar['correo'] ?>">
+                                    <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
+                            <?php
+                            }
+                            ?>
                             <button class="btn btn-cancelar " type="button " id="cancelar" form="registroequipo" onclick="location.href='asesor.php?correo='<?php echo $mostrar['correo'] ?>">
                                 <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
                         </div>
