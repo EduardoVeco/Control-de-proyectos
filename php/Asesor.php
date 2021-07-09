@@ -174,7 +174,7 @@ class Asesor
                 die('Fallo al crear las carpetas...');
             } else {
             }
-           // header('location: registroequipo.php?folio=' . $str);
+            header('location: registroequipo.php?folio=' . $str);
         }
     }
 
