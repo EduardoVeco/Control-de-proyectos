@@ -11,9 +11,9 @@ btnComparar.addEventListener('click', e => {
     var folio2 = document.getElementById('folio2').value
     if (document.getElementById('folio1').value != '') {
         if (document.getElementById('folio2').value != '') {
-            window.location.href = "comparacion1.php?folio1=" + folio1 + "&folio2=" + folio2 + "&correo=" + correo + "&cantidad=" + 2;
+            window.location.href = "comparacion1.php?folio1=" + folio1 + "&folio2=" + folio2 + "&correo=" + correo + "&cantidad=" + 2 + '&estado=0';
         } else {
-            window.location.href = "comparacion1.php?folio1=" + folio1 + "&folio2=" + folio2 + "&correo=" + correo + "&cantidad=" + 1;
+            window.location.href = "comparacion1.php?folio1=" + folio1 + "&folio2=" + folio2 + "&correo=" + correo + "&cantidad=" + 1 + '&estado=0';
         }
 
 
@@ -28,6 +28,7 @@ actualizarBtn.addEventListener('click', e => {
     e.preventDefault()
     var conclusion = document.getElementById('conclusion').value
     var folio1 = document.getElementById('folio1').value
+    var folio2 = document.getElementById('folio2').value
 
     if (conclusion == '') {
         document.getElementById("mensaje").innerHTML = "<p>La conclusion no puede ser vacia</p>";

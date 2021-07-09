@@ -4,6 +4,7 @@ $folio1 = $_REQUEST['folio1'];
 $folio2 = $_REQUEST['folio2'];
 $correo = $_REQUEST['correo'];
 $cantidad = $_REQUEST['cantidad'];
+$estado = $_REQUEST['estado'];
 print_r($folio1);
 print_r($folio2);
 print_r($correo);
@@ -198,10 +199,22 @@ print_r($aprobacion);
             </div>
         </div>
     </div>
-    <div class="container div div-ocultar" id="mensajeCont">
-        <div class="col-12 justify-content-center">
-            <div class="div div-mensaje" id="mensaje">
-                <p>Mensaje importante</p>
+
+
+
+    <div class="container div" id="mensajeCont">
+        <div class="row">
+            <div class="col-10 justify-content-center">
+                <?php
+                if ($estado == '0') {
+                } else {
+                ?>
+                    <div class="div div-mensaje" id="mensaje">
+                        <p><?php echo $estado ?></p>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -366,13 +379,6 @@ print_r($aprobacion);
                                             </div>
                                             <div class="modal-body">
                                                 <form method="post" id="autorizaForm">
-                                                    <div class="container div div-ocultar" id="mensajeCont">
-                                                        <div class="col-12 justify-content-center">
-                                                            <div class="div div-mensaje" id="mensaje">
-                                                                <p>Mensaje importante</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <p>El proyecto <?php echo $folio1 ?> sera aprobado ¿Desea continuar?</p>
                                                 </form>
                                             </div>
