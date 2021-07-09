@@ -50,7 +50,7 @@ print_r($aprobacion);
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="../js/Chart.min.js" type="text/javascript"></script>
     <script>
-        var c = <?php echo json_encode($correo); ?>;
+        var c = '<?php echo json_encode($correo); ?>';
         var can = <?php echo json_encode($cantidad); ?>;
     </script>
 </head>
