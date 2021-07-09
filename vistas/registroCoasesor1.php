@@ -23,7 +23,7 @@ function ingresar($folio, $nom, $app, $apm,$noControl)
          $correo = $mostrar1['correo'];
 
         print_r($correo);
-         // header('location: asesor.php?correo=' . $correo);
+         header('location: asesor.php?correo=' . $correo);
 
       }
       else{
