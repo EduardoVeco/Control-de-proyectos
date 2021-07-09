@@ -29,14 +29,14 @@ actualizarBtn.addEventListener('click', e => {
     var conclusion = document.getElementById('conclusion').value
     var folio1 = document.getElementById('folio1').value
     var folio2 = document.getElementById('folio2').value
-
+    var cantidad = JSON.parse(can)
     if (conclusion == '') {
         document.getElementById("mensaje").innerHTML = "<p>La conclusion no puede ser vacia</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
     } else {
         document.getElementById('mensajeCont').classList.add('div.ocultar')
-        window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=" + "si";
+        window.location.href = "llamadaUD.php?folio1=" + folio1 + "&conclusion=" + conclusion + "&correo=" + correo + "&elemento=" + "si" + "&folio2=" + folio2 + '&cantidad=' + cantidad;
     }
 })
 
