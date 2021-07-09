@@ -279,6 +279,9 @@ class Asesor
             $correo = $mostrar2['correo'];
             header('location: proyecto.php?folio=' . $folio . '&correo=' . $correo);
         } else {
+            if($porcentaje==100){
+                $consulta = mysqli_query($con, "UPDATE proyectos SET aprobacion='COMPLETADO' WHERE noFolio='$folio'"); 
+            }
             $consulta = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
             $mostrar2 = mysqli_fetch_array($consulta);
             $consulta = mysqli_query($con, "UPDATE proyectos SET avance='$porcentaje' WHERE noFolio='$folio'");
