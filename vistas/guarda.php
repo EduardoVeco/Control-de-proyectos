@@ -39,4 +39,8 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 
 		closedir($dir); //Cerramos el directorio de destino
 	}
+	else{
+		header('location: proyecto.php?correo=' . $correo . '&folio=' . $folio);
+
+	}
 }
