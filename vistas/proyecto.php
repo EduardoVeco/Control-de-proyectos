@@ -167,7 +167,7 @@ if (!isset($_SESSION['correo'])) {
                                 $result = mysqli_query($conexion, $sql);
                                 $mostrar = mysqli_fetch_array($result);
 
-                                if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'REVISION') {
+                                if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'REVISION'||$mostrar['aprobacion'] == 'COMPLETADO') {
 
                                     $sql = "SELECT p.titulo,p.nofolio,p.estatus,aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                     FROM proyectos as p, usuarios as u
@@ -301,7 +301,7 @@ if (!isset($_SESSION['correo'])) {
                                 while ($mostrar = mysqli_fetch_array($result)) {
                                 ?>
                                     <?php
-                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO') {
+                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO'||$mostrar['aprobacion'] == 'COMPLETADO') {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnRetomar" name="btnRetomar" disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Retomar</button>
                                     <?php
@@ -417,7 +417,7 @@ if (!isset($_SESSION['correo'])) {
                                 while ($mostrar = mysqli_fetch_array($result)) {
                                 ?>
                                     <?php
-                                    if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'APROBADO') {
+                                    if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'APROBADO'||$mostrar['aprobacion'] == 'COMPLETADO') {
                                     ?>
                                         <button type="button" name="desvincular" id="desvincular" class="btn btn-boton-ext " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
 
