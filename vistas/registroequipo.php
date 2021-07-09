@@ -109,7 +109,7 @@ if (!isset($_SESSION['correo'])) {
                             $mostrar = mysqli_fetch_array($result);
                             while ($mostrar = mysqli_fetch_array($result)) {
                             ?>
-                                <button class="btn btn-cancelar " type="button " id="cancelar" form="registroequipo" onclick="location.href='asesor.php?correo='<?php echo $mostrar['correo'] ?>">
+                                <button class="btn btn-cancelar " type="button " id="cancelar" onclick="location.href='asesor.php?correo='<?php echo $mostrar['correo'] ?>">
                                     <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
                             <?php
                             }
