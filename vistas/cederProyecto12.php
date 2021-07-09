@@ -4,8 +4,6 @@ $folio = $_REQUEST['folio'];
 
 $correo = $_REQUEST['correo'];
 
-print_r($folio);
-print_r($correo);
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
 cambio($folio, $correo, $con);
 function cambio($folio, $correo, $con)
@@ -19,7 +17,6 @@ function cambio($folio, $correo, $con)
         $consulta1 = mysqli_query($con, "SELECT tipoUsuario FROM usuarios where correo='$correo'");
         if (mysqli_num_rows($consulta1) == 1) {
             $consulta = mysqli_query($con, "UPDATE proyectos SET correo='$correo' where noFolio='$folio'");
-            print_r('aqui llegue');
             header('location: asesor.php?correo=' . $resultado);
 
             $destino = $correo;

@@ -8,7 +8,6 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 		$source = $_FILES["archivo"]["tmp_name"][$key]; //Obtenemos un nombre temporal del archivo
 		$correo = '';
 		$folio = $_REQUEST['folio'];
-		print_r($folio);
 		$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 		$sql = "SELECT correo,directorio
                 FROM proyectos

@@ -13,5 +13,5 @@ if (!mkdir($mostrar['directorio'], 0777, false)) {
 
     die('Fallo al crear las carpetas...');
 } else {
-    print_r('Si le cree wey');
+
 }

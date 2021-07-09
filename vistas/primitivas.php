@@ -59,7 +59,6 @@ and open the template in the editor.
             $result = stemm_es::stemm($value);
             array_push($resumen, $result);
         }
-        print_r('1111');
         //justificacion
         $token1 = strtok($string1, " ,.:;");
         $aJ = array();

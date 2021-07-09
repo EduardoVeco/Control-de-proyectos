@@ -2,17 +2,11 @@
 $folio = $_REQUEST['folio'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $noControl = $_REQUEST['noControl'];
-//print_r($noControl);
 
 $noControlA = $_REQUEST['noControlA'];
 $nombre = $_REQUEST['nombre'];
 $paterno = $_REQUEST['paterno'];
 $materno = $_REQUEST['materno'];
-
-print_r($noControlA);
-print_r($nombre);
-print_r($paterno);
-print_r($materno);
 
 if (empty($noControl)) {
     header("Location:registroequipo.php");

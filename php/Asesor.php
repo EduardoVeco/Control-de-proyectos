@@ -37,7 +37,6 @@ class Asesor
                         $str = '';
                         $str = $str . $aprobacion . $dia . $mes . $año . $num;
                     } else {
-                        print_r($num);
                         $i = 0;
                     }
                 }
@@ -50,7 +49,6 @@ class Asesor
                     $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
                     $mostrar = mysqli_fetch_array($consulta);
                     $correoDepto = $mostrar['correo'];
-                    print_r($correoDepto);
 
                     $aprobacion = 'REVISION';
                     $destino = $correo;
@@ -75,7 +73,7 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-                    print_r('');
+
                 }
             } else {
                 if ($aprobacion == 'A') {
@@ -87,7 +85,6 @@ class Asesor
                     $consulta = mysqli_query($con, "SELECT correo from usuarios where carrera='$carreraAux' AND noControl='XXX00XXX'");
                     $mostrar = mysqli_fetch_array($consulta);
                     $correoDepto = $mostrar['correo'];
-                    print_r($correoDepto);
                     
                     $aprobacion = 'REVISION';
                     $destino = $correo;
@@ -112,7 +109,7 @@ class Asesor
                 if (!mkdir($ruta, 0777, false)) {
                     die('Fallo al crear las carpetas...');
                 } else {
-                    print_r('');
+
                 }
             }
             $consulta = mysqli_query($con, "INSERT INTO primitivas (id,noFolio,tituloPrimitivas,justificacionPrimitivas,alcancesPrimitivas,resumenPrimitivas) VALUES  (null ,'$str','$priTitulo','$priJustificacion','$priAlcance','$priResumen')");
@@ -142,7 +139,6 @@ class Asesor
                         $str = '';
                         $str = $str . $aprobacion . $dia . $mes . $año . $num;
                     } else {
-                        print_r($num);
                         $i = 0;
                     }
                 }
@@ -166,7 +162,7 @@ class Asesor
             if (!mkdir($ruta, 0777, false)) {
                 die('Fallo al crear las carpetas...');
             } else {
-                print_r('');
+
             }
             header('location: registroequipo.php?folio=' . $str);
         }
@@ -212,7 +208,7 @@ class Asesor
                 array_push($aSA, $token5);
                 $token5 = strtok(",");
             }
-            print_r($aPA);
+
 
             $consulta = mysqli_query($con, "INSERT INTO equipos (noEquipo,proposito,fecha_inicial,fecha_final)VALUES(null,'$proposito',now(),null)");
             $contador = 0;
@@ -238,8 +234,6 @@ class Asesor
             $consulta = mysqli_query($con, "SELECT max(noEquipo) as valorMax from equipos");
             $mostrar = mysqli_fetch_array($consulta);
             $resultado = $mostrar['valorMax'];
-            print_r($resultado);
-            print_r($folio);
             $token2 = '';
             $token2 = strtok($noControl, ",");
             $aNC = array();
@@ -247,16 +241,13 @@ class Asesor
                 array_push($aNC, $token2);
                 $token2 = strtok(",");
             }
-            print_r($aNC);
             $contador = 0;
             foreach ($aNC as $perro) {
                 $contador = $contador + 1;
             }
             for ($j = 0; $j <= $contador; $j++) {
-                print_r('hola');
                 $str = '';
                 $str = $str . $aNC[$j] . '';
-                print_r($str);
                 $consulta = mysqli_query($con, "INSERT INTO historicos (id,noFolio,noEquipo,noControl) VALUES (null,'$folio','$resultado','$str')");
             }
             $consulta = mysqli_query($con, "UPDATE proyectos SET estatus='ACTIVO' where noFolio='$folio'");

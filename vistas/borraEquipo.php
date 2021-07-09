@@ -1,7 +1,6 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
 $folio = $_REQUEST['folio'];
-print_r($folio);
 borrar($folio, $con);
 function borrar($folio, $con)
 {

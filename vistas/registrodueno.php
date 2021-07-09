@@ -12,22 +12,6 @@ $resumen = $_REQUEST['resumen'];
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $tempFolio = $_REQUEST['tempFolio'];
-print_r($folio);
-
-
-
-print_r($primjust);
-print_r($primtit);
-print_r($primalc);
-print_r($primres);
-print_r($justificacion);
-print_r($titulo);
-print_r($alcances);
-print_r($resumen);
-print_r($correo);
-
-print_r($tempFolio);
-$conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
 if (!isset($_SESSION['correo'])) {

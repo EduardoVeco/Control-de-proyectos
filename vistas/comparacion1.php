@@ -5,9 +5,6 @@ $folio2 = $_REQUEST['folio2'];
 $correo = $_REQUEST['correo'];
 $cantidad = $_REQUEST['cantidad'];
 $estado = $_REQUEST['estado'];
-print_r($folio1);
-print_r($folio2);
-print_r($correo);
 
 session_start();
 if (!isset($_SESSION['correo'])) {
@@ -24,7 +21,6 @@ $result = mysqli_query($conexion, $sql);
 while ($mostrar = mysqli_fetch_array($result)) {
     $aprobacion = $mostrar['aprobacion'];
 }
-print_r($aprobacion);
 
 ?>
 

@@ -29,7 +29,6 @@ function hacer()
     $nom = $_REQUEST['nombre'];
     $app = $_REQUEST['paterno'];
     $apm = $_REQUEST['materno'];
-    print_r($tempFolio);
     $nombre = '';
     $nombre = $nombre . $nom . ' ' . $app . ' ' . $apm;
     if (isset($_POST['terminar'])) {

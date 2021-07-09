@@ -1,7 +1,6 @@
 <?php
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
-print_r($folio);
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
         if(!ISSET($_SESSION['correo'])){

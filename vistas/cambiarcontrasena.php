@@ -2,8 +2,6 @@
 $correo = $_REQUEST['correo'];
 $estado = $_REQUEST['estado'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-print_r($correo);
-print_r($estado);
 
 ?>
 <!DOCTYPE html>

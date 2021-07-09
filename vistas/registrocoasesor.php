@@ -1,6 +1,5 @@
 <?php
 $folio = $_REQUEST['folio'];
-print_r($folio);
 session_start();
 if (!isset($_SESSION['correo'])) {
     header('location:index.php');

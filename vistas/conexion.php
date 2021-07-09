@@ -59,7 +59,6 @@ function login($conexion)
 }
 //conecta($con);
 //function prueba(){
-//print_r('hola');
 
 //}
 
@@ -69,13 +68,11 @@ function cambioContrasena($conexion)
    $contra1 = $_REQUEST['contrasenaA'];
    $contra2 = $_REQUEST['contrasenaN'];
    $contra3 = $_REQUEST['contrasenaNN'];
-   print_r($correo);
    $sql = "SELECT * from usuarios where correo='$correo' AND contrasenia='$contra1'";
    $result = mysqli_query($conexion, $sql);
    if ($result && mysqli_num_rows($result) == 1) {
       if ($contra1 != $contra2) {
          if ($contra2 == $contra3) {
-            print_r('ando aca');
             $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
             header('location: cambiarcontrasena.php?correo=' . $correo . '&estado=Contraseña cambiada con exito');
             mysqli_query($conexion, $sqll);
@@ -95,12 +92,10 @@ function olvidoContrasena($conexion)
    $correo = $_REQUEST['correo'];
    $contra2 = $_REQUEST['contrasenaN'];
    $contra3 = $_REQUEST['contrasenaNN'];
-   print_r($correo);
    $sql = "SELECT * from usuarios where correo='$correo'";
    $result = mysqli_query($conexion, $sql);
    if ($result && mysqli_num_rows($result) == 1) {
       if ($contra2 == $contra3) {
-         print_r('ando aca');
          $sqll = "UPDATE usuarios SET contrasenia = '$contra2' WHERE correo = '$correo'";
          header('location: asesor.php?correo=' . $correo);
          mysqli_query($conexion, $sqll);
@@ -139,7 +134,6 @@ function conecta($conexion)
 }
 function registraUsuario($conexion)
 {
-   print_r('por aca');
    $correo = $_REQUEST['correo'];
    $nombre = $_REQUEST['nombre'];
    $primerApellido = $_REQUEST['paterno'];

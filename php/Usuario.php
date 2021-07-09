@@ -14,7 +14,6 @@ class Usuario{
 
 
     public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario){
-        print_r('por aca');
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $correo = $_REQUEST['correo'];
         $nombre = $_REQUEST['nombre'];
@@ -42,7 +41,6 @@ class Usuario{
        //     $conexion=conectarBase();
             $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
             $result = mysqli_query($conexion, $sql);
-            print_r($result);
       
             if (mysqli_num_rows($result) == 1) {
                $mostrar = mysqli_fetch_array($result);

@@ -1,7 +1,6 @@
 <?php
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $correo = $_REQUEST['correo'];
-print_r($correo);
 session_start();
 if (!isset($_SESSION['correo'])) {
     header('location:index.php');

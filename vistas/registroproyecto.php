@@ -1,6 +1,5 @@
 <?php
 $correo = $_REQUEST['correo'];
-print_r($correo);
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();

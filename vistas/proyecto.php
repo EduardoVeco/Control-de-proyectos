@@ -509,8 +509,6 @@ if (!isset($_SESSION['correo'])) {
 
 
         <?php
-        print_r($folio);
-        print_r('A10720212');
         $sql = "SELECT avance
             FROM proyectos
             WHERE nofolio='$folio'";
@@ -523,7 +521,6 @@ if (!isset($_SESSION['correo'])) {
         ?>
             <?php
             $progreso = $mostrar['avance'];
-            print_r($progreso);
             ?>
         <?php
         }

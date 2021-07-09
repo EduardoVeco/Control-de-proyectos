@@ -2,7 +2,6 @@
 $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
-print_r($folio);
 session_start();
 if (!isset($_SESSION['correo'])) {
     header('location:index.php');
