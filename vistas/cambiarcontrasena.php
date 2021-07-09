@@ -114,9 +114,9 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
                             $result = mysqli_query($conexion, $sql);
 
                             while ($mostrar = mysqli_fetch_array($result)) {
-                                if ($mostrar['tipoUsuario'] == 'XXX000XXX') {
+                                if ($mostrar['tipoUsuario'] == 'Departamento') {
                             ?>
-                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='deptoinvestigacion.php?correo=<?php echo $correo ?>'">
+                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='dptoinvestigacion.php?correo=<?php echo $correo ?>'">
                                         <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
                                 <?php
                                 } else {
