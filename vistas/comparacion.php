@@ -49,6 +49,7 @@ function get()
     require 'conexion.php';
     $query = $conexion->query("SELECT * FROM `usuarios` WHERE `correo` = '$_SESSION[correo]'");
     $fetch = $query->fetch_array();
+    $_SESSION['time'] = time();
     ?>
     <div class="container">
         <div class="row">
