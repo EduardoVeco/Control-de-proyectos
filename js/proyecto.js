@@ -69,7 +69,7 @@ historialBtn.addEventListener("click", e => {
     e.preventDefault()
     var folio = JSON.parse(f)
     var correo1 = JSON.parse(correo)
-    window.location = "historico.php?folio=" + folio + '&correo= ' + correo1;
+    window.location = "historico.php?folio=" + folio + '&correo=' + correo1;
     console.log(folio)
 })
 
