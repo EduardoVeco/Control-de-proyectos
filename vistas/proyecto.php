@@ -253,7 +253,7 @@ if (!isset($_SESSION['correo'])) {
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal">
+                                            <button class="btn btn-cancelar-ext" onclick="location.href='proyecto.php?correo=<?php echo $correo?>&folio=<?php echo $folio?>'" type="button " data-dismiss="modal">
                                                 <img class="fa fa-icon " src="../imagenes/cancel.png" /> Cancelar</button>
                                             <button class="btn btn-boton-ext " type="submit" form="actualizar" id="actualizarBtn">
                                                 <img class="fa fa-icon " src="../imagenes/check.png" /> Aceptar</button>
