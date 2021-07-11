@@ -13,7 +13,8 @@ class Usuario{
     private $tiempoInactividad;
 
 
-    public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario){
+    public function registroUsuario($nombre,$primerApellido,$segundoApellido,$noControl,$correo,$contrasena,$carrera,$tipoUsuario)
+    {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
         $correo = $_REQUEST['correo'];
         $nombre = $_REQUEST['nombre'];
@@ -24,52 +25,64 @@ class Usuario{
         $contrasena2 = $_REQUEST['contrasena2'];
         $carrera = $_REQUEST['carrera'];
         $tipoUsuario = 'Asesor';
-     if($contrasena==$contrasena2){
-        $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
-        mysqli_query($con, $sql);
-        mysqli_close($con);
-        header('location: registrousuario.html');
-     }
-     else{
-        echo "<p> esta mal la contraseña</p>";
-     }
+
+        if($contrasena==$contrasena2)
+        {
+            $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','$tipoUsuario')";
+            mysqli_query($con, $sql);
+            mysqli_close($con);
+            header('location: registrousuario.html');
+        }
+        else
+        {
+            echo "<p> esta mal la contraseña</p>";
+        }
     }
 
-    public static function inicioSesion($username,$password){
+    public static function inicioSesion($username,$password)
+    {
         $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
            
        //     $conexion=conectarBase();
             $sql = "SELECT * from usuarios where correo='$username' AND contrasenia='$password'";
             $result = mysqli_query($conexion, $sql);
       
-            if (mysqli_num_rows($result) == 1) {
+            if (mysqli_num_rows($result) == 1) 
+            {
                $mostrar = mysqli_fetch_array($result);
                session_start();
                $_SESSION['correo'] = $mostrar['correo'];
                $_SESSION['time'] = time();
       
-               if ($mostrar['tipoUsuario'] == 'Asesor') {
+               if ($mostrar['tipoUsuario'] == 'Asesor') 
+               {
                   header('location: asesor.php?correo=' . $username);
-               } else {
+               } else 
+               {
                   header('location: dptoinvestigacion.php?correo=' . $username);
                }
                //echo "<script>window.location='proyecto.php'</script>";
-            } else {
+            } else 
+            {
                header('location: index1.php?correo=' . $username . '&contrasena=' . $password . '&error=' . true);
                //   echo "<script>window.location='index1.php'</script>";
             }
          
     }
 
-    public function cambiarContraseña($antiguaContraseña,$nuevaContraseña){
-        if ($antiguaContraseña != null){
+    public function cambiarContraseña($antiguaContraseña,$nuevaContraseña)
+    {
+        if ($antiguaContraseña != null)
+        {
 
-        } else {
+        } else 
+        {
 
         }
     }
 
-    public function cerrarSesion(){
+    public function cerrarSesion()
+    {
 
     }
 

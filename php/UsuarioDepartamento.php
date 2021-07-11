@@ -6,22 +6,28 @@ class UsuarioDepartamento
 
     public function consultarProyectos()
     {
+
     }
 
     public static function autoriza($folio, $aprobacion, $conclusion, $correo, $folio2, $cantidad)
     {
 
-        if ($conclusion == '') {
+        if ($conclusion == '') 
+        {
             header('location: comparacion1.php?folio1=' . $folio . '&folio2=' . $folio2 . '&correo=' . $correo . '&estado=Hace falta conclusión' . '&cantidad=' . $cantidad);
-        } else {
-            if ($aprobacion == 'NO APROBADO') {
+        } else 
+        {
+            if ($aprobacion == 'NO APROBADO') 
+            {
                 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
                 $consulta = mysqli_query($con, "SELECT aprobacion from proyectos where noFolio='$folio'");
                 $mostrar1 = mysqli_fetch_array($consulta);
                 $estado = $mostrar1['aprobacion'];
-                if ($estado == 'APROBADO') {
+                if ($estado == 'APROBADO') 
+                {
 
-                } else {
+                } else 
+                {
                     $consulta = mysqli_query($con, "UPDATE proyectos SET aprobacion='NO APROBADO' where noFolio='$folio'");
                     $consulta2 = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
                     $mostrar2 = mysqli_fetch_array($consulta2);
@@ -35,7 +41,8 @@ class UsuarioDepartamento
                     echo "Correo enviado...";
                     header('location: dptoinvestigacion.php?correo=' . $correo);
                 }
-            } else if ($aprobacion == 'APROBADO') {
+            } else if ($aprobacion == 'APROBADO') 
+            {
                 $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
                 $consulta = mysqli_query($con, "UPDATE proyectos SET aprobacion='APROBADO' where noFolio='$folio'");
                 $consulta1 = mysqli_query($con, "SELECT correo from proyectos where noFolio='$folio'");
