@@ -280,8 +280,8 @@ class FuncionesDelSistema
                 print_r('gola'); 
                 print_r($tempFolio);
 
-                //  header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
-            } else if ($porcentaje > 50 && $porcentaje <= 90) {
+                header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
+            } else if ($porcentaje > 50 && $porcentaje <= 70) {
                 $str = '';
                 $str1 = '';
                 $str2 = '';
@@ -309,7 +309,7 @@ class FuncionesDelSistema
                     }
                 }
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
-            } else if ($porcentaje > 90) {
+            } else if ($porcentaje > 70) {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
                 header('location: denegar.php?correo=' . $correo);
             }

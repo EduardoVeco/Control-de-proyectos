@@ -143,7 +143,7 @@ if (!isset($_SESSION['correo'])) {
                         <div class="row">
                             <div class="col-6">
                                 <button class="btn btn-aceptar" type="button" data-toggle="modal" data-target="#terminarModal">
-                                    <img class="fa fa-icon" src="../imagenes/check.png " /> Terminar</button>
+                                    <img class="fa fa-icon" src="../imagenes/check.png " /> Finalizar</button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="terminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
@@ -156,7 +156,7 @@ if (!isset($_SESSION['correo'])) {
                                             </div>
                                             <div class="modal-body">
                                                 <br>
-                                                <p>El proyecto quedara como inactivo en la seccion de mis proyectos</p>
+                                                <p>El proyecto quedará como inactivo en la sección de mis proyectos</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-cancelar-ext" type="button " data-dismiss="modal">
