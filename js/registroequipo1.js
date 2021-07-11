@@ -20,13 +20,15 @@ var folio = JSON.parse(f)
 console.log(propositoForm)
     //console.log(propositoInput)
 
-const expreg = {
+const expreg =
+    {
     nombre: /^([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ\s]{1,35})$/,
     prop: /^([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ\s0-9]{1,100})$/,
     noControl: /^([A-Z0-9]{1,8})$/
 }
 
-const campos = {
+const campos =
+    {
     noControl: false,
     nombre: false,
     paterno: false,
@@ -35,8 +37,10 @@ const campos = {
     nc: ''
 }
 
-const validar = (e) => {
-    switch (e.target.name) {
+const validar = (e) =>
+{
+    switch (e.target.name)
+    {
         case "noControl":
             validarCampo(expreg.noControl, e.target, 'noControl')
             break;
@@ -55,11 +59,14 @@ const validar = (e) => {
     }
 }
 
-const validarCampo = (expresion, input, campo) => {
-    if (expresion.test(input.value)) {
+const validarCampo = (expresion, input, campo) =>
+{
+    if (expresion.test(input.value))
+    {
         document.getElementById(campo).classList.remove('input-error')
         campos[campo] = true
-    } else {
+    } else
+    {
         console.log('error');
         document.getElementById(campo).classList.add('input')
         document.getElementById(campo).classList.add('input-error')
@@ -67,17 +74,20 @@ const validarCampo = (expresion, input, campo) => {
     }
 }
 
-inputs.forEach((input) => {
+inputs.forEach((input) =>
+{
     input.addEventListener('keyup', validar);
     input.addEventListener('blur', validar);
 });
 
-inputAlumno.forEach((input) => {
+inputAlumno.forEach((input) =>
+{
     input.addEventListener('keyup', validar);
     input.addEventListener('blur', validar);
 });
 
-propositoInput.forEach((input) => {
+propositoInput.forEach((input) =>
+{
     input.addEventListener('keyup', validar);
     input.addEventListener('blur', validar);
 });
@@ -85,7 +95,8 @@ propositoInput.forEach((input) => {
 
 
 
-alumno.addEventListener('submit', e => {
+alumno.addEventListener('submit', e =>
+{
     e.preventDefault()
     if (campos.noControl) {
         campos.nc = document.getElementById('noControl').value
@@ -102,8 +113,8 @@ alumno.addEventListener('submit', e => {
         document.getElementById("materno").disabled = false;
         document.getElementById('mensajeCont').classList.add('div')
         document.getElementById('mensajeCont').classList.add('div.ocultar')
-
-    } else {
+    } else
+    {
         document.getElementById("mensaje").innerHTML = "<p>El número de control no es válido</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
@@ -113,14 +124,15 @@ alumno.addEventListener('submit', e => {
 
 
 
-registro.addEventListener('submit', e => {
+registro.addEventListener('submit', e =>
+{
     e.preventDefault()
-
-    if (e.submitter.id == 'cancelar') {
+    if (e.submitter.id == 'cancelar')
+    {
         console.log('cancelar')
         window.location.href = "asesor.html"
-    } else {
-
+    } else
+    {
         const noc = document.getElementById('noControl')
         const nom = document.getElementById('nombre')
         const ap = document.getElementById('paterno')
@@ -137,8 +149,10 @@ registro.addEventListener('submit', e => {
         console.log(campos.materno)
 
 
-        if (campos.nombre && campos.paterno && campos.materno) {
-            if (e.submitter.id == 'agregar' && campos.noControl) {
+        if (campos.nombre && campos.paterno && campos.materno)
+        {
+            if (e.submitter.id == 'agregar' && campos.noControl)
+            {
                 console.log(campos.nc)
                 campos.nombre = false
                 campos.paterno = false
@@ -163,13 +177,13 @@ registro.addEventListener('submit', e => {
                 document.getElementById("paterno").disabled = true;
                 document.getElementById("materno").disabled = true;
 
-
                 document.getElementById("mensaje").innerHTML = "<p>Integrante agregado</p>";
                 document.getElementById('mensajeCont').classList.remove('div')
                 document.getElementById('mensajeCont').classList.remove('div.ocultar')
 
             }
-        } else {
+        } else
+        {
             document.getElementById("mensaje").innerHTML = "<p>Algunos campos son incorrectos</p>";
             document.getElementById('mensajeCont').classList.remove('div')
             document.getElementById('mensajeCont').classList.remove('div.ocultar')
@@ -180,21 +194,27 @@ registro.addEventListener('submit', e => {
 
 
 
-propositoForm.addEventListener('submit', e => {
+propositoForm.addEventListener('submit', e =>
+{
     e.preventDefault()
 
-    if (e.submitter.id == 'siguiente') {
-        if (noControl.length == 0 && nombre.length == 0) {
+    if (e.submitter.id == 'siguiente')
+    {
+        if (noControl.length == 0 && nombre.length == 0)
+        {
             document.getElementById("mensaje").innerHTML = "<p>Agregue almenos un integrante</p>";
             document.getElementById('mensajeCont').classList.remove('div')
             document.getElementById('mensajeCont').classList.remove('div.ocultar')
-        } else {
-            if (campos.proposito) {
+        } else
+        {
+            if (campos.proposito)
+            {
                 console.log('Aqui ya pasaste a la otra ventana carnal')
                 console.log(document.getElementById('proposito').value)
 
                 window.location = "formarequipo.php?noControlA=" + noControlA + '&nombre=' + nombre + '&paterno=' + paterno + '&materno=' + materno + '&folio=' + folio + '&proposito=' + propositoFinal;
-                if (campos.nombre && campos.paterno && campos.materno) {
+                if (campos.nombre && campos.paterno && campos.materno)
+                {
                     //  noControl.push(campos.nc)
                     //  nombre.push(document.getElementById('nombre').value)
                     //  paterno.push(document.getElementById('paterno').value)
@@ -204,8 +224,8 @@ propositoForm.addEventListener('submit', e => {
                     console.log(paterno)
                     console.log(materno)
                 }
-
-            } else {
+            } else
+            {
                 document.getElementById("mensaje").innerHTML = "<p>El campo propósito es incorrecto</p>";
                 document.getElementById('mensajeCont').classList.remove('div')
                 document.getElementById('mensajeCont').classList.remove('div.ocultar')

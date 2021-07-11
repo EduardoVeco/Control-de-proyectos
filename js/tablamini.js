@@ -1,6 +1,9 @@
-$(document).ready(function() {
-    $('#tablax').DataTable({
-        language: {
+$(document).ready(function()
+{
+    $('#tablax').DataTable(
+        {
+        language:
+            {
             processing: "Tratamiento en curso...",
             search: "Buscar&nbsp;:",
             lengthMenu: "Agrupar de _MENU_ datos",
@@ -11,13 +14,15 @@ $(document).ready(function() {
             loadingRecords: "Cargando...",
             zeroRecords: "No se encontraron datos con tu busqueda",
             emptyTable: "No hay datos disponibles en la tabla.",
-            paginate: {
+            paginate:
+                {
                 first: "Primero",
                 previous: "Anterior",
                 next: "Siguiente",
                 last: "Ultimo"
             },
-            aria: {
+            aria:
+                {
                 sortAscending: ": active para ordenar la columna en orden ascendente",
                 sortDescending: ": active para ordenar la columna en orden descendente"
             }
