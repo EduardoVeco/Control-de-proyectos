@@ -1,4 +1,5 @@
-.txt.text-input {
+.txt.text-input
+{
     font-size: 18px;
     font-family: sans-serif;
     margin: 0 auto;
@@ -12,7 +13,8 @@
     border-bottom: solid #337AB7 .2rem;
 }
 
-.input.input-error {
+.input.input-error
+{
     border: solid 3px #D9534F;
     font-size: 18px;
     font-family: sans-serif;
@@ -25,12 +27,14 @@
     border-radius: 7px;
 }
 
-.txt.text-input:focus {
+.txt.text-input:focus
+{
     border-bottom: solid #FF8D57 .2rem;
     outline: none;
 }
 
-.slct.slct-combo {
+.slct.slct-combo
+{
     background-color: #fff;
     font-size: 18px;
     font-family: sans-serif;
@@ -42,7 +46,8 @@
     border-radius: 7px;
 }
 
-.slct.slct-combo-error {
+.slct.slct-combo-error
+{
     background-color: #fff;
     font-size: 18px;
     font-family: sans-serif;
@@ -54,7 +59,8 @@
     border-radius: 7px;
 }
 
-.txt.text-buscar-error {
+.txt.text-buscar-error
+{
     border: solid 3px #D9534F;
     font-size: 18px;
     font-family: sans-serif;
@@ -69,7 +75,8 @@
     margin-top: 5px;
 }
 
-.txt.text-buscar {
+.txt.text-buscar
+{
     font-size: 18px;
     font-family: sans-serif;
     width: 75%;
@@ -84,7 +91,8 @@
     margin-top: 5px;
 }
 
-.txt.txt-texto-area {
+.txt.txt-texto-area
+{
     background-color: #fff;
     color: black;
     padding: 5px;
@@ -96,7 +104,8 @@
     height: 230px;
 }
 
-.area.area-error {
+.area.area-error
+{
     border: solid 3px #D9534F;
     background-color: #fff;
     color: black;
@@ -108,12 +117,14 @@
     height: 230px;
 }
 
-.txt.txt-texto-area:focus {
+.txt.txt-texto-area:focus
+{
     border-bottom: solid #FF8D57 .2rem;
     outline: none;
 }
 
-.area.area-error:focus {
+.area.area-error:focus
+{
     border-bottom: solid #FF8D57 .2rem;
     outline: none;
 }

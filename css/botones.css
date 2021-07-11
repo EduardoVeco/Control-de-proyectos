@@ -1,4 +1,5 @@
-.btn.btn-boton {
+.btn.btn-boton
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -14,7 +15,8 @@
     margin-bottom: 5px;
 }
 
-.btn.btn-boton-ext {
+.btn.btn-boton-ext
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -29,7 +31,8 @@
     margin-bottom: 5px;
 }
 
-.btn.btn-aceptar {
+.btn.btn-aceptar
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -44,7 +47,8 @@
     margin-bottom: 5px;
 }
 
-.btn.btn-buscar {
+.btn.btn-buscar
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -64,7 +68,8 @@
     margin-top: 5px;
 }
 
-.btn.btn-cancelar {
+.btn.btn-cancelar
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -79,7 +84,8 @@
     margin-bottom: 5px;
 }
 
-.btn.btn-aceptar-ext {
+.btn.btn-aceptar-ext
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -94,7 +100,8 @@
     margin-bottom: 5px;
 }
 
-.btn.btn-cancelar-ext {
+.btn.btn-cancelar-ext
+{
     color: #fff;
     font-family: sans-serif;
     font-size: 18px;
@@ -109,48 +116,56 @@
     margin-bottom: 5px;
 }
 
-.btn.btn.btn-boton-ext:active {
+.btn.btn.btn-boton-ext:active
+{
     border: solid 2px;
     border-color: #000;
     background-color: #22537e;
 }
 
-.btn.btn.btn-boton:active {
+.btn.btn.btn-boton:active
+{
     border: solid 1px;
     border-color: #000;
     background-color: #22537e;
 }
 
-.btn.btn-aceptar:active {
+.btn.btn-aceptar:active
+{
     border: solid 1px;
     border-color: #000;
     background-color: #2a692a;
 }
 
-.btn.btn-aceptar-ext:active {
+.btn.btn-aceptar-ext:active
+{
     border: solid 2px;
     border-color: #000;
     background-color: #2a692a;
 }
 
-.btn.btn-cancelar:active {
+.btn.btn-cancelar:active
+{
     border: solid 2px;
     border-color: #000;
     background-color: #812d2a;
 }
 
-.btn.btn-cancelar-ext:active {
+.btn.btn-cancelar-ext:active
+{
     border: solid 2px;
     border-color: #000;
     background-color: #812d2a;
 }
 
-.btn.btn-iniciar-sesion:hover {
+.btn.btn-iniciar-sesion:hover
+{
     background-color: #005199;
     color: #fff;
 }
 
-.a.a-enlace {
+.a.a-enlace
+{
     text-decoration: none;
     text-align: right;
     font-family: sans-serif;
