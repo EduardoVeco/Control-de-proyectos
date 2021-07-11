@@ -14,15 +14,16 @@ $correo = $_REQUEST['correo'];
 $tempFolio = $_REQUEST['tempFolio'];
 
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo']))
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else
+{
+    if ((time() - $_SESSION['time']) > 930)
+    {
         header('location: logout.php');
     }
 }
-
-
 
 ?>
 
@@ -87,9 +88,7 @@ if (!isset($_SESSION['correo'])) {
         </nav>
     </div>
 
-
     <br>
-
 
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
@@ -178,9 +177,6 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-
-
-
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
             <div class="div div-mensaje" id="mensaje">
@@ -188,8 +184,6 @@ if (!isset($_SESSION['correo'])) {
             </div>
         </div>
     </div>
-
-
 
     <div class="container">
         <div class="row">

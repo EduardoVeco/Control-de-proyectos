@@ -38,14 +38,16 @@ and open the template in the editor.
         //titulo
         $token3 = strtok($string3, " ,.:;");
         $aT = array();
-        while ($token3 !== false) {
+        while ($token3 !== false)
+        {
             array_push($aT, $token3);
             $token3 = strtok(" ,.:;");
         }
         foreach ($aT as &$value3)
             $value3 = strtolower($value3);
         $aT = array_diff($aT, $nexos);
-        foreach ($aT as &$value3) {
+        foreach ($aT as &$value3)
+        {
             $result = stemm_es::stemm($value3);
             array_push($titulo, $result);
         }
@@ -54,28 +56,32 @@ and open the template in the editor.
         //resumen
         $token = strtok($string, " ,.:;");
         $aR = array();
-        while ($token !== false) {
+        while ($token !== false)
+        {
             array_push($aR, $token);
             $token = strtok(" ,.:;");
         }
         foreach ($aR as &$value)
             $value = strtolower($value);
         $aR = array_diff($aR, $nexos);
-        foreach ($aR as &$value) {
+        foreach ($aR as &$value)
+        {
             $result = stemm_es::stemm($value);
             array_push($resumen, $result);
         }
         //justificacion
         $token1 = strtok($string1, " ,.:;");
         $aJ = array();
-        while ($token1 !== false) {
+        while ($token1 !== false)
+        {
             array_push($aJ, $token1);
             $token1 = strtok(" ,.:;");
         }
         foreach ($aJ as &$value1)
             $value1 = strtolower($value1);
         $aJ = array_diff($aJ, $nexos);
-        foreach ($aJ as &$value1) {
+        foreach ($aJ as &$value1)
+        {
             $result1 = stemm_es::stemm($value1);
             array_push($justificacion, $result1);
         }
@@ -83,14 +89,16 @@ and open the template in the editor.
         //Alcances
         $token2 = strtok($string2, " ,.:;");
         $aA = array();
-        while ($token2 !== false) {
+        while ($token2 !== false)
+        {
             array_push($aA, $token2);
             $token2 = strtok(" ,.:;");
         }
         foreach ($aA as &$value2)
             $value2 = strtolower($value2);
         $aA = array_diff($aA, $nexos);
-        foreach ($aA as &$value2) {
+        foreach ($aA as &$value2)
+        {
             $result2 = stemm_es::stemm($value2);
             array_push($alcances, $result2);
         }

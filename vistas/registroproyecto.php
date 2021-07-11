@@ -3,10 +3,13 @@ $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 
 session_start();
-        if(!ISSET($_SESSION['correo'])){
+        if(!ISSET($_SESSION['correo']))
+        {
             header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
+        }else
+        {
+            if((time() - $_SESSION['time']) > 930)
+            {
                 header('location: logout.php');
             }
         }
@@ -117,10 +120,6 @@ session_start();
         </div>
     </div>
 
-
-
-
-
     <br>
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
@@ -137,11 +136,6 @@ session_start();
     </div>
 
     <br><br><br>
-
-
-
-
-
 
     <div class="container">
         <div class="row">
@@ -164,6 +158,5 @@ session_start();
             </div>
         </div>
     </div>
-
 
 </html>

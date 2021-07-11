@@ -3,14 +3,16 @@ $folio = $_REQUEST['folio'];
 //$folio = 'Descomente el folio perro';
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo']))
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else
+{
+    if ((time() - $_SESSION['time']) > 930)
+    {
         header('location: logout.php');
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -53,10 +55,7 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-
-
     <br>
-
 
     <div class="container">
         <div class="row justify-content-center  mt-5 mr-1col-sm-5" style="margin: 0 auto;">
@@ -106,8 +105,8 @@ if (!isset($_SESSION['correo'])) {
                                     FROM proyectos 
                                     WHERE noFolio='$folio'";
                             $result = mysqli_query($conexion, $sql);
-
-                            while ($mostrar = mysqli_fetch_array($result)) {
+                            while ($mostrar = mysqli_fetch_array($result))
+                            {
                             ?>
                                 <button class="btn btn-cancelar " type="button " id="cancelar" onclick="location.href='asesor.php?correo=<?php echo $mostrar['correo'] ?>'">
                                     <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
@@ -124,7 +123,6 @@ if (!isset($_SESSION['correo'])) {
         </div>
         <input type="text" name="folio" id="folio" value="<?php echo $folio ?>" hidden>
     </div>
-
 
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
@@ -158,9 +156,9 @@ if (!isset($_SESSION['correo'])) {
 
     <script src="../js/registroequipo1.js"></script>
 
-
     <script>
-        $(document).ready(function() {
+        $(document).ready(function()
+        {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>

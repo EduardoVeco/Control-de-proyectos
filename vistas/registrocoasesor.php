@@ -1,14 +1,16 @@
 <?php
 $folio = $_REQUEST['folio'];
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo']))
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else
+{
+    if ((time() - $_SESSION['time']) > 930)
+    {
         header('location: logout.php');
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,9 +24,7 @@ if (!isset($_SESSION['correo'])) {
     <link rel="stylesheet" href="../css/formularios.css">
     <link rel="stylesheet" href="../css/textos.css">
     <link rel="stylesheet" href="../css/botones.css" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -45,7 +45,6 @@ if (!isset($_SESSION['correo'])) {
             </div>
         </div>
     </div>
-
 
     <br>
 
@@ -96,8 +95,6 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-
-
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
             <div class="div div-mensaje" id="mensaje">
@@ -105,7 +102,6 @@ if (!isset($_SESSION['correo'])) {
             </div>
         </div>
     </div>
-
 
     <div class="container">
         <div class="row">

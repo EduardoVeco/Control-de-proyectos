@@ -8,14 +8,18 @@ $nombre = $_REQUEST['nombre'];
 $paterno = $_REQUEST['paterno'];
 $materno = $_REQUEST['materno'];
 
-if (empty($noControl)) {
+if (empty($noControl))
+{
     header("Location:registroequipo.php");
 }
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo']))
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else
+{
+    if ((time() - $_SESSION['time']) > 930)
+    {
         header('location: logout.php');
     }
 }
@@ -33,9 +37,7 @@ if (!isset($_SESSION['correo'])) {
     <link rel="stylesheet" href="../css/formularios.css">
     <link rel="stylesheet" href="../css/textos.css">
     <link rel="stylesheet" href="../css/botones.css" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -65,8 +67,6 @@ if (!isset($_SESSION['correo'])) {
         </div>
     </div>
 
-
-
     <br>
 
     <div class="container div div-ocultar" id="mensajeCont">
@@ -95,8 +95,6 @@ if (!isset($_SESSION['correo'])) {
                         </div>
                     </form>
 
-
-
                     <?php
                     $sql = "SELECT nombre,primerApellido,segundoApellido FROM integrantes
                             WHERE noControl='$noControl'";
@@ -104,7 +102,8 @@ if (!isset($_SESSION['correo'])) {
                     $mostrar = mysqli_fetch_array($result)
                     ?>
                     <?php
-                    if (mysqli_num_rows($result) == 0) {
+                    if (mysqli_num_rows($result) == 0)
+                    {
                     ?>
                         <form action="" method="POST" id="registroequipo">
                             <div class="form-group mx-sm-7 pt-3">
@@ -123,7 +122,8 @@ if (!isset($_SESSION['correo'])) {
                             <br>
                         </form>
                     <?php
-                    } else {
+                    } else
+                    {
                     ?>
                         <form action="" method="POST" id="registroequipo">
                             <div class="form-group mx-sm-7 pt-3">
@@ -143,11 +143,7 @@ if (!isset($_SESSION['correo'])) {
                         </form>
                     <?php
                     }
-
-
                     ?>
-
-
 
                     <form action="" method="POST" id="propositoForm">
                         <div class="form-group mx-sm-7 pt-3">
@@ -162,15 +158,14 @@ if (!isset($_SESSION['correo'])) {
                                     FROM proyectos 
                                     WHERE noFolio='$folio'";
                             $result = mysqli_query($conexion, $sql);
-
-                            while ($mostrar = mysqli_fetch_array($result)) {
+                            while ($mostrar = mysqli_fetch_array($result))
+                            {
                             ?>
                                 <button class="btn btn-cancelar " type="button " id="cancelar" onclick="location.href='asesor.php?correo=<?php echo $mostrar['correo'] ?>'">
                                     <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
                             <?php
                             }
                             ?>
-
                         </div>
                         <div class="col-6">
                             <button class="btn btn-boton " type="submit " id="siguiente" form="propositoForm"><img class="fa fa-icon " src="../imagenes/next.png " /> Siguiente</button>
@@ -208,7 +203,8 @@ if (!isset($_SESSION['correo'])) {
 
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function()
+        {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>

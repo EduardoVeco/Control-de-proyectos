@@ -18,7 +18,8 @@ $destino = 'ajimeneze@toluca.tecnm.mx';
     echo "Correo enviado...";
 
 
-if ($mostrar['now()'] == '2021-06-28 2:25') {
+if ($mostrar['now()'] == '2021-06-28 2:25')
+{
     $destino = 'kioya_@hotmail.com';
     $desde = "From:" . "Control de proyectos";
     $asunto = 'Cambio de ocntraseña';
@@ -26,7 +27,8 @@ if ($mostrar['now()'] == '2021-06-28 2:25') {
     $mensaje = 'Para cambiar  la contraseña siga el link:  https://localhost/Control-de-proyectos/vistas/contrasenaolvidada.php?correo=' . $destino . 'esto esta programado';
     mail($destino, $asunto, $mensaje, $desde);
     echo "Correo enviado...";
-} else if($mostrar['now()'] == '2021-06-28 2:25:00') {
+} else if($mostrar['now()'] == '2021-06-28 2:25:00')
+{
     $destino = 'kioya_@hotmail.com';
     $desde = "From:" . "Control de proyectos";
     $asunto = 'Cambio de ocntraseña';

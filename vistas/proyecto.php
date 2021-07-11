@@ -9,42 +9,43 @@ $sql = "SELECT directorio
         WHERE nofolio='$folio'";
 $result = mysqli_query($conexion, $sql);
 
-while ($mostrar = mysqli_fetch_array($result)) {
+while ($mostrar = mysqli_fetch_array($result))
+{
     $directorio = $mostrar['directorio'];
 }
 
 //$directorio = '../documentos/A2306202101/';
 
-
-
-
-
-
-if (is_dir($directorio)) {
+if (is_dir($directorio))
+{
     $arrayArchivos = scandir($directorio);
-    if (count($arrayArchivos) > 2) {
+    if (count($arrayArchivos) > 2)
+    {
         $fecha = array();
         $direccion = array();
-        for ($i = 2; $i < count($arrayArchivos); $i++) {
+        for ($i = 2; $i < count($arrayArchivos); $i++)
+        {
             $nombreAux = $arrayArchivos[$i];
             $path = $directorio . $nombreAux;
             $nombre_archivo = $path;
             $direccion[$i - 2] = $path;
-            if (file_exists($nombre_archivo)) {
+            if (file_exists($nombre_archivo))
+            {
                 $fecha[$i - 2] = date("d-m-Y ", filectime($nombre_archivo));
             }
             $extension[$i - 2] = pathinfo($path, PATHINFO_EXTENSION);
-
             $ex = explode(" .", $nombreAux);
             $nombre[$i - 2] = $ex[0];
         }
-    } else {
+    } else
+    {
         $fecha = array();
         $direccion = array();
         $nombre = array();
         $extension = array();
     }
-} else {
+} else
+{
     $fecha = array();
     $direccion = array();
     $nombre = array();
@@ -53,10 +54,13 @@ if (is_dir($directorio)) {
 
 
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo']))
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else
+{
+    if ((time() - $_SESSION['time']) > 930)
+    {
         header('location: logout.php');
     }
 }
@@ -166,17 +170,15 @@ if (!isset($_SESSION['correo'])) {
                                         WHERE noFolio='$folio'";
                                 $result = mysqli_query($conexion, $sql);
                                 $mostrar = mysqli_fetch_array($result);
-
-                                if (($mostrar['estatus'] == 'INACTIVO' || $mostrar['estatus'] == 'COMPLETADO') || ($mostrar['aprobacion'] == 'REVISION' || $mostrar['aprobacion'] == 'NO APROBADO')) {
-
+                                if (($mostrar['estatus'] == 'INACTIVO' || $mostrar['estatus'] == 'COMPLETADO') || ($mostrar['aprobacion'] == 'REVISION' || $mostrar['aprobacion'] == 'NO APROBADO'))
+                                {
                                     $sql = "SELECT p.titulo,p.nofolio,p.estatus,aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                     FROM proyectos as p, usuarios as u
                                     WHERE p.nofolio='$folio'
                                     AND p.correo=u.correo";
-
                                     $result = mysqli_query($conexion, $sql);
-
-                                    while ($mostrar = mysqli_fetch_array($result)) {
+                                    while ($mostrar = mysqli_fetch_array($result))
+                                    {
                                 ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
                                         <p class="pa pa-texto">folio: <?php echo $mostrar['nofolio'] ?></p>
@@ -189,7 +191,8 @@ if (!isset($_SESSION['correo'])) {
                                         <p class="pa pa-texto">fecha de registro: <?php echo $mostrar['fecha'] ?></p>
                                     <?php
                                     }
-                                } else {
+                                } else
+                                {
                                     $sql = "SELECT DISTINCT p.titulo,p.noFolio,e.proposito,p.estatus,p.aprobacion,CONCAT(u.nombre,' ', u.primerApellido,' ',u.segundoApellido ) as asesor,p.coasesor,p.duenio,DATE_FORMAT(p.fecha_registro, '%d-%m-%Y') as fecha
                                             FROM proyectos as p, usuarios as u, historicos as h, equipos as e
                                             WHERE p.noFolio='$folio'
@@ -197,10 +200,9 @@ if (!isset($_SESSION['correo'])) {
                                             AND e.noEquipo=h.noEquipo
                                             AND p.correo=u.correo
                                             AND e.fecha_final IS NULL";
-
                                     $result = mysqli_query($conexion, $sql);
-
-                                    while ($mostrar = mysqli_fetch_array($result)) {
+                                    while ($mostrar = mysqli_fetch_array($result))
+                                    {
                                     ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
                                         <p class="pa pa-texto">Folio: <?php echo $mostrar['noFolio'] ?></p>
@@ -272,14 +274,17 @@ if (!isset($_SESSION['correo'])) {
                                         WHERE nofolio='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
+                                while ($mostrar = mysqli_fetch_array($result))
+                                {
                                 ?>
                                     <?php
-                                    if ($mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'REVISION') {
+                                    if ($mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'REVISION')
+                                    {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnCeder" name="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Ceder</button>
                                     <?php
-                                    } else {
+                                    } else
+                                    {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnCeder" name="btnCeder"><img class="fa fa-icon " src="../imagenes/box.png" /> Ceder</button>
                                     <?php
@@ -298,14 +303,17 @@ if (!isset($_SESSION['correo'])) {
                                         WHERE nofolio='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
+                                while ($mostrar = mysqli_fetch_array($result))
+                                {
                                 ?>
                                     <?php
-                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO' || $mostrar['aprobacion'] == 'REVISION') {
+                                    if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO' || $mostrar['aprobacion'] == 'REVISION')
+                                    {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnRetomar" name="btnRetomar" disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Retomar</button>
                                     <?php
-                                    } else {
+                                    } else
+                                    {
                                     ?>
                                         <button class="btn btn-boton-ext " type="submit" id="btnRetomar" name="btnRetomar"><img class="fa fa-icon " src="../imagenes/box.png" /> Retomar</button>
                                     <?php
@@ -344,7 +352,8 @@ if (!isset($_SESSION['correo'])) {
                                                         WHERE nofolio='$folio'";
                                                 $result = mysqli_query($conexion, $sql);
 
-                                                while ($mostrar = mysqli_fetch_array($result)) {
+                                                while ($mostrar = mysqli_fetch_array($result))
+                                                {
                                                 ?>
                                                     <p>Titulo</p>
                                                     <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" value="<?php echo $mostrar['titulo'] ?>" readonly>
@@ -393,7 +402,8 @@ if (!isset($_SESSION['correo'])) {
                                                 AND e.fecha_final IS NULL";
                                         $result = mysqli_query($conexion, $sql);
 
-                                        while ($mostrar = mysqli_fetch_array($result)) {
+                                        while ($mostrar = mysqli_fetch_array($result))
+                                        {
                                         ?>
                                             <tr>
                                                 <td><?php echo $mostrar['nombre'] ?></td>
@@ -414,15 +424,18 @@ if (!isset($_SESSION['correo'])) {
                                         WHERE nofolio ='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
+                                while ($mostrar = mysqli_fetch_array($result))
+                                {
                                 ?>
                                     <?php
-                                    if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO') {
+                                    if ($mostrar['estatus'] == 'INACTIVO' || $mostrar['aprobacion'] == 'APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO')
+                                    {
                                     ?>
                                         <button type="button" name="desvincular" id="desvincular" class="btn btn-boton-ext " data-dismiss="modal"><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
 
                                     <?php
-                                    } else {
+                                    } else
+                                    {
                                     ?>
                                         <button type="button" name="desvincular" id="desvincular" class="btn btn-boton-ext " data-dismiss="modal" disabled><img class="fa fa-icon " src="../imagenes/cancel.png " /> Desvincular equipo</button>
                                     <?php
@@ -463,7 +476,8 @@ if (!isset($_SESSION['correo'])) {
                                         <th>Fecha</th>
                                     </tr>
                                     <?php
-                                    for ($i = 0; $i < sizeof($nombre); $i++) {
+                                    for ($i = 0; $i < sizeof($nombre); $i++)
+                                    {
                                     ?>
                                         <tr>
                                             <td><?php echo "<a href='$direccion[$i]'>$nombre[$i]</a>"; ?></td>
@@ -480,10 +494,6 @@ if (!isset($_SESSION['correo'])) {
                 </div>
             </div>
         </div>
-
-
-
-
 
         <div class="container">
             <div class="row">
@@ -514,10 +524,10 @@ if (!isset($_SESSION['correo'])) {
             WHERE nofolio='$folio'";
 
         $result = mysqli_query($conexion, $sql);
-
         ?>
         <?php
-        while ($mostrar = mysqli_fetch_array($result)) {
+        while ($mostrar = mysqli_fetch_array($result))
+        {
         ?>
             <?php
             $progreso = $mostrar['avance'];
@@ -545,7 +555,8 @@ if (!isset($_SESSION['correo'])) {
                 highlight: "#337AB7",
                 label: "Restante"
             }];
-            var pieOptions = {
+            var pieOptions =
+                {
                 //Boolean - Whether we should show a stroke on each segment
                 segmentShowStroke: true,
                 //String - The colour of each segment stroke

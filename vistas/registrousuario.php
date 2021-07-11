@@ -42,12 +42,7 @@ $estado = $_REQUEST['estado'];
         </nav>
     </div>
 
-
-
-
     <br>
-
-
 
     <div class="container div" id="mensajeCont">
         <div class="row">
@@ -55,8 +50,11 @@ $estado = $_REQUEST['estado'];
             </div>
             <div class="col-10 justify-content-center">
                 <?php
-                if ($estado == '0') {
-                } else {
+                if ($estado == '0')
+                {
+
+                } else
+                {
                 ?>
                     <div class="div div-mensaje" id="mensaje">
                         <p><?php echo $estado ?></p>
@@ -138,7 +136,6 @@ $estado = $_REQUEST['estado'];
         </div>
     </div>
 
-
     <div class="container div div-ocultar" id="mensajeCont">
         <div class="col-12 justify-content-center">
             <div class="div div-mensaje" id="mensaje">
@@ -146,13 +143,6 @@ $estado = $_REQUEST['estado'];
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
 
     <div class="container">
         <div class="row">
@@ -176,15 +166,12 @@ $estado = $_REQUEST['estado'];
         </div>
     </div>
 
-
-
     <script>
-        $(document).ready(function() {
+        $(document).ready(function()
+        {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-
-
 
 </body>
 
