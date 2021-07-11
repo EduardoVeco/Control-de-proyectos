@@ -94,7 +94,7 @@ session_start();
                                 <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" placeholder="Ingrese el título 1-150 caracteres" pattern=".{1,150}" required>
                                 <br>
                                 <p>Justificación</p>
-                                <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="Ingrese la justificacion 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
+                                <textarea class="txt txt-texto-area " name="justificacion" id="justificacion" placeholder="Ingrese la justificación 1-22,000 caracteres" pattern=".{1,22000}" required></textarea>
                                 <p>Alcances</p>
                                 <textarea class="txt txt-texto-area " name="alcances" id="alcances" placeholder="Ingrese los alcances 1-13,000 caracteres" pattern=".{1,13000}" required></textarea>
                                 <p>Resumen</p>

@@ -106,11 +106,11 @@ if (!isset($_SESSION['correo']))
                         <table class="table table-striped table-bordered" id="tablax" style="width: 100%;">
                             <thead>
                                 <tr class="tr1">
-                                    <th class="th th-cabeza">Titulo</th>
+                                    <th class="th th-cabeza">Título</th>
                                     <th class="th th-cabeza">Folio</th>
                                     <th class="th th-cabeza">Progreso</th>
                                     <th class="th th-cabeza">Estatus</th>
-                                    <th class="th th-cabeza">Estatus de admision</th>
+                                    <th class="th th-cabeza">Estatus de admisión</th>
                                 </tr>
                             </thead>
                             <tbody>

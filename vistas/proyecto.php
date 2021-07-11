@@ -181,10 +181,10 @@ if (!isset($_SESSION['correo']))
                                     {
                                 ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
-                                        <p class="pa pa-texto">folio: <?php echo $mostrar['nofolio'] ?></p>
-                                        <p class="pa pa-texto">Proposito: </p>
+                                        <p class="pa pa-texto">Folio: <?php echo $mostrar['nofolio'] ?></p>
+                                        <p class="pa pa-texto">Propósito: </p>
                                         <p class="pa pa-texto">Estatus: <?php echo $mostrar['estatus'] ?></p>
-                                        <p class="pa pa-texto">Estatus aprobacion: <?php echo $mostrar['aprobacion'] ?></p>
+                                        <p class="pa pa-texto">Estatus aprobación: <?php echo $mostrar['aprobacion'] ?></p>
                                         <p class="pa pa-texto">Asesor:<?php echo $mostrar['asesor'] ?></p>
                                         <p class="pa pa-texto">Co-asesor: </p>
                                         <p class="pa pa-texto">Dueño:<?php echo $mostrar['duenio'] ?></p>
@@ -206,9 +206,9 @@ if (!isset($_SESSION['correo']))
                                     ?>
                                         <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
                                         <p class="pa pa-texto">Folio: <?php echo $mostrar['noFolio'] ?></p>
-                                        <p class="pa pa-texto">Proposito: <?php echo $mostrar['proposito'] ?></p>
+                                        <p class="pa pa-texto">Propósito: <?php echo $mostrar['proposito'] ?></p>
                                         <p class="pa pa-texto">Estatus: <?php echo $mostrar['estatus'] ?></p>
-                                        <p class="pa pa-texto">Estatus aprobacion: <?php echo $mostrar['aprobacion'] ?></p>
+                                        <p class="pa pa-texto">Estatus aprobación: <?php echo $mostrar['aprobacion'] ?></p>
                                         <p class="pa pa-texto">Asesor:<?php echo $mostrar['asesor'] ?></p>
                                         <p class="pa pa-texto">Co-asesor:<?php echo $mostrar['coasesor'] ?></p>
                                         <p class="pa pa-texto">Dueño:<?php echo $mostrar['duenio'] ?></p>
@@ -355,7 +355,7 @@ if (!isset($_SESSION['correo']))
                                                 while ($mostrar = mysqli_fetch_array($result))
                                                 {
                                                 ?>
-                                                    <p>Titulo</p>
+                                                    <p>Título</p>
                                                     <input class="txt text-input" type="text" name="titulo" id="titulo" style="width:100%" value="<?php echo $mostrar['titulo'] ?>" readonly>
                                                     <br>
                                                     <p>Justificación</p>
@@ -472,7 +472,7 @@ if (!isset($_SESSION['correo']))
                                 <table class="table1">
                                     <tr class="tr1">
                                         <th>Nombre</th>
-                                        <th>Extension<?php $extension ?></th>
+                                        <th>Extensión<?php $extension ?></th>
                                         <th>Fecha</th>
                                     </tr>
                                     <?php
