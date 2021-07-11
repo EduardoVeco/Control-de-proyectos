@@ -4,14 +4,16 @@ const selects = document.querySelectorAll('#registro select')
 console.log(inputs)
 console.log(selects)
 
-const expreg = {
+const expreg =
+    {
     correo: /^[a-zA-Z0-9.#$%&*+_-]{1,35}(@toluca.tecnm.mx){1}$/,
     password: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,40})/,
     nombre: /^([a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ\s]{1,35})$/,
     noControl: /^([A-Z0-9]{1,8})$/
 }
 
-const campos = {
+const campos =
+    {
     correo: false,
     contrasena: false,
     contrasena2: false,
@@ -22,18 +24,22 @@ const campos = {
     carrera: false
 }
 
-const validar = (e) => {
-    switch (e.target.name) {
+const validar = (e) =>
+{
+    switch (e.target.name)
+    {
         case "correo":
             validarCampo(expreg.correo, e.target, 'correo')
             break;
         case "contrasena":
             validarCampo(expreg.password, e.target, 'contrasena')
-            if (e.target.value == document.getElementById('contrasena2').value) {
+            if (e.target.value == document.getElementById('contrasena2').value)
+            {
                 document.getElementById('contrasena2').classList.remove('input-error')
                 campos.contrasena2 = true;
                 console.log('Las contraseñas coinciden')
-            } else {
+            } else
+            {
                 console.log('Las contraseñas no coinciden')
                 document.getElementById('contrasena2').classList.add('input')
                 document.getElementById('contrasena2').classList.add('input-error')
@@ -53,18 +59,22 @@ const validar = (e) => {
             validarCampo(expreg.noControl, e.target, 'noControl')
             break;
         case "carrera":
-            if (e.target.value != 'Seleccione una opcion') {
+            if (e.target.value != 'Seleccione una opcion')
+            {
                 document.getElementById('carrera').classList.remove('slct-combo-error')
                 campos.carrera = true
-            } else {
+            } else
+            {
                 campos.carrera = false
             }
             break;
         case "contrasena2":
-            if (campos.contrasena && (e.target.value == document.getElementById('contrasena').value)) {
+            if (campos.contrasena && (e.target.value == document.getElementById('contrasena').value))
+            {
                 document.getElementById('contrasena2').classList.remove('input-error')
                 campos.contrasena2 = true;
-            } else {
+            } else
+            {
                 document.getElementById('contrasena2').classList.add('input')
                 document.getElementById('contrasena2').classList.add('input-error')
                 campos.contrasena2 = false;
@@ -73,11 +83,14 @@ const validar = (e) => {
     }
 }
 
-const validarCampo = (expresion, input, campo) => {
-    if (expresion.test(input.value)) {
+const validarCampo = (expresion, input, campo) =>
+{
+    if (expresion.test(input.value))
+    {
         document.getElementById(campo).classList.remove('input-error')
         campos[campo] = true
-    } else {
+    } else
+    {
         console.log('error');
         document.getElementById(campo).classList.add('input')
         document.getElementById(campo).classList.add('input-error')
@@ -85,17 +98,20 @@ const validarCampo = (expresion, input, campo) => {
     }
 }
 
-inputs.forEach((input) => {
+inputs.forEach((input) =>
+{
     input.addEventListener('keyup', validar);
     input.addEventListener('blur', validar);
 });
 
-selects.forEach((select) => {
+selects.forEach((select) =>
+{
     select.addEventListener('blur', validar);
     select.addEventListener('change', validar);
 });
 
-registro.addEventListener('submit', e => {
+registro.addEventListener('submit', e =>
+{
     e.preventDefault()
     console.log(campos.correo)
     console.log(campos.contrasena)
@@ -105,7 +121,8 @@ registro.addEventListener('submit', e => {
     console.log(campos.noControl)
     console.log(campos.carrera)
 
-    if (campos.correo && campos.contrasena && campos.contrasena2 && campos.nombre && campos.paterno && campos.materno && campos.noControl && campos.carrera) {
+    if (campos.correo && campos.contrasena && campos.contrasena2 && campos.nombre && campos.paterno && campos.materno && campos.noControl && campos.carrera)
+    {
         campos.correo = false
         campos.contrasena = false
         campos.contrasena2 = false
@@ -118,10 +135,12 @@ registro.addEventListener('submit', e => {
         document.getElementById("mensaje").innerHTML = "<p>Registro exitoso</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
-    } else if (!campos.carrera) {
+    } else if (!campos.carrera)
+    {
         document.getElementById('carrera').classList.add('slct')
         document.getElementById('carrera').classList.add('slct-combo-error')
-    } else {
+    } else
+    {
         document.getElementById("mensaje").innerHTML = "<p>Algunos campos no son validos</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
