@@ -1,7 +1,8 @@
 var oneTbody = document.querySelector("#tablax tbody"), //Cuerpo de la primera tabla
     seleccion = [], //Arreglo que almacenará a las filas seleccionadas
     seleccionar = function(event) { //Función a ejecutarse para seleccionar una fila
-        if (event.target.tagName == "TD") {
+        if (event.target.tagName == "TD") 
+        {
             var correo = JSON.parse(c)
             console.log(correo)
             var fila = event.target.parentNode; //la contiene
