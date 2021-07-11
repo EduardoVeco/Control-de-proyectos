@@ -148,7 +148,7 @@ if (!isset($_SESSION['correo']))
                     <form action="" method="POST" id="propositoForm">
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">Propósito </p>
-                            <input class="txt text-input " type="text " name="proposito" id="proposito" placeholder="introduzca el proposito del equipo " data-toggle="tooltip" data-placement="right" title="ejemplo:Proyecto para la materia de ingenieria de software" required />
+                            <input class="txt text-input " type="text " name="proposito" id="proposito" placeholder="introduzca el proposito del equipo " data-toggle="tooltip" data-placement="right" title="Ejemplo:Proyecto para la materia de ingeniería de software" required />
                         </div>
                     </form>
                     <div class="row">

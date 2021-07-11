@@ -217,7 +217,7 @@ while ($mostrar = mysqli_fetch_array($result))
                             ?>
                                 <div class="col-xl-12 col-lg-12 col-12">
                                     <div class="div div-cabeza mx-sm-12">
-                                        <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                                        <p class="ti ti-texto ">Folio del proyecto en revisión</p>
                                     </div>
                                     <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
                                         <?php
@@ -227,7 +227,7 @@ while ($mostrar = mysqli_fetch_array($result))
                                         while ($mostrar = mysqli_fetch_array($result)) 
                                         {
                                             ?>
-                                                <p>Titulo</p>
+                                                <p>Título</p>
                                                 <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
                                                 <p>Justificación</p>
                                                 <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
@@ -246,7 +246,7 @@ while ($mostrar = mysqli_fetch_array($result))
                             ?>
                                 <div class="col-xl-6 col-lg-6 col-12">
                                     <div class="div div-cabeza mx-sm-12">
-                                        <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                                        <p class="ti ti-texto ">Folio del proyecto en revisión</p>
                                     </div>
                                     <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
                                         <?php
@@ -256,7 +256,7 @@ while ($mostrar = mysqli_fetch_array($result))
                                         while ($mostrar = mysqli_fetch_array($result)) 
                                         {
                                             ?>
-                                                <p>Titulo</p>
+                                                <p>Título</p>
                                                 <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
                                                 <p>Justificación</p>
                                                 <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
@@ -281,7 +281,7 @@ while ($mostrar = mysqli_fetch_array($result))
                                         while ($mostrar = mysqli_fetch_array($result)) 
                                         {
                                             ?>
-                                                <p>Titulo</p>
+                                                <p>Título</p>
                                                 <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
                                                 <p>Justificación</p>
                                                 <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
@@ -350,7 +350,7 @@ while ($mostrar = mysqli_fetch_array($result))
                                             <div class="modal-dialog modal-md">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Aviso!</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">¡Aviso!</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -385,7 +385,7 @@ while ($mostrar = mysqli_fetch_array($result))
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Autorizacion</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Autorización</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
