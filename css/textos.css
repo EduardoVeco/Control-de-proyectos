@@ -1,4 +1,5 @@
-.pa.pa-texto {
+.pa.pa-texto 
+{
     color: black;
     font-size: 18px;
     font-family: sans-serif;
@@ -7,7 +8,8 @@
     display: block;
 }
 
-.ti.ti-texto {
+.ti.ti-texto 
+{
     color: white;
     font-size: 18px;
     font-family: sans-serif;
@@ -16,7 +18,8 @@
     display: block;
 }
 
-.ti.ti-titulo {
+.ti.ti-titulo 
+{
     color: black;
     font-size: 22px;
     font-family: sans-serif;
@@ -25,6 +28,7 @@
     display: block;
 }
 
-.txt.txt-texto-area:focus {
+.txt.txt-texto-area:focus 
+{
     border: solid #FF8D57 .2rem;
 }
