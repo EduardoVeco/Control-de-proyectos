@@ -55,13 +55,16 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
             </div>
             <div class="col-10 justify-content-center">
                 <?php
-                if ($estado == '0') {
-                } else {
-                ?>
-                    <div class="div div-mensaje" id="mensaje">
-                        <p><?php echo $estado ?></p>
-                    </div>
-                <?php
+                if ($estado == '0') 
+                {
+
+                } else 
+                {
+                    ?>
+                        <div class="div div-mensaje" id="mensaje">
+                            <p><?php echo $estado ?></p>
+                        </div>
+                    <?php
                 }
                 ?>
             </div>
@@ -113,18 +116,20 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
                                                 WHERE correo='$correo'";
                             $result = mysqli_query($conexion, $sql);
 
-                            while ($mostrar = mysqli_fetch_array($result)) {
-                                if ($mostrar['tipoUsuario'] == 'Departamento') {
-                            ?>
-                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='dptoinvestigacion.php?correo=<?php echo $correo ?>'">
+                            while ($mostrar = mysqli_fetch_array($result)) 
+                            {
+                                if ($mostrar['tipoUsuario'] == 'Departamento') 
+                                {
+                                    ?>
+                                        <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='dptoinvestigacion.php?correo=<?php echo $correo ?>'">
                                         <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
-                                <?php
-                                } else {
-                                ?>
-                                    <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='asesor.php?correo=<?php echo $correo ?>'">
+                                    <?php
+                                } else 
+                                {
+                                    ?>
+                                        <button class="btn btn-cancelar-ext " type="button" name="cambio" id="cancelar" name="cancelar" onclick="window.location.href='asesor.php?correo=<?php echo $correo ?>'">
                                         <img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
-
-                            <?php
+                                    <?php
                                 }
                             }
                             ?>
@@ -165,7 +170,8 @@ $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
     </div>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function() 
+        {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>

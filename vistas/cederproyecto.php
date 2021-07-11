@@ -3,12 +3,12 @@ $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo'])) 
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
-        header('location: logout.php');
-    }
+} else if ((time() - $_SESSION['time']) > 930) 
+{
+    header('location: logout.php');
 }
 ?>
 

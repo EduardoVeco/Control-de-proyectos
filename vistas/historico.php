@@ -3,10 +3,13 @@ $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo'])) 
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
+} else 
+{
+    if ((time() - $_SESSION['time']) > 930) 
+    {
         header('location: logout.php');
     }
 }
@@ -108,12 +111,13 @@ if (!isset($_SESSION['correo'])) {
                                         WHERE nofolio='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
-                                ?>
-                                    <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
-                                    <p class="pa pa-texto">Folio: <?php echo $mostrar['nofolio'] ?></p>
-                                    <p class="pa pa-texto">Fecha de registro: <?php echo $mostrar['fecha'] ?></p>
-                                <?php
+                                while ($mostrar = mysqli_fetch_array($result)) 
+                                {
+                                    ?>
+                                        <p class="ti ti-titulo"><?php echo $mostrar['titulo'] ?></p>
+                                        <p class="pa pa-texto">Folio: <?php echo $mostrar['nofolio'] ?></p>
+                                        <p class="pa pa-texto">Fecha de registro: <?php echo $mostrar['fecha'] ?></p>
+                                    <?php
                                 }
                                 ?>
                             </div>
@@ -145,17 +149,18 @@ if (!isset($_SESSION['correo'])) {
                                             ORDER BY e.fecha_final;";
                                     $result = mysqli_query($conexion, $sql);
 
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $mostrar['integrante'] ?></td>
-                                            <td><?php echo $mostrar['noControl'] ?></td>
-                                            <td><?php echo $mostrar['noEquipo'] ?></td>
-                                            <td><?php echo $mostrar['fi'] ?></td>
-                                            <td><?php echo $mostrar['ff'] ?></td>
-                                            <td><?php echo $mostrar['proposito'] ?></td>
-                                        </tr>
-                                    <?php
+                                    while ($mostrar = mysqli_fetch_array($result)) 
+                                    {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $mostrar['integrante'] ?></td>
+                                                <td><?php echo $mostrar['noControl'] ?></td>
+                                                <td><?php echo $mostrar['noEquipo'] ?></td>
+                                                <td><?php echo $mostrar['fi'] ?></td>
+                                                <td><?php echo $mostrar['ff'] ?></td>
+                                                <td><?php echo $mostrar['proposito'] ?></td>
+                                            </tr>
+                                        <?php
                                     }
                                     ?>
                                 </tbody>

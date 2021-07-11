@@ -2,12 +2,12 @@
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $correo = $_REQUEST['correo'];
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo'])) 
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
-        header('location: logout.php');
-    }
+} else if ((time() - $_SESSION['time']) > 930) 
+{
+    header('location: logout.php');
 }
 
 function get()

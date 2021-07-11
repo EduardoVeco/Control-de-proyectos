@@ -1,7 +1,8 @@
 <?php
 
 
-if (isset($_POST['enviar'])) {
+if (isset($_POST['enviar'])) 
+{
 	$destino = $_POST['correo'];
 	$desde = "From:" . "Control de proyectos";
 	$asunto = 'Cambio de contraseña';
@@ -11,6 +12,7 @@ if (isset($_POST['enviar'])) {
     mail($destino, $asunto, $mensaje, $desde);
 	echo "Correo enviado...";
 	header("Location: index.html");
-} else {
+} else 
+{
 	echo "Problemas al enviar";
 }

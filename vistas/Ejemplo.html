@@ -124,18 +124,21 @@
     <script type="text/javascript">
         var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
         var pieChart = new Chart(pieChartCanvas);
-        var PieData = [{
+        var PieData = [
+        {
             value: 75,
             color: "#FF8D57",
             highlight: "#FF8D57",
             label: "Avance"
-        }, {
+        }, 
+        {
             value: 25,
             color: "#337AB7",
             highlight: "#337AB7",
             label: "Restante"
         }];
-        var pieOptions = {
+        var pieOptions = 
+        {
             //Boolean - Whether we should show a stroke on each segment
             segmentShowStroke: true,
             //String - The colour of each segment stroke

@@ -1,9 +1,11 @@
 <?php
 
 //Como el elemento es un arreglos utilizamos foreach para extraer todos los valores
-foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
+foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) 
+{
 	//Validamos que el archivo exista
-	if ($_FILES["archivo"]["name"][$key]) {
+	if ($_FILES["archivo"]["name"][$key]) 
+	{
 		$filename = $_FILES["archivo"]["name"][$key]; //Obtenemos el nombre original del archivo
 		$source = $_FILES["archivo"]["tmp_name"][$key]; //Obtenemos un nombre temporal del archivo
 		$correo = '';
@@ -14,14 +16,16 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
                 WHERE nofolio='$folio'";
 		$result = mysqli_query($conexion, $sql);
 
-		while ($mostrar = mysqli_fetch_array($result)) {
+		while ($mostrar = mysqli_fetch_array($result)) 
+		{
 			$directorio = $mostrar['directorio']; //Declaramos un variable con la ruta donde guardaremos los archivos
 			$correo = $mostrar['correo'];
 		}
 
 
 		//Validamos si la ruta de destino existe, en caso de no existir la creamos
-		if (!file_exists($directorio)) {
+		if (!file_exists($directorio)) 
+		{
 			mkdir($directorio, 0777) or die("No se puede crear el directorio de extracci&oacute;n");
 		}
 
@@ -30,14 +34,19 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
 
 		//Movemos y validamos que el archivo se haya cargado correctamente
 		//El primer campo es el origen y el segundo el destino
-		if (move_uploaded_file($source, $target_path)) {
-		} else {
+		if (move_uploaded_file($source, $target_path)) 
+		{
+
+		} else
+		{
+
 		}
 		header('location: proyecto.php?correo=' . $correo . '&folio=' . $folio);
 
 		closedir($dir); //Cerramos el directorio de destino
 	}
-	else{
+	else
+	{
         $correo = '';
         $folio = $_REQUEST['folio'];
 
@@ -46,7 +55,8 @@ foreach ($_FILES["archivo"]['tmp_name'] as $key => $tmp_name) {
                 FROM proyectos
                 WHERE nofolio='$folio'";
         $result = mysqli_query($conexion, $sql);
-        while ($mostrar = mysqli_fetch_array($result)) {
+        while ($mostrar = mysqli_fetch_array($result)) 
+		{
             $directorio = $mostrar['directorio']; //Declaramos un variable con la ruta donde guardaremos los archivos
             $correo = $mostrar['correo'];
         }

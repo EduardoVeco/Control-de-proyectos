@@ -3,13 +3,14 @@ $folio = $_REQUEST['folio'];
 $correo = $_REQUEST['correo'];
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 session_start();
-        if(!ISSET($_SESSION['correo'])){
-            header('location:index.php');
-        }else{
-            if((time() - $_SESSION['time']) > 930){
-                header('location: logout.php');
-            }
-        }
+
+if(!ISSET($_SESSION['correo']))
+{
+    header('location:index.php');
+}else if((time() - $_SESSION['time']) > 930)
+{
+    header('location: logout.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -113,15 +114,16 @@ session_start();
                                                 WHERE correo='$correo'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
-                                ?>
+                                while ($mostrar = mysqli_fetch_array($result)) 
+                                {
+                                    ?>
                                     <tr>
                                         <td> <?php echo $mostrar['nombre'] ?></td>
                                         <td> <?php echo $mostrar['primerApellido'] ?></td>
                                         <td> <?php echo $mostrar['segundoApellido'] ?></td>
                                         <td> <?php echo $mostrar['carrera'] ?></td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </table>
@@ -133,14 +135,16 @@ session_start();
                                 <br><br>
                                 <?php
                                 //Ejecutamos la sentencia SQL
-                                if (mysqli_num_rows($result) != 0) {
-                                ?>
-                                    <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder"><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
-                                <?php
-                                } else {
-                                ?>
-                                    <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
-                                <?php
+                                if (mysqli_num_rows($result) != 0) 
+                                {
+                                    ?>
+                                        <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder"><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
+                                    <?php
+                                } else 
+                                {
+                                    ?>
+                                        <button class="btn btn-aceptar-ext " type="submit " name="btnCeder" id="btnCeder" disabled><img class="fa fa-icon " src="../imagenes/check.png " /> Ceder proyecto</button>
+                                    <?php
                                 }
                                 ?>
                             </div>

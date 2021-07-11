@@ -31,10 +31,11 @@ function hacer()
     $apm = $_REQUEST['materno'];
     $nombre = '';
     $nombre = $nombre . $nom . ' ' . $app . ' ' . $apm;
-    if (isset($_POST['terminar'])) {
+    if (isset($_POST['terminar'])) 
+    {
         Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo, $nombre, null, ' ', ' ', $folio, $tempFolio, 'terminar');
-    } else if (isset($_POST['siguiente'])) {
-      
+    } else if (isset($_POST['siguiente'])) 
+    {
         Asesor::registrarProyecto($titulo, $justificacion, $alcances, $resumen, $primtit, $primjust, $primalc, $primres, $correo, $nombre, null, ' ', ' ', $folio, $tempFolio, 'continuar');
     }
 }

@@ -7,18 +7,20 @@ $cantidad = $_REQUEST['cantidad'];
 $estado = $_REQUEST['estado'];
 
 session_start();
-if (!isset($_SESSION['correo'])) {
+if (!isset($_SESSION['correo'])) 
+{
     header('location:index.php');
-} else {
-    if ((time() - $_SESSION['time']) > 930) {
-        header('location: logout.php');
-    }
+} else if ((time() - $_SESSION['time']) > 930) 
+{
+    header('location: logout.php');
 }
+
 $aprobacion;
 $sql = "SELECT aprobacion FROM proyectos
         WHERE noFolio='$folio1'";
 $result = mysqli_query($conexion, $sql);
-while ($mostrar = mysqli_fetch_array($result)) {
+while ($mostrar = mysqli_fetch_array($result)) 
+{
     $aprobacion = $mostrar['aprobacion'];
 }
 
@@ -132,14 +134,15 @@ while ($mostrar = mysqli_fetch_array($result)) {
                                     $sql = "SELECT titulo,correo,aprobacion FROM proyectos
                                                 WHERE noFolio='$folio1'";
                                     $result = mysqli_query($conexion, $sql);
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $mostrar['titulo'] ?></td>
-                                            <td><?php echo $mostrar['correo'] ?></td>
-                                            <td><?php echo $mostrar['aprobacion'] ?></td>
-                                        </tr>
-                                    <?php
+                                    while ($mostrar = mysqli_fetch_array($result)) 
+                                    {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $mostrar['titulo'] ?></td>
+                                                <td><?php echo $mostrar['correo'] ?></td>
+                                                <td><?php echo $mostrar['aprobacion'] ?></td>
+                                            </tr>
+                                        <?php
                                     }
                                     ?>
 
@@ -174,14 +177,15 @@ while ($mostrar = mysqli_fetch_array($result)) {
                                     $sql = "SELECT titulo,correo,aprobacion FROM proyectos
                                                 WHERE noFolio='$folio2'";
                                     $result = mysqli_query($conexion, $sql);
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $mostrar['titulo'] ?></td>
-                                            <td><?php echo $mostrar['correo'] ?></td>
-                                            <td><?php echo $mostrar['aprobacion'] ?></td>
-                                        </tr>
-                                    <?php
+                                    while ($mostrar = mysqli_fetch_array($result)) 
+                                    {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $mostrar['titulo'] ?></td>
+                                                <td><?php echo $mostrar['correo'] ?></td>
+                                                <td><?php echo $mostrar['aprobacion'] ?></td>
+                                            </tr>
+                                        <?php
                                     }
                                     ?>
 
@@ -208,84 +212,89 @@ while ($mostrar = mysqli_fetch_array($result)) {
                 <form action="">
                     <div class="row">
                         <?php
-                        if ($cantidad == 1) {
-                        ?>
-                            <div class="col-xl-12 col-lg-12 col-12">
-                                <div class="div div-cabeza mx-sm-12">
-                                    <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                        if ($cantidad == 1) 
+                        {
+                            ?>
+                                <div class="col-xl-12 col-lg-12 col-12">
+                                    <div class="div div-cabeza mx-sm-12">
+                                        <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                                    </div>
+                                    <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
+                                        <?php
+                                        $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
+                                    WHERE noFolio='$folio1'";
+                                        $result = mysqli_query($conexion, $sql);
+                                        while ($mostrar = mysqli_fetch_array($result)) 
+                                        {
+                                            ?>
+                                                <p>Titulo</p>
+                                                <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
+                                                <p>Justificación</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
+                                                <p>Alcances</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
+                                                <p>Resumen</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
-                                    <?php
-                                    $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
-                                WHERE noFolio='$folio1'";
-                                    $result = mysqli_query($conexion, $sql);
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <p>Titulo</p>
-                                        <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
-                                        <p>Justificación</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
-                                        <p>Alcances</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
-                                        <p>Resumen</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
-                                    <?php
-                                    }
-                                    ?>
+                            <?php
+                        } else 
+                        {
+                            ?>
+                                <div class="col-xl-6 col-lg-6 col-12">
+                                    <div class="div div-cabeza mx-sm-12">
+                                        <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                                    </div>
+                                    <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
+                                        <?php
+                                        $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
+                                    WHERE noFolio='$folio1'";
+                                        $result = mysqli_query($conexion, $sql);
+                                        while ($mostrar = mysqli_fetch_array($result)) 
+                                        {
+                                            ?>
+                                                <p>Titulo</p>
+                                                <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
+                                                <p>Justificación</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
+                                                <p>Alcances</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
+                                                <p>Resumen</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php
-                        } else {
-                        ?>
-                            <div class="col-xl-6 col-lg-6 col-12">
-                                <div class="div div-cabeza mx-sm-12">
-                                    <p class="ti ti-texto ">Folio del proyecto en revision</p>
+                                <div class="col-xl-6 col-lg-6 col-12">
+                                    <div class="div div-cabeza mx-sm-12">
+                                        <p class="ti ti-texto ">Folio de proyecto aprobado </p>
+                                    </div>
+                                    <div class="div div-cuerpo form-group mx-sm-12">
+                                        <?php
+                                        $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
+                                    WHERE noFolio='$folio2'";
+                                        $result = mysqli_query($conexion, $sql);
+                                        while ($mostrar = mysqli_fetch_array($result)) 
+                                        {
+                                            ?>
+                                                <p>Titulo</p>
+                                                <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
+                                                <p>Justificación</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
+                                                <p>Alcances</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
+                                                <p>Resumen</p>
+                                                <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="div div-cuerpo form-group mx-sm-12 justify-content-left">
-                                    <?php
-                                    $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
-                                WHERE noFolio='$folio1'";
-                                    $result = mysqli_query($conexion, $sql);
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <p>Titulo</p>
-                                        <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
-                                        <p>Justificación</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
-                                        <p>Alcances</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
-                                        <p>Resumen</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-12">
-                                <div class="div div-cabeza mx-sm-12">
-                                    <p class="ti ti-texto ">Folio de proyecto aprobado </p>
-                                </div>
-                                <div class="div div-cuerpo form-group mx-sm-12">
-                                    <?php
-                                    $sql = "SELECT titulo,alcances,resumen,justificacion FROM proyectos
-                                WHERE noFolio='$folio2'";
-                                    $result = mysqli_query($conexion, $sql);
-                                    while ($mostrar = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <p>Titulo</p>
-                                        <input class="txt text-input" readonly="readonly" type="text" value="<?php echo $mostrar['titulo'] ?>">
-                                        <p>Justificación</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"><?php echo $mostrar['justificacion'] ?></textarea>
-                                        <p>Alcances</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['alcances'] ?></textarea>
-                                        <p>Resumen</p>
-                                        <textarea class="txt txt-texto-area " readonly="readonly"> <?php echo $mostrar['resumen'] ?></textarea>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php
+                            <?php
                         }
                         ?>
                     </div>
@@ -298,13 +307,16 @@ while ($mostrar = mysqli_fetch_array($result)) {
         <div class="row">
             <div class="col-12 justify-content-center">
                 <?php
-                if ($estado == '0') {
-                } else {
-                ?>
-                    <div class="div div-mensaje" id="mensaje">
-                        <p><?php echo $estado ?></p>
-                    </div>
-                <?php
+                if ($estado == '0') 
+                {
+                    
+                } else 
+                {
+                    ?>
+                        <div class="div div-mensaje" id="mensaje">
+                            <p><?php echo $estado ?></p>
+                        </div>
+                    <?php
                 }
                 ?>
             </div>
@@ -328,37 +340,39 @@ while ($mostrar = mysqli_fetch_array($result)) {
                             <div class="col-6">
                                 <br>
                                 <?php
-                                if ($aprobacion == 'APROBADO') {
-                                ?>
-                                    <button class="btn btn-cancelar-ext " name="aviso" id="aviso" type="button " data-toggle="modal" data-target="#avisoModal">
-                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="avisoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-md">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Aviso!</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>No se puede denegar un proyecto ya aprobado</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button class="btn btn-boton-ext " type="button" data-dismiss="modal">
-                                                        <img class="fa fa-icon " src="../imagenes/check.png" /> Entendido</button>
+                                if ($aprobacion == 'APROBADO') 
+                                {
+                                    ?>
+                                        <button class="btn btn-cancelar-ext " name="aviso" id="aviso" type="button " data-toggle="modal" data-target="#avisoModal">
+                                            <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="avisoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Aviso!</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>No se puede denegar un proyecto ya aprobado</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-boton-ext " type="button" data-dismiss="modal">
+                                                            <img class="fa fa-icon " src="../imagenes/check.png" /> Entendido</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                <?php
-                                } else {
-                                ?>
-                                    <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="submit">
-                                        <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
-                                <?php
+                                    <?php
+                                } else 
+                                {
+                                    ?>
+                                        <button class="btn btn-cancelar-ext " name="cancelar" id="cancelar" type="submit">
+                                            <img class="fa fa-icon " src="../imagenes/cancel.png " /> Denegar proyecto</button>
+                                    <?php
                                 }
                                 ?>
                             </div>
