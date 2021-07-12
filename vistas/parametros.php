@@ -51,7 +51,7 @@ $max;
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="parametros.php?correo=<?php echo $correo ?>">Ajustar parámetros</a>
+                            <a class="dropdown-item" href="parametros.php?correo=<?php echo $correo ?>&estado=0">Ajustar parámetros</a>
                             <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
@@ -100,7 +100,8 @@ $max;
                                 WHERE u.correo='$correo'
                                 AND c.carrera=u.carrera";
                         $result = mysqli_query($conexion, $sql);
-                        while ($mostrar = mysqli_fetch_array($result)) {
+                        while ($mostrar = mysqli_fetch_array($result))
+                        {
                             $min = $mostrar['porcentajeMin'];
                             $min = $mostrar['porcentajeMax'];
                         ?>
