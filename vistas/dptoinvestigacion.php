@@ -2,13 +2,10 @@
 $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
 $correo = $_REQUEST['correo'];
 session_start();
-if (!isset($_SESSION['correo'])) 
-{
+if (!isset($_SESSION['correo'])) {
     header('location:index.php');
-} else 
-{
-    if ((time() - $_SESSION['time']) > 930) 
-    {
+} else {
+    if ((time() - $_SESSION['time']) > 930) {
         header('location: logout.php');
     }
 }
@@ -78,6 +75,7 @@ if (!isset($_SESSION['correo']))
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
+                            <a class="dropdown-item" href="parametros.php?correo=<?php echo $correo ?>&estado=0">Ajustar parámetros</a>
                             <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                         </div>
                     </li>
@@ -121,19 +119,18 @@ if (!isset($_SESSION['correo']))
                                 $result = mysqli_query($conexion, $sql);
                                 ?>
                                 <?php
-                                while ($mostrar = mysqli_fetch_array($result)) 
-                                {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $mostrar['titulo'] ?></td>
-                                            <td><?php echo $mostrar['nofolio'] ?></td>
-                                            <td><?php echo $mostrar['asesor'] ?></td>
-                                            <td><?php echo $mostrar['avance'] ?></td>
-                                            <td><?php echo $mostrar['estatus'] ?></td>
-                                            <td><?php echo $mostrar['aprobacion'] ?></td>
-                                            <td><?php echo $mostrar['fecha'] ?></td>
-                                        </tr>
-                                    <?php
+                                while ($mostrar = mysqli_fetch_array($result)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $mostrar['titulo'] ?></td>
+                                        <td><?php echo $mostrar['nofolio'] ?></td>
+                                        <td><?php echo $mostrar['asesor'] ?></td>
+                                        <td><?php echo $mostrar['avance'] ?></td>
+                                        <td><?php echo $mostrar['estatus'] ?></td>
+                                        <td><?php echo $mostrar['aprobacion'] ?></td>
+                                        <td><?php echo $mostrar['fecha'] ?></td>
+                                    </tr>
+                                <?php
                                 }
                                 ?>
                             </tbody>

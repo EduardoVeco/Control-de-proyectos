@@ -1,7 +1,8 @@
 <?php
 $estado = $_REQUEST['estado'];
 $correo = $_REQUEST['correo'];
-$contrasena = $_REQUEST['contrasena'];
+$min;
+$max;
 ?>
 
 <!DOCTYPE html>
@@ -37,11 +38,25 @@ $contrasena = $_REQUEST['contrasena'];
 
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-sm border col-sm-12" style="background-color: #ffffff; border-radius: 7px;">
-
-            <a class="navbar-brand" href="# " style="font-size: 20px;">Control de proyectos</a>
+            <a class="navbar-brand" href="dptoinvestigacion.php?correo=<?php echo $correo ?>" style="font-size: 20px;">Control de proyectos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+                <ul class="navbar-nav text-left">
+                    <li class="nav-item"><a class="nav-link " href="comparacion.php?correo=<?php echo $correo ?>">Comparar proyecto</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="cambiarcontrasena.php?correo=<?php echo $correo ?>&estado=0">Cambiar contraseña</a>
+                            <a class="dropdown-item" href="parametros.php?correo=<?php echo $correo ?>">Ajustar parámetros</a>
+                            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 
@@ -52,9 +67,16 @@ $contrasena = $_REQUEST['contrasena'];
             <div class="col-1">
             </div>
             <div class="col-10 justify-content-center">
-                <div class="div div-mensaje" id="mensaje">
-                    <p><?php echo $estado ?></p>
-                </div>
+                <?php
+                if ($estado == '0') {
+                } else {
+                ?>
+                    <div class="div div-mensaje" id="mensaje">
+                        <p><?php echo $estado ?></p>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="col-1">
             </div>
@@ -71,12 +93,31 @@ $contrasena = $_REQUEST['contrasena'];
                 </div>
                 <div class="div div-cuerpo form-group mx-sm-6">
                     <form action="conexion.php" method="POST" id="parametros">
+                        <?php
+                        $conexion = mysqli_connect('localhost', 'root', '', 'controlproyectos');
+                        $sql = "SELECT c.carrera,c.porcentajeMin,c.porcentajeMax
+                                FROM usuarios as u ,carreras as c
+                                WHERE u.correo='$correo'
+                                AND c.carrera=u.carrera";
+                        $result = mysqli_query($conexion, $sql);
+                        while ($mostrar = mysqli_fetch_array($result)) {
+                            $min = $mostrar['porcentajeMin'];
+                            $min = $mostrar['porcentajeMax'];
+                        ?>
+                            <br>
+                            <h6 style="text-align: center;">Estos cambios afectan solo a los futuros proyectos de <?php echo $mostrar['carrera'] ?></h6>
+
+
+                        <?php
+                        }
+                        ?>
+
                         <div class="row">
                             <div class="form-group mx-sm-7 pt-3 col-7">
                                 <p class="pa pa-texto ">Similitud mínima</p>
                             </div>
                             <div class="form-group mx-sm-7 pt-3 col-5">
-                                <input type="number" class="txt spinner-input" id="numero" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje mínimo en el que un proyecto se pone en revisión" pattern="[0-9]{1,3}" min="1" max="100" required>
+                                <input type="number" class="txt spinner-input" id="numero" value="<?php echo $min ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje mínimo en el que un proyecto se pone en revisión" pattern="[0-9]{1,3}" min="1" max="100" required>
                                 <br>
 
                             </div>
@@ -86,7 +127,7 @@ $contrasena = $_REQUEST['contrasena'];
                                 <p class="pa pa-texto ">Similitud máxima</p>
                             </div>
                             <div class="form-group mx-sm-7 pt-3 col-5">
-                                <input type="number" class="txt spinner-input" id="numero" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje máximo en el que un proyecto se pone en revisión" min="1" max="100" pattern="[0-9]{1,3}" required>
+                                <input type="number" class="txt spinner-input" id="numero" value="<?php echo $max ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje máximo en el que un proyecto se pone en revisión" min="1" max="100" pattern="[0-9]{1,3}" required>
                                 <br>
                                 <br>
                             </div>
