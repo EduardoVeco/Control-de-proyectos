@@ -131,7 +131,7 @@ $estado = $_REQUEST['estado'];;
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Empleado </p>
                             <input class="txt text-input " type="text " name="noControl" id="noControl"
-                                pattern="([A-Z0-9]{1,8})" required />
+                                pattern="([0-9]{1,8})" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <select name="carrera" id="carrera" class="slct slct-combo" required>
@@ -146,7 +146,7 @@ $estado = $_REQUEST['estado'];;
                                 <option value="Ingenieria Quimica">Ingenieria Quimica</option>
                                 <option value="Ingenieria en Gestion Empresarial">Ingenieria en Gestion Empresarial
                                 </option>
-                                <option value="Ingenieria en TIC's">Ingenieria en TIC's</option>
+                                <option value="Ingenieria en TICs">Ingenieria en TICs</option>
                             </select>
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
@@ -166,7 +166,7 @@ $estado = $_REQUEST['estado'];;
                     </form>
                     <div class="row">
                         <div class="col-12">
-                            <button class="btn btn-boton-ext " type="submit " name="registrar" form="registro"><img
+                            <button class="btn btn-boton-ext " type="submit " name="registrarDpto" form="registro"><img
                                     class="fa fa-icon " src="../imagenes/signin.png " /> Registrar</button>
                         </div>
                     </div>

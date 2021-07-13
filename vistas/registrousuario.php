@@ -98,7 +98,7 @@ $estado = $_REQUEST['estado'];
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <p class="pa pa-texto ">No. Empleado </p>
-                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([A-Z0-9]{1,8})" required />
+                            <input class="txt text-input " type="text " name="noControl" id="noControl" pattern="([0-9]{1,8})" required />
                         </div>
                         <div class="form-group mx-sm-7 pt-3">
                             <select name="carrera" id="carrera" class="slct slct-combo" required>
@@ -110,8 +110,8 @@ $estado = $_REQUEST['estado'];
                                 <option value="Ingenieria Electronica">Ingenieria Electronica</option>
                                 <option value="Ingenieria Electromecanica">Ingenieria Electromecanica</option>
                                 <option value="Ingenieria Quimica">Ingenieria Quimica</option>
-                                <option value="Ingenieria en Gestion Empresarial">Ingenieria en Gestion Empresarial</option>
-                                <option value="Ingenieria en TIC's">Ingenieria en TIC's</option>
+                                    <option value="Ingenieria en Gestion Empresarial">Ingenieria en Gestion Empresarial</option>
+                                <option value="Ingenieria en TICs">Ingenieria en TICs</option>
                             </select>
                         </div>
                         <div class="form-group mx-sm-7 pb-3 ">
@@ -128,7 +128,7 @@ $estado = $_REQUEST['estado'];
                             <button class="btn btn-cancelar " type="button " onclick="location.href='index.html'"><img class="fa fa-icon " src="../imagenes/cancel.png " /> Cancelar</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-boton " type="submit " name="registrar" form="registro"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
+                            <button class="btn btn-boton " type="submit " name="registrarUsuario" form="registro"><img class="fa fa-icon " src="../imagenes/signin.png " /> Registrarse</button>
                         </div>
                     </div>
                 </div>

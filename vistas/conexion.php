@@ -9,7 +9,7 @@ conexionAClases($con);
 //conecta($con);
 function conexionAClases($con)
 {
-   if (isset($_POST['registrar'])) 
+   if (isset($_POST['registrarUsuario']))
    {
       registraUsuario($con);
       //header('location: registrousuario.html');
@@ -22,6 +22,9 @@ function conexionAClases($con)
    } else if (isset($_POST['cambio'])) 
    {
       cambioContrasena($con);
+   } else if (isset($_POST['registrarDpto']))
+   {
+       registradepto($con);
    }
 }
 
@@ -136,21 +139,34 @@ function registraUsuario($conexion)
    $carrera = $_REQUEST['carrera'];
    if ($contrasena == $contrasena2) 
    {
-      if ($noControl == 'XXX00XXX') 
-      {
-         $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
-         mysqli_query($conexion, $sql);
-         mysqli_close($conexion);
-         header('location: index.html');
-      } else 
-      {
          $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Asesor')";
          mysqli_query($conexion, $sql);
          mysqli_close($conexion);
          header('location: index.html');
-      }
    } else 
    {
       header('location: registrousuario.php?estado= Las contraseñas no coindiden');
    }
+}
+
+function registradepto($conexion)
+{
+    $correo = $_REQUEST['correo'];
+    $nombre = $_REQUEST['nombre'];
+    $primerApellido = $_REQUEST['paterno'];
+    $segundoApellido = $_REQUEST['materno'];
+    $noControl = $_REQUEST['noControl'];
+    $contrasena = $_REQUEST['contrasena'];
+    $contrasena2 = $_REQUEST['contrasena2'];
+    $carrera = $_REQUEST['carrera'];
+    if ($contrasena == $contrasena2)
+    {
+        $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
+        mysqli_query($conexion, $sql);
+        mysqli_close($conexion);
+        header('location: index.html');
+    } else
+    {
+        header('location: registrousuario.php?estado= Las contraseñas no coindiden');
+    }
 }
