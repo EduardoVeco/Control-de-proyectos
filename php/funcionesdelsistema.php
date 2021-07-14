@@ -292,7 +292,18 @@ class FuncionesDelSistema
                 printf($id);
                 print_r('PErro');
             }
-            if ($porcentaje <= 50)
+            $consultaCarrera=mysqli_query($con,"SELECT carrera FROM usuarios WHERE correo='$correo'");
+            $mostrar12=mysqli_fetch_array($consultaCarrera);
+            $resultado=$mostrar12['carrera'];
+            $consultaMin=mysqli_query($con,"SELECT porcentajeMin FROM carreras WHERE carrera='$resultado'");
+            $mostrar13=mysqli_fetch_array($consultaMin);
+            $resultadoMin=$mostrar13['porcentajeMin'];
+            $consultaMax=mysqli_query($con,"SELECT porcentajeMax FROM carreras WHERE carrera='$resultado'");
+            $mostrar14=mysqli_fetch_array($consultaMax);
+            $resultadoMax=$mostrar14['porcentajeMax'];
+            print_r($resultadoMax);
+            print_r($resultadoMin);
+            if ($porcentaje <= $resultadoMin)
             {
                 $str = '';
                 $str1 = '';
@@ -319,7 +330,7 @@ class FuncionesDelSistema
                 print_r($tempFolio);
 
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
-            } else if ($porcentaje > 50 && $porcentaje <= 70)
+            } else if ($porcentaje > $resultadoMin && $porcentaje <= $resultadoMax)
             {
                 $str = '';
                 $str1 = '';
@@ -354,7 +365,7 @@ class FuncionesDelSistema
                     }
                 }
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $resultado);
-            } else if ($porcentaje > 70)
+            } else if ($porcentaje >$resultadoMax)
             {
                 print_r('Tu pryotecto sobre pasa el maximo de similitud');
                 header('location: denegar.php?correo=' . $correo);
