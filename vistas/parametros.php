@@ -103,7 +103,7 @@ $max;
                         while ($mostrar = mysqli_fetch_array($result))
                         {
                             $min = $mostrar['porcentajeMin'];
-                            $min = $mostrar['porcentajeMax'];
+                            $max = $mostrar['porcentajeMax'];
                         ?>
                             <br>
                             <h6 style="text-align: center;">Estos cambios afectan solo a los futuros proyectos de <?php echo $mostrar['carrera'] ?></h6>
@@ -115,7 +115,7 @@ $max;
 
                         <div class="row">
                             <div class="form-group mx-sm-7 pt-3 col-7">
-                                <p class="pa pa-texto ">Similitud mínima</p>
+                                <p class="pa pa-texto ">Similitud mínima :</p>
                             </div>
                             <div class="form-group mx-sm-7 pt-3 col-5">
                                 <input type="number" class="txt spinner-input" id="numero" value="<?php echo $min ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje mínimo en el que un proyecto se pone en revisión" pattern="[0-9]{1,3}" min="1" max="100" required>
@@ -125,7 +125,7 @@ $max;
                         </div>
                         <div class="row">
                             <div class="form-group mx-sm-7 pt-3 col-7">
-                                <p class="pa pa-texto ">Similitud máxima</p>
+                                <p class="pa pa-texto ">Similitud máxima :</p>
                             </div>
                             <div class="form-group mx-sm-7 pt-3 col-5">
                                 <input type="number" class="txt spinner-input" id="numero" value="<?php echo $max ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje máximo en el que un proyecto se pone en revisión" min="1" max="100" pattern="[0-9]{1,3}" required>
@@ -147,7 +147,6 @@ $max;
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

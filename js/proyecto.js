@@ -10,54 +10,47 @@ const retomarBtn = document.getElementById("btnRetomar")
 const desvincularBtn = document.getElementById("desvincular")
     //console.log(folio)
 
-const campos =
-    {
-    porcentaje: false
-}
 
-
-
-registro.addEventListener('submit', e =>
+registro.addEventListener('submit', e => 
 {
     e.preventDefault()
     console.log(campos.porcentaje)
 
-    if (campos.porcentaje)
+    if (campos.porcentaje) 
     {
         campos.porcentaje = false
         actualizar.reset()
 
-    } else
-    {
+    } else {
 
     }
 })
 
 
-boton.addEventListener("click", function()
+boton.addEventListener("click", function() 
 {
     archivo.click();
 })
 
-archivo.addEventListener("change", function()
+archivo.addEventListener("change", function() 
 {
-    if (archivo.value)
+    if (archivo.value) 
     {
         texto.innerHTML = ""
-        for (var i = 0; i < archivo.files.length; i++)
+        for (var i = 0; i < archivo.files.length; i++) 
         {
             texto.innerHTML += archivo.files[i].name
             texto.innerHTML += "<br>"
         }
         //console.log(archivo.files[i])
 
-    } else
+    } else 
     {
         texto.innerHTML = "Ningun archivo seleccionado";
     }
 })
 
-retomarForm.addEventListener("submit", e =>
+retomarForm.addEventListener("submit", e => 
 {
     e.preventDefault()
     console.log('aqui tendria que hacer la validacion si el proyecto esta inactivo e incompleto')
@@ -74,7 +67,7 @@ seleccion = [], //Arreglo que almacenará a las filas seleccionadas
         }
     };*/
 //Cuando se produzca el evento "click" en la primera tabla, se ejecutará la función "callback"
-historialBtn.addEventListener("click", e =>
+historialBtn.addEventListener("click", e => 
 {
     e.preventDefault()
     var folio = JSON.parse(f)
@@ -83,7 +76,7 @@ historialBtn.addEventListener("click", e =>
     console.log(folio)
 })
 
-btnCeder.addEventListener("click", e =>
+btnCeder.addEventListener("click", e => 
 {
     e.preventDefault()
     var folio = JSON.parse(f)
@@ -92,16 +85,26 @@ btnCeder.addEventListener("click", e =>
     console.log(folio)
 })
 
-actualizarBtn.addEventListener("click", e =>
+actualizarBtn.addEventListener("click", e => 
 {
     e.preventDefault()
     var folio = JSON.parse(f)
     var porcentaje = document.getElementById('porcentaje').value
-    window.location.href = "actualizarPorcentaje.php?folio=" + folio + '&porcentaje=' + porcentaje;
+    if (porcentaje > 0 && porcentaje <= 100) 
+    {
+        window.location.href = "actualizarPorcentaje.php?folio=" + folio + '&porcentaje=' + porcentaje;
+        document.getElementById('mensajeCont').classList.add('div.ocultar')
+    } else 
+    {
+        document.getElementById("mensaje").innerHTML = "<p>El porcentaje de estar entre 1 y 100</p>";
+        document.getElementById('mensajeCont').classList.remove('div')
+        document.getElementById('mensajeCont').classList.remove('div.ocultar')
+    }
+
     // console.log(folio)
     //console.log(porcentaje)
 })
-retomarBtn.addEventListener("click", e =>
+retomarBtn.addEventListener("click", e => 
 {
     e.preventDefault()
     var folio = JSON.parse(f)
@@ -110,7 +113,7 @@ retomarBtn.addEventListener("click", e =>
     // console.log(folio)
     //console.log(porcentaje)
 })
-desvincularBtn.addEventListener("click", e =>
+desvincularBtn.addEventListener("click", e => 
 {
     e.preventDefault()
     var folio = JSON.parse(f)

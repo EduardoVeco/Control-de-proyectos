@@ -164,7 +164,7 @@ function registradepto($conexion)
         $sql = "INSERT INTO usuarios(correo,nombre,primerApellido,segundoApellido,noControl,contrasenia,carrera,tipoUsuario) VALUES ('$correo','$nombre','$primerApellido','$segundoApellido','$noControl','$contrasena','$carrera','Departamento')";
         mysqli_query($conexion, $sql);
         mysqli_close($conexion);
-        header('location: index.html');
+        header('location: registrodpto.php?correo=' . $correo.'&estado=Departamento registrado');
     } else
     {
         header('location: registrousuario.php?estado= Las contraseñas no coindiden');
