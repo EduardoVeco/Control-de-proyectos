@@ -293,7 +293,7 @@ if (!isset($_SESSION['correo']))
                                                 <button class="btn btn-boton-ext" type="button" id="seleccionador"><img
                                                         class="fa fa-icon " src="../imagenes/addfile.png" /> Agregar
                                                     evidencias</button>
-                                                <span id="archivoInfo"> archivo seleccionado</span>
+                                                <span id="archivoInfo"> Archivo seleccionado</span>
                                                 <button type="submit" class="btn btn-boton-ext" id="subirArchivos">
                                                     <img class="fa fa-icon " src="../imagenes/cloud-computing.png" />
                                                     Subir</button>

@@ -96,7 +96,7 @@ actualizarBtn.addEventListener("click", e =>
         document.getElementById('mensajeCont').classList.add('div.ocultar')
     } else 
     {
-        document.getElementById("mensaje").innerHTML = "<p>El porcentaje de estar entre 1 y 100</p>";
+        document.getElementById("mensaje").innerHTML = "<p>El porcentaje debe estar entre 1 y 100</p>";
         document.getElementById('mensajeCont').classList.remove('div')
         document.getElementById('mensajeCont').classList.remove('div.ocultar')
     }
