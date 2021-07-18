@@ -78,13 +78,20 @@ function actualizarParametros($con)
    $max=$_REQUEST['max'];
    $min=$_REQUEST['min'];
    
-   $consultaCarrera=mysqli_query($con,"SELECT carrera FROM usuarios WHERE correo='$correo'");
-   $mostrar=mysqli_fetch_array($consultaCarrera);
-   print_r($mostrar['carrera']);
-   $resultado=$mostrar['carrera'];
-   $consultaUpdate=mysqli_query($con,"UPDATE carreras SET porcentajeMin='$min' where carrera='$resultado'");
-   $consultaUpdateMax=mysqli_query($con,"UPDATE carreras SET porcentajeMax='$max' where carrera='$resultado'");
-   header('location: dptoinvestigacion.php?correo=' . $correo);
+   if($min<$max)
+   {
+      $consultaCarrera=mysqli_query($con,"SELECT carrera FROM usuarios WHERE correo='$correo'");
+      $mostrar=mysqli_fetch_array($consultaCarrera);
+      print_r($mostrar['carrera']);
+      $resultado=$mostrar['carrera'];
+      $consultaUpdate=mysqli_query($con,"UPDATE carreras SET porcentajeMin='$min' where carrera='$resultado'");
+      $consultaUpdateMax=mysqli_query($con,"UPDATE carreras SET porcentajeMax='$max' where carrera='$resultado'");
+      header('location: dptoinvestigacion.php?correo=' . $correo);
+   }else
+   {
+     header('parametros.php?correo='.$correo.'&estado=El mínimo debe ser inferior al máximo');
+   }
+   
 }
 function cambioContrasena($conexion)
 {
