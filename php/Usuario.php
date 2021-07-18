@@ -70,24 +70,6 @@ class Usuario{
          
     }
 
-    public function cambiarContraseña($antiguaContraseña,$nuevaContraseña)
-    {
-        if ($antiguaContraseña != null)
-        {
-
-        } else 
-        {
-
-        }
-    }
-
-    public function cerrarSesion()
-    {
-
-    }
-
-
-
     /**
      * @return mixed
      */

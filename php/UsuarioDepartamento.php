@@ -3,12 +3,6 @@
 class UsuarioDepartamento
 {
 
-
-    public function consultarProyectos()
-    {
-
-    }
-
     public static function autoriza($folio, $aprobacion, $conclusion, $correo, $folio2, $cantidad)
     {
 
