@@ -326,12 +326,14 @@ if (!isset($_SESSION['correo']))
                                 while ($mostrar = mysqli_fetch_array($result)) {
                                 ?>
                                 <?php
-                                    if ($mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'REVISION') {
+                                    if ($mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'REVISION') 
+                                    {
                                     ?>
                                 <button class="btn btn-boton-ext " type="submit" id="btnCeder" name="btnCeder"
                                     disabled><img class="fa fa-icon " src="../imagenes/box.png" /> Ceder</button>
                                 <?php
-                                    } else {
+                                    } else 
+                                    {
                                     ?>
                                 <button class="btn btn-boton-ext " type="submit" id="btnCeder" name="btnCeder"><img
                                         class="fa fa-icon " src="../imagenes/box.png" /> Ceder</button>
@@ -351,7 +353,8 @@ if (!isset($_SESSION['correo']))
                                         WHERE nofolio='$folio'";
                                 $result = mysqli_query($conexion, $sql);
 
-                                while ($mostrar = mysqli_fetch_array($result)) {
+                                while ($mostrar = mysqli_fetch_array($result)) 
+                                {
                                 ?>
                                 <?php
                                     if ($mostrar['estatus'] == 'ACTIVO' || $mostrar['aprobacion'] == 'NO APROBADO' || $mostrar['aprobacion'] == 'COMPLETADO' || $mostrar['aprobacion'] == 'REVISION') {
