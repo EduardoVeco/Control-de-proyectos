@@ -3,30 +3,6 @@
 class FuncionesDelSistema
 {
 
-    public $usuariosActivos = array();
-
-    public function recordatorio()
-    {
-    }
-
-    public function cerrarSesion()
-    {
-    }
-
-    public function validarUsuario()
-    {
-    }
-
-    public static function restablecerContrasena($con, $conN)
-    {
-        if ($con == $conN)
-            echo $con;
-    }
-
-    public function incrementarTiempo()
-    {
-    }
-
     public static function comparar($justificacion, $alcances, $resumen, $titulo, $tituloOri, $justificacionOri, $alcancesOri, $resumenOri, $correo)
     {
 
@@ -326,7 +302,7 @@ class FuncionesDelSistema
                     $str2 = $str2 . ' ' . $jus3;
                 }
                 $folio = 'A';
-                print_r('gola'); 
+                print_r('gola');
                 print_r($tempFolio);
 
                 header('location: registrodueno.php?primjust=' . $str . '&primtit=' . $str3 . '&primalc=' . $str1 . '&primres=' . $str2 . '&justificacion=' . $justificacionOri . '&titulo=' . $tituloOri . '&alcances=' . $alcancesOri . '&resumen=' . $resumenOri . '&correo=' . $correo . '&folio=' . $folio . '&tempFolio=' . $tempFolio);
@@ -419,11 +395,4 @@ class FuncionesDelSistema
         };
     }
 
-    public function notifica($folio, $correo)
-    {
-    }
-
-    public function autoriza($folio, $aprobacion)
-    {
-    }
 }
