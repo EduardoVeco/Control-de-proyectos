@@ -6,10 +6,6 @@ class Asesor
     {
     }
 
-    public function consultarProyectos($noControl)
-    {
-    }
-
     public static function registrarProyecto($titulo, $justificacion, $alcance, $resumen, $priTitulo, $priJustificacion, $priAlcance, $priResumen, $correo, $dueno, $coasesor, $fecha_registro, $directorio, $aprobacion, $tempFolio, $variable)
     {
         $con = mysqli_connect('localhost', 'root', '', 'controlproyectos') or die(mysqli_error($mysqli));
