@@ -128,7 +128,7 @@ $max;
                                 <p class="pa pa-texto ">Similitud máxima :</p>
                             </div>
                             <div class="form-group mx-sm-7 pt-3 col-5">
-                                <input type="number" class="txt spinner-input" id="max" name="max" value="<?php echo $max ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje máximo en el que un proyecto se pone en revisión" min="1" max="100" pattern="[0-9]{1,3}" required>
+                                <input type="number" class="txt spinner-input" id="max" name="max" value="<?php echo $max ?>" data-toggle="tooltip" data-placement="right" title="Modifica el porcentaje máximo en el que un proyecto se pone en revisión" min="$max" max="100" pattern="[0-9]{1,3}" required>
                                 <input type="text" class="txt spinner-input" id="correo" name="correo" value="<?php echo $correo ?>" data-toggle="tooltip" data-placement="right" hidden>
                                 <br>
                                 <br>
