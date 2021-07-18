@@ -89,7 +89,7 @@ function actualizarParametros($con)
       header('location: dptoinvestigacion.php?correo=' . $correo);
    }else
    {
-     header('parametros.php?correo='.$correo.'&estado=El mínimo debe ser inferior al máximo');
+     header('location: parametros.php?correo='.$correo.'&estado=El mínimo debe ser inferior al máximo');
    }
    
 }
